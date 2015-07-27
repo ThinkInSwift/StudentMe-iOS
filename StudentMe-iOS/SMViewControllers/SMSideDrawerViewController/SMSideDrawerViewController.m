@@ -8,6 +8,7 @@
 
 #import "SMSideDrawerViewController.h"
 #import "SMLeftSideViewTableViewCell.h"
+#import "SMLeftSideAvatarViewTableViewCell.h"
 
 @interface SMSideDrawerViewController ()
 
@@ -27,7 +28,7 @@
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
     
-    for (NSString * identifier in @[@"SMLeftSideViewTableViewCell"]) {
+    for (NSString * identifier in @[@"SMLeftSideViewTableViewCell", @"SMLeftSideAvatarViewTableViewCell"]) {
         [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:identifier];
     }
     
@@ -117,62 +118,66 @@
     switch (section) {
         case DrawerSectionUserInfo:
             return 1;
-        case DrawerSectionDrawerMenu:
-            return 6;
-        case DrawerSectionFeedback:
-            return 1;
+        case DrawerSectionSettings:
+            return 4;
         default:
             return 0;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"LeftSideMenuTableViewCell";
-    
-    SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        
-        cell = [[SMLeftSideViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case DrawerSectionUserInfo: {
+            static NSString *CellIdentifier = @"SMLeftSideAvatarViewTableViewCell";
+            SMLeftSideAvatarViewTableViewCell *cell = (SMLeftSideAvatarViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideAvatarViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            return [self configureAvatarCell:cell cellForRowAtIndexPath:indexPath];
+        }
+            break;
+        case DrawerSectionSettings: {
+            static NSString *CellIdentifier = @"SMLeftSideViewTableViewCell";
+            SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            return [self configureSettingsCell:cell cellForRowAtIndexPath:indexPath];
+        }
+            break;
+        default:
+            return nil;
+            break;
     }
-    
-    
-    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case DrawerSectionUserInfo:
-            if(indexPath.row == 0){
-                [cell.textLabel setText:@"UserName"];
-                
-            }
-            else {
-                [cell.textLabel setText:@"Full View Change"];
-            }
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            return 120.f;
             break;
-        case DrawerSectionDrawerMenu:{
-            //Implement in Subclass
-            break;
-        }
-        case DrawerSectionFeedback:{
-            [cell.textLabel setText:@"Show Shadow"];
-            if(self.mm_drawerController.showsShadow)
-                [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-            else
-                [cell setAccessoryType:UITableViewCellAccessoryNone];
-            break;
-        }
-            
+        case DrawerSectionSettings:
+            return 80.f;
         default:
+            return 0.f;
             break;
     }
-    
+}
+
+
+- (UITableViewCell *)configureAvatarCell:(UITableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // do custom configure
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 40.0;
+- (UITableViewCell *)configureSettingsCell:(UITableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // do custom configure
+    return cell;
 }
+
+
 
 /*
  #pragma mark - Navigation

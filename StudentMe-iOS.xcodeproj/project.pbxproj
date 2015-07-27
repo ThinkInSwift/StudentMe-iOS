@@ -22,6 +22,8 @@
 		141A5C0F1B639FD000A5F666 /* SMLeftSideViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141A5C0D1B639FD000A5F666 /* SMLeftSideViewTableViewCell.xib */; };
 		141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */; };
 		141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */; };
+		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
+		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		4FC19A066281A781C11F8082 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA0B61A4282282439B6EC9F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,9 @@
 		141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationViewController.m; path = SMViewControllers/SMNavigationViewController/SMNavigationViewController.m; sourceTree = "<group>"; };
 		141A5C161B63A52A00A5F666 /* SMDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDrawerVisualStateManager.h; path = SMVisualStateManager/SMDrawerVisualStateManager.h; sourceTree = "<group>"; };
 		141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDrawerVisualStateManager.m; path = SMVisualStateManager/SMDrawerVisualStateManager.m; sourceTree = "<group>"; };
+		1474587C1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLeftSideAvatarViewTableViewCell.h; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.h; sourceTree = "<group>"; };
+		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
+		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
 		2BA567F2AE403AD275B3D2A5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2EA0B61A4282282439B6EC9F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA34263FE76C9E2A553A79 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +250,7 @@
 		141A5C0A1B639F6600A5F666 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				1474587B1B6678F900B282D6 /* SMLeftSideAvatarViewTableViewCell */,
 				141A5C101B639FE900A5F666 /* SMLeftSideViewTableViewCell */,
 			);
 			name = CustomCell;
@@ -276,6 +282,16 @@
 				141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */,
 			);
 			name = SMVisualStateManager;
+			sourceTree = "<group>";
+		};
+		1474587B1B6678F900B282D6 /* SMLeftSideAvatarViewTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1474587C1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.h */,
+				1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */,
+				1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */,
+			);
+			name = SMLeftSideAvatarViewTableViewCell;
 			sourceTree = "<group>";
 		};
 		36FB36218007C8E16C87FDC6 /* Frameworks */ = {
@@ -377,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */,
 				141A5BD01B63187700A5F666 /* Main.storyboard in Resources */,
 				141A5BD51B63187700A5F666 /* LaunchScreen.xib in Resources */,
 				141A5C0F1B639FD000A5F666 /* SMLeftSideViewTableViewCell.xib in Resources */,
@@ -435,6 +452,7 @@
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
 				141A5BF31B638FF100A5F666 /* NSURL+SMURL.m in Sources */,
+				1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */,
 				141A5BFC1B639B3500A5F666 /* SMBaseViewController.m in Sources */,
 				141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */,
 				141A5BEC1B638ECC00A5F666 /* UIColor+SMColor.m in Sources */,

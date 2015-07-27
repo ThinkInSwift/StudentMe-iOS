@@ -11,8 +11,7 @@
 
 typedef NS_ENUM(NSInteger, DrawerSection){
     DrawerSectionUserInfo,
-    DrawerSectionDrawerMenu,
-    DrawerSectionFeedback
+    DrawerSectionSettings
 };
 @interface SMSideDrawerViewController : SMBaseViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
