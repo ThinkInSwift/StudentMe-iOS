@@ -18,6 +18,8 @@
 
 > 听到房产证上没嘉嘉名字，个搜又把鸡腿夹回去了
 
+##[v2ex](https://github.com/singro/v2ex) for iOS is a brilliant app project  
+
 ##Xcode 项目规范
 1.为了避免文件杂乱，物理文件应该保持和 Xcode 项目文件同步。Xcode 创建的任何组（group）都必须在文件系统有相应的映射。
 
