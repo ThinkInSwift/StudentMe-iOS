@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SMLeftSideViewTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *leftImgView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
++ (CGFloat)cellHeight;
 
 @end

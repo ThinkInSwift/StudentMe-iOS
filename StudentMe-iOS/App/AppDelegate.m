@@ -38,8 +38,8 @@
                                  initWithCenterViewController:navigationViewController
                                  leftDrawerViewController:leftSideDrawerViewController];
     }
-    [self.drawerController setRestorationIdentifier:@"BTDrawer"];
-    [self.drawerController setMaximumRightDrawerWidth:200.0];
+    [self.drawerController setRestorationIdentifier:@"SMDrawer"];
+    [self.drawerController setMaximumLeftDrawerWidth:200.f];
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     

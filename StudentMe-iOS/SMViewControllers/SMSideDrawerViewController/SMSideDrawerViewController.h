@@ -13,6 +13,13 @@ typedef NS_ENUM(NSInteger, DrawerSection){
     DrawerSectionUserInfo,
     DrawerSectionSettings
 };
+
+typedef NS_ENUM(NSInteger, SectionSettings){
+    SectionSettingsLatest,
+    SectionSettingsCategory,
+    SectionSettingsNotification,
+    SectionSettingsAbout
+};
 @interface SMSideDrawerViewController : SMBaseViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *drawerWidths;

@@ -8,6 +8,8 @@
 
 #import "SMLeftSideViewTableViewCell.h"
 
+#define kCellHeight 40.f
+
 @implementation SMLeftSideViewTableViewCell
 
 - (void)awakeFromNib {
@@ -18,6 +20,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
++ (CGFloat)cellHeight {
+    return kCellHeight;
 }
 
 @end

@@ -156,10 +156,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case DrawerSectionUserInfo:
-            return 120.f;
+            return [SMLeftSideAvatarViewTableViewCell cellHeight];
             break;
         case DrawerSectionSettings:
-            return 80.f;
+            return [SMLeftSideViewTableViewCell cellHeight];
         default:
             return 0.f;
             break;
@@ -167,13 +167,32 @@
 }
 
 
-- (UITableViewCell *)configureAvatarCell:(UITableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)configureAvatarCell:(SMLeftSideAvatarViewTableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // do custom configure
     return cell;
 }
 
-- (UITableViewCell *)configureSettingsCell:(UITableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // do custom configure
+- (UITableViewCell *)configureSettingsCell:(SMLeftSideViewTableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case SectionSettingsLatest: {
+            cell.titleLabel.text = @"最新";
+        }
+            break;
+        case SectionSettingsCategory: {
+            cell.titleLabel.text = @"分类";
+        }
+            break;
+        case SectionSettingsNotification: {
+            cell.titleLabel.text = @"提醒";
+        }
+            break;
+        case SectionSettingsAbout: {
+            cell.titleLabel.text = @"关于";
+        }
+        default:
+            break;
+    }
+    
     return cell;
 }
 

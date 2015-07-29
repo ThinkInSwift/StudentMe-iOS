@@ -7,7 +7,7 @@
 //
 
 #import "SMLeftSideAvatarViewTableViewCell.h"
-
+#define kCellHeight 120.f
 @implementation SMLeftSideAvatarViewTableViewCell
 
 - (void)awakeFromNib {
@@ -20,4 +20,7 @@
     // Configure the view for the selected state
 }
 
++ (CGFloat)cellHeight {
+    return kCellHeight;
+}
 @end
