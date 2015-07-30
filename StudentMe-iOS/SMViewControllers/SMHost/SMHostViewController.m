@@ -8,6 +8,9 @@
 
 #import "SMHostViewController.h"
 
+#import <UIViewController+MMDrawerController.h>
+#import <UIBarButtonItem+BlocksKit.h>
+
 @interface SMHostViewController ()
 
 @end
@@ -35,6 +38,11 @@
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
     [self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    
+    __weak typeof(self) weakSelf = self;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+        [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
