@@ -25,6 +25,11 @@
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		14808F641B68CDF200813830 /* SCPullRefresh in Resources */ = {isa = PBXBuildFile; fileRef = 14808F631B68CDF200813830 /* SCPullRefresh */; };
+		14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */; };
+		14CE72DC1B6B315300D7F3B6 /* SMCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DB1B6B315300D7F3B6 /* SMCategoriesViewController.m */; };
+		14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DF1B6B317C00D7F3B6 /* SMNotificationViewController.m */; };
+		14CE72E51B6B31B300D7F3B6 /* SMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72E31B6B31B300D7F3B6 /* SMAboutViewController.m */; };
+		14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CE72E41B6B31B300D7F3B6 /* SMAboutViewController.xib */; };
 		4FC19A066281A781C11F8082 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA0B61A4282282439B6EC9F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +77,15 @@
 		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
 		14808F631B68CDF200813830 /* SCPullRefresh */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SCPullRefresh; path = UILib/SCPullRefresh; sourceTree = "<group>"; };
+		14CE72D61B6B311F00D7F3B6 /* SMLatestPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLatestPostsViewController.h; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.h; sourceTree = "<group>"; };
+		14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLatestPostsViewController.m; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.m; sourceTree = "<group>"; };
+		14CE72DA1B6B315300D7F3B6 /* SMCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCategoriesViewController.h; path = SMViewControllers/SMCategoriesViewController/SMCategoriesViewController.h; sourceTree = "<group>"; };
+		14CE72DB1B6B315300D7F3B6 /* SMCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCategoriesViewController.m; path = SMViewControllers/SMCategoriesViewController/SMCategoriesViewController.m; sourceTree = "<group>"; };
+		14CE72DE1B6B317C00D7F3B6 /* SMNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNotificationViewController.h; path = SMViewControllers/SMNotificationViewController/SMNotificationViewController.h; sourceTree = "<group>"; };
+		14CE72DF1B6B317C00D7F3B6 /* SMNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNotificationViewController.m; path = SMViewControllers/SMNotificationViewController/SMNotificationViewController.m; sourceTree = "<group>"; };
+		14CE72E21B6B31B300D7F3B6 /* SMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAboutViewController.h; path = SMViewControllers/SMAboutViewController/SMAboutViewController.h; sourceTree = "<group>"; };
+		14CE72E31B6B31B300D7F3B6 /* SMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAboutViewController.m; path = SMViewControllers/SMAboutViewController/SMAboutViewController.m; sourceTree = "<group>"; };
+		14CE72E41B6B31B300D7F3B6 /* SMAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMAboutViewController.xib; path = SMViewControllers/SMAboutViewController/SMAboutViewController.xib; sourceTree = "<group>"; };
 		2BA567F2AE403AD275B3D2A5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2EA0B61A4282282439B6EC9F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA34263FE76C9E2A553A79 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +211,10 @@
 		141A5BF41B639A8C00A5F666 /* SMViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				14CE72E11B6B318900D7F3B6 /* SMAboutViewController */,
+				14CE72DD1B6B315C00D7F3B6 /* SMNotificationViewController */,
+				14CE72D91B6B312E00D7F3B6 /* SMCategoriesViewController */,
+				14CE72D51B6B30D600D7F3B6 /* SMLatestPostsViewController */,
 				141A5C111B63A39D00A5F666 /* SMNavigationViewController */,
 				141A5C051B639EAF00A5F666 /* SMSideDrawerViewController */,
 				141A5BF61B639AC300A5F666 /* SMBaseViewController */,
@@ -305,6 +323,43 @@
 			name = UILib;
 			sourceTree = "<group>";
 		};
+		14CE72D51B6B30D600D7F3B6 /* SMLatestPostsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14CE72D61B6B311F00D7F3B6 /* SMLatestPostsViewController.h */,
+				14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */,
+			);
+			name = SMLatestPostsViewController;
+			sourceTree = "<group>";
+		};
+		14CE72D91B6B312E00D7F3B6 /* SMCategoriesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14CE72DA1B6B315300D7F3B6 /* SMCategoriesViewController.h */,
+				14CE72DB1B6B315300D7F3B6 /* SMCategoriesViewController.m */,
+			);
+			name = SMCategoriesViewController;
+			sourceTree = "<group>";
+		};
+		14CE72DD1B6B315C00D7F3B6 /* SMNotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14CE72DE1B6B317C00D7F3B6 /* SMNotificationViewController.h */,
+				14CE72DF1B6B317C00D7F3B6 /* SMNotificationViewController.m */,
+			);
+			name = SMNotificationViewController;
+			sourceTree = "<group>";
+		};
+		14CE72E11B6B318900D7F3B6 /* SMAboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14CE72E21B6B31B300D7F3B6 /* SMAboutViewController.h */,
+				14CE72E31B6B31B300D7F3B6 /* SMAboutViewController.m */,
+				14CE72E41B6B31B300D7F3B6 /* SMAboutViewController.xib */,
+			);
+			name = SMAboutViewController;
+			sourceTree = "<group>";
+		};
 		36FB36218007C8E16C87FDC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +461,7 @@
 			files = (
 				147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */,
 				14808F641B68CDF200813830 /* SCPullRefresh in Resources */,
+				14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */,
 				141A5BD01B63187700A5F666 /* Main.storyboard in Resources */,
 				141A5BD51B63187700A5F666 /* LaunchScreen.xib in Resources */,
 				141A5C0F1B639FD000A5F666 /* SMLeftSideViewTableViewCell.xib in Resources */,
@@ -461,13 +517,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */,
+				14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */,
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
 				141A5BF31B638FF100A5F666 /* NSURL+SMURL.m in Sources */,
+				14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */,
 				1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */,
 				141A5BFC1B639B3500A5F666 /* SMBaseViewController.m in Sources */,
+				14CE72DC1B6B315300D7F3B6 /* SMCategoriesViewController.m in Sources */,
 				141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */,
 				141A5BEC1B638ECC00A5F666 /* UIColor+SMColor.m in Sources */,
+				14CE72E51B6B31B300D7F3B6 /* SMAboutViewController.m in Sources */,
 				141A5C001B639BDD00A5F666 /* AppDelegate.m in Sources */,
 				141A5C0E1B639FD000A5F666 /* SMLeftSideViewTableViewCell.m in Sources */,
 				141A5C081B639EC100A5F666 /* SMSideDrawerViewController.m in Sources */,

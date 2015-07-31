@@ -9,6 +9,8 @@
 #import "SMSideDrawerViewController.h"
 #import "SMLeftSideViewTableViewCell.h"
 #import "SMLeftSideAvatarViewTableViewCell.h"
+#import "SMAboutViewController.h"
+#import "SMNavigationViewController.h"
 
 #import "UIColor+SMColor.h"
 
@@ -287,10 +289,19 @@
             break;
         case SectionSettingsAbout: {
             cell.leftImgView.image = [UIImage imageNamed:@"section_about_highlighted"];
+            SMAboutViewController *aboutVc = [[SMAboutViewController alloc] init];
+            [self setCenterViewController:aboutVc];
         }
+            break;
         default:
             break;
     }
+}
+
+- (void)setCenterViewController:(UIViewController *)vc {
+    SMNavigationViewController *navigationController = [[SMNavigationViewController alloc] initWithRootViewController:vc];
+    
+    [self.mm_drawerController setCenterViewController:navigationController withCloseAnimation:YES completion:nil];
 }
 
 @end
