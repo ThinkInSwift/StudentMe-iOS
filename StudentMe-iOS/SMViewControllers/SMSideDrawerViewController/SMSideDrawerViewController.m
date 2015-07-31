@@ -176,18 +176,22 @@
     switch (indexPath.row) {
         case SectionSettingsLatest: {
             cell.titleLabel.text = @"最新";
+            cell.leftImgView.image = [UIImage imageNamed:@"section_latest"];
         }
             break;
         case SectionSettingsCategory: {
             cell.titleLabel.text = @"分类";
+            cell.leftImgView.image = [UIImage imageNamed:@"section_categories"];
         }
             break;
         case SectionSettingsNotification: {
             cell.titleLabel.text = @"提醒";
+            cell.leftImgView.image = [UIImage imageNamed:@"section_notification"];
         }
             break;
         case SectionSettingsAbout: {
             cell.titleLabel.text = @"关于";
+            cell.leftImgView.image = [UIImage imageNamed:@"section_about"];
         }
         default:
             break;
