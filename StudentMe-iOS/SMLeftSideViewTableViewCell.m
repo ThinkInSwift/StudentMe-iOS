@@ -7,6 +7,7 @@
 //
 
 #import "SMLeftSideViewTableViewCell.h"
+#import "UIColor+SMColor.h"
 
 #define kCellHeight 40.f
 
@@ -18,8 +19,13 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    if (selected) {
+        self.titleLabel.textColor = [UIColor smBlue];
+    
+    } else {
+        self.titleLabel.textColor = [UIColor darkGrayColor];
+    }
+    
 }
 
 + (CGFloat)cellHeight {

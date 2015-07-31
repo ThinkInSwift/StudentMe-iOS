@@ -10,6 +10,8 @@
 #import "SMLeftSideViewTableViewCell.h"
 #import "SMLeftSideAvatarViewTableViewCell.h"
 
+#import "UIColor+SMColor.h"
+
 @interface SMSideDrawerViewController ()
 
 @end
@@ -200,16 +202,95 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case DrawerSectionUserInfo: {
+            static NSString *CellIdentifier = @"SMLeftSideAvatarViewTableViewCell";
+            SMLeftSideAvatarViewTableViewCell *cell = (SMLeftSideAvatarViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideAvatarViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            [self handleSectionUserInfoCell:cell didHighlightRowAtIndexPath:indexPath];
+        }
+            
+            break;
+        case DrawerSectionSettings: {
+            static NSString *CellIdentifier = @"SMLeftSideViewTableViewCell";
+            SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            [self handleSectionSettingsCell:cell didHighlightRowAtIndexPath:indexPath];
+        }
+            break;
+        default:
+            break;
+    }
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case DrawerSectionUserInfo: {
+            static NSString *CellIdentifier = @"SMLeftSideAvatarViewTableViewCell";
+            SMLeftSideAvatarViewTableViewCell *cell = (SMLeftSideAvatarViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideAvatarViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            [self handleSectionUserInfoCell:cell didSelectRowAtIndexPath:indexPath];
+        }
+            
+            break;
+        case DrawerSectionSettings: {
+            static NSString *CellIdentifier = @"SMLeftSideViewTableViewCell";
+            SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            [self handleSectionSettingsCell:cell didSelectRowAtIndexPath:indexPath];
+        }
+            
+            break;
+        default:
+            break;
+    }
+}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case SectionSettingsLatest: {
+            cell.leftImgView.image = [UIImage imageNamed:@"section_latest_highlighted"];
+        }
+            break;
+        case SectionSettingsCategory: {
+            cell.leftImgView.image = [UIImage imageNamed:@"section_categories_highlighted"];
+        }
+            break;
+        case SectionSettingsNotification: {
+            cell.leftImgView.image = [UIImage imageNamed:@"section_notification_highlighted"];
+        }
+            break;
+        case SectionSettingsAbout: {
+            cell.leftImgView.image = [UIImage imageNamed:@"section_about_highlighted"];
+        }
+        default:
+            break;
+    }
+}
 
 @end

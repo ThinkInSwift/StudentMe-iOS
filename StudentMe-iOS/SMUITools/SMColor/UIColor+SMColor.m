@@ -9,9 +9,8 @@
 #import "UIColor+SMColor.h"
 
 @implementation UIColor (SMColor)
-
 + (UIColor *)smBlue {
-    return [UIColor colorWithRed:78.0/255.0 green:143.0/255.0 blue:171.0/255.0 alpha:1.0];
+    return [UIColor colorWithRed:0x3f/255.0 green:0xb7/255.0 blue:0xfc/255.0 alpha:1.0];
 }
 
 + (UIColor *)smBlueLight {
