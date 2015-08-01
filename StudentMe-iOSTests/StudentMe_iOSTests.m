@@ -10,6 +10,9 @@
 #import <XCTest/XCTest.h>
 #import "NSURL+SMURL.h"
 
+#import "SMHttpDataManager.h"
+
+
 @interface StudentMe_iOSTests : XCTestCase
 
 @end
@@ -42,6 +45,23 @@
 - (void)testUrlTools {
     NSString *login = [NSURL smLoginString];
     NSLog(@"user login url is %@", login);
+}
+
+- (void)testLogin {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test login asyc handle"];
+    [[[SMHttpDataManager sharedManager] LoginWithUsername:@"Seanchense" password:@""] subscribeNext:^(id x) {
+        NSLog(@"succ is %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"err is %@", error);
+    } completed:^{
+        NSLog(@"completed");
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"testLogin fail err is %@", error);
+        }
+    }];
 }
 
 @end

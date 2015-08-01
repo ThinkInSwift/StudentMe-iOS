@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140403871B6B6EA500DD4442 /* SMHttpDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 140403861B6B6EA500DD4442 /* SMHttpDataManager.m */; };
 		141A5BC71B63187700A5F666 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5BC61B63187700A5F666 /* main.m */; };
 		141A5BD01B63187700A5F666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141A5BCE1B63187700A5F666 /* Main.storyboard */; };
 		141A5BD21B63187700A5F666 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A5BD11B63187700A5F666 /* Images.xcassets */; };
@@ -30,7 +31,7 @@
 		14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DF1B6B317C00D7F3B6 /* SMNotificationViewController.m */; };
 		14CE72E51B6B31B300D7F3B6 /* SMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72E31B6B31B300D7F3B6 /* SMAboutViewController.m */; };
 		14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CE72E41B6B31B300D7F3B6 /* SMAboutViewController.xib */; };
-		4FC19A066281A781C11F8082 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA0B61A4282282439B6EC9F /* libPods.a */; };
+		859767C3ABBA07D5CE7051D8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEE2A7B6C980488E9295CBC /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140403851B6B6EA500DD4442 /* SMHttpDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHttpDataManager.h; path = SMNet/SMHttpDataManager/SMHttpDataManager.h; sourceTree = "<group>"; };
+		140403861B6B6EA500DD4442 /* SMHttpDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHttpDataManager.m; path = SMNet/SMHttpDataManager/SMHttpDataManager.m; sourceTree = "<group>"; };
+		1417D05A1B6CC5280052E51B /* TestMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMock.h; sourceTree = "<group>"; };
 		141A5BC11B63187700A5F666 /* StudentMe-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StudentMe-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A5BC51B63187700A5F666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141A5BC61B63187700A5F666 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,7 +91,7 @@
 		14CE72E31B6B31B300D7F3B6 /* SMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAboutViewController.m; path = SMViewControllers/SMAboutViewController/SMAboutViewController.m; sourceTree = "<group>"; };
 		14CE72E41B6B31B300D7F3B6 /* SMAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMAboutViewController.xib; path = SMViewControllers/SMAboutViewController/SMAboutViewController.xib; sourceTree = "<group>"; };
 		2BA567F2AE403AD275B3D2A5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		2EA0B61A4282282439B6EC9F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEE2A7B6C980488E9295CBC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EA34263FE76C9E2A553A79 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FC19A066281A781C11F8082 /* libPods.a in Frameworks */,
+				859767C3ABBA07D5CE7051D8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140403841B6B6C4B00DD4442 /* SMHttpDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				140403851B6B6EA500DD4442 /* SMHttpDataManager.h */,
+				140403861B6B6EA500DD4442 /* SMHttpDataManager.m */,
+			);
+			name = SMHttpDataManager;
+			sourceTree = "<group>";
+		};
 		141A5BB81B63187700A5F666 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +175,7 @@
 			children = (
 				141A5BE01B63187700A5F666 /* StudentMe_iOSTests.m */,
 				141A5BDE1B63187700A5F666 /* Supporting Files */,
+				1417D05A1B6CC5280052E51B /* TestMock.h */,
 			);
 			path = "StudentMe-iOSTests";
 			sourceTree = "<group>";
@@ -194,6 +208,7 @@
 		141A5BEF1B638FB900A5F666 /* SMNet */ = {
 			isa = PBXGroup;
 			children = (
+				140403841B6B6C4B00DD4442 /* SMHttpDataManager */,
 				141A5BF01B638FBF00A5F666 /* SMURL */,
 			);
 			name = SMNet;
@@ -363,7 +378,7 @@
 		36FB36218007C8E16C87FDC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2EA0B61A4282282439B6EC9F /* libPods.a */,
+				3BEE2A7B6C980488E9295CBC /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -519,6 +534,7 @@
 				141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */,
 				14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */,
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
+				140403871B6B6EA500DD4442 /* SMHttpDataManager.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
 				141A5BF31B638FF100A5F666 /* NSURL+SMURL.m in Sources */,
 				14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */,
@@ -610,7 +626,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -647,6 +663,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -680,6 +697,7 @@
 		};
 		141A5BE81B63187700A5F666 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BA567F2AE403AD275B3D2A5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -692,6 +710,7 @@
 				);
 				INFOPLIST_FILE = "StudentMe-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudentMe-iOS.app/StudentMe-iOS";
 			};
@@ -699,6 +718,7 @@
 		};
 		141A5BE91B63187700A5F666 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BA567F2AE403AD275B3D2A5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -707,6 +727,7 @@
 				);
 				INFOPLIST_FILE = "StudentMe-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudentMe-iOS.app/StudentMe-iOS";
 			};

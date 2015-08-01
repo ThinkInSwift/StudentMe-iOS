@@ -28,3 +28,4 @@ Pods/
 Podfile.lock
 Document
 docset-installed.txt
+StudentMe-iOSTests/TestMock.h
