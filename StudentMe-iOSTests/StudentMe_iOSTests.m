@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "NSURL+SMURL.h"
+#import "TestMock.h"
 
 #import "SMHttpDataManager.h"
 
@@ -49,7 +50,7 @@
 
 - (void)testLogin {
     XCTestExpectation *expectation = [self expectationWithDescription:@"test login asyc handle"];
-    [[[SMHttpDataManager sharedManager] LoginWithUsername:@"Seanchense" password:@""] subscribeNext:^(id x) {
+    [[[SMHttpDataManager sharedManager] LoginWithUsername:Seanchense password:Password] subscribeNext:^(id x) {
         NSLog(@"succ is %@", x);
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
@@ -60,6 +61,23 @@
     [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
         if (error) {
             XCTFail(@"testLogin fail err is %@", error);
+        }
+    }];
+}
+
+- (void)testForumlist {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test testForumlist asyc handle"];
+    [[[SMHttpDataManager sharedManager] forumlistWithFid:nil optionalType:nil] subscribeNext:^(id x) {
+        NSLog(@"succ is %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"err is %@", error);
+    } completed:^{
+        NSLog(@"completed");
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"testForumlist fail err is %@", error);
         }
     }];
 }

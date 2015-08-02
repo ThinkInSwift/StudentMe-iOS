@@ -14,7 +14,7 @@
     if (self) {
         self.manager = [[AFHTTPRequestOperationManager alloc] init];
         self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
-        self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     }
     
     return self;
@@ -44,24 +44,46 @@
     @weakify(self);
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-
         [self.manager POST:[NSURL smLoginString] parameters:data constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             [formData appendPartWithFormData:[self dictToJsonData:data] name:@""];
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //
-            NSLog(@"%@",operation.responseString);
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            //
-            NSLog(@"%@",operation.responseString);
+            [subscriber sendError:error];
         }];
-        
         return [RACDisposable disposableWithBlock:^{
             //
         }];
     }] replayLazily];
 }
 
+#pragma mark - post methods
 
+- (RACSignal *)forumlistWithFid:(NSString *)fid optionalType:(NSString *)type {
+    NSDictionary *data = [[NSDictionary alloc] initWithObjectsAndKeys:
+    fid, @"fid",
+    type, @"type", nil];
+    
+    @weakify(self);
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [self.manager POST:[NSURL smForumlistString] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            [formData appendPartWithFormData:[self dictToJsonData:data] name:@""];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+        }];
+    }] replayLazily];
+    
+    
+    
+}
 
 
 #pragma mark - private methods

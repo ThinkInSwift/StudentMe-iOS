@@ -15,5 +15,7 @@
 #pragma mark - user
 + (NSString *)smLoginString;
 
+#pragma mark - post
++ (NSString *)smForumlistString;
 
 @end

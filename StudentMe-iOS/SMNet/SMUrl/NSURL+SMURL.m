@@ -19,6 +19,10 @@
     return [[self prefixbbsUrlString] stringByAppendingString:@"user/login"];
 }
 
+#pragma mark - post
++ (NSString *)smForumlistString {
+    return [[self prefixbbsUrlString] stringByAppendingString:@"forum/forumlist"];
+}
 
 
 #pragma mark - private method

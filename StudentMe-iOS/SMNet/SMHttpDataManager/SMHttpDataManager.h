@@ -19,4 +19,8 @@
 #pragma mark - user methods
 
 - (RACSignal *)LoginWithUsername:(NSString *)username password:(NSString *)password;
+
+#pragma mark - post methods
+
+- (RACSignal *)forumlistWithFid:(NSString *)fid optionalType:(NSString *)type;
 @end

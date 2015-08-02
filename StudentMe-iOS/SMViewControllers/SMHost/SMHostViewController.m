@@ -35,13 +35,6 @@
 
 - (void)setUp {
     
-    [[[SMHttpDataManager sharedManager] LoginWithUsername:@"ksk" password:@"ss"] subscribeNext:^(id x) {
-        NSLog(@"succ x is %@", x);
-    } error:^(NSError *error) {
-        NSLog(@"error is %@", error);
-    } completed:^{
-        NSLog(@"completed!");
-    }];
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
