@@ -10,6 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "NSURL+SMURL.h"
 #import "TestMock.h"
+#import "SMTopicListFilter.h"
 
 #import "SMHttpDataManager.h"
 
@@ -49,7 +50,7 @@
 }
 
 - (void)testLogin {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"test login asyc handle"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test login async handle"];
     [[[SMHttpDataManager sharedManager] LoginWithUsername:Seanchense password:Password] subscribeNext:^(id x) {
         NSLog(@"succ is %@", x);
     } error:^(NSError *error) {
@@ -66,7 +67,7 @@
 }
 
 - (void)testForumlist {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"test testForumlist asyc handle"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test testForumlist async handle"];
     [[[SMHttpDataManager sharedManager] forumlistWithFid:nil optionalType:nil] subscribeNext:^(id x) {
         NSLog(@"succ is %@", x);
     } error:^(NSError *error) {
@@ -78,6 +79,24 @@
     [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
         if (error) {
             XCTFail(@"testForumlist fail err is %@", error);
+        }
+    }];
+}
+
+- (void)testTopicList {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test testTopicList async handle"];
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
+    [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
+        NSLog(@"succ is %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"err is %@", error);
+    } completed:^{
+        NSLog(@"completed");
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"testTopicList fail err is %@", error);
         }
     }];
 }

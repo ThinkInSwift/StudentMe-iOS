@@ -24,6 +24,10 @@
     return [[self prefixbbsUrlString] stringByAppendingString:@"forum/forumlist"];
 }
 
++ (NSString *)smForumTopiclistString {
+    return [[self prefixbbsUrlString] stringByAppendingPathComponent:@"forum/topiclist"];
+}
+
 
 #pragma mark - private method
 

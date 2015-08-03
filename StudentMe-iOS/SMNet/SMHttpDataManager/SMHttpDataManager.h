@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 UESTC-BBS. All rights reserved.
 //
 #import "NSURL+SMURL.h"
+#import "SMTopicListFilter.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -21,6 +22,15 @@
 - (RACSignal *)LoginWithUsername:(NSString *)username password:(NSString *)password;
 
 #pragma mark - post methods
-
+/**
+ * 获取版块列表。
+ */
 - (RACSignal *)forumlistWithFid:(NSString *)fid optionalType:(NSString *)type;
+
+
+/**
+ * 获取某一版块的主题列表。
+ */
+
+- (RACSignal *)forumTopiclistWithFilter:(SMTopicListFilter *)filter;
 @end

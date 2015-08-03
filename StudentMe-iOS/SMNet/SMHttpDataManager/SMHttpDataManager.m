@@ -86,6 +86,26 @@
 }
 
 
+- (RACSignal *)forumTopiclistWithFilter:(SMTopicListFilter *)filter {
+    @weakify(self);
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [self.manager POST:[NSURL smForumTopiclistString] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            [formData appendPartWithFormData:[filter convertObjectToJson:filter] name:@""];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+            //
+        }];
+    }] replayLazily];
+}
+
+
 #pragma mark - private methods
 
 //dict to jsonData

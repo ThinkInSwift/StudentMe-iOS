@@ -23,6 +23,7 @@
 		141A5C0F1B639FD000A5F666 /* SMLeftSideViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141A5C0D1B639FD000A5F666 /* SMLeftSideViewTableViewCell.xib */; };
 		141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */; };
 		141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */; };
+		142043101B6F90740092A6D7 /* SMTopicListFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */; };
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		14808F641B68CDF200813830 /* SCPullRefresh in Resources */ = {isa = PBXBuildFile; fileRef = 14808F631B68CDF200813830 /* SCPullRefresh */; };
@@ -77,6 +78,8 @@
 		141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationViewController.m; path = SMViewControllers/SMNavigationViewController/SMNavigationViewController.m; sourceTree = "<group>"; };
 		141A5C161B63A52A00A5F666 /* SMDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDrawerVisualStateManager.h; path = SMVisualStateManager/SMDrawerVisualStateManager.h; sourceTree = "<group>"; };
 		141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDrawerVisualStateManager.m; path = SMVisualStateManager/SMDrawerVisualStateManager.m; sourceTree = "<group>"; };
+		1420430E1B6F90740092A6D7 /* SMTopicListFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicListFilter.h; path = Model/Post/SMTopicListFilter.h; sourceTree = "<group>"; };
+		1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTopicListFilter.m; path = Model/Post/SMTopicListFilter.m; sourceTree = "<group>"; };
 		1474587C1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLeftSideAvatarViewTableViewCell.h; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.h; sourceTree = "<group>"; };
 		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		141A5BC31B63187700A5F666 /* StudentMe-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1420430C1B6F8FF80092A6D7 /* Model */,
 				14808F621B68CDCF00813830 /* UILib */,
 				141A5C151B63A50300A5F666 /* SMVisualStateManager */,
 				141A5C091B639F5700A5F666 /* CustomView */,
@@ -318,6 +322,23 @@
 				141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */,
 			);
 			name = SMVisualStateManager;
+			sourceTree = "<group>";
+		};
+		1420430C1B6F8FF80092A6D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1420430D1B6F90060092A6D7 /* Post */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1420430D1B6F90060092A6D7 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				1420430E1B6F90740092A6D7 /* SMTopicListFilter.h */,
+				1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */,
+			);
+			name = Post;
 			sourceTree = "<group>";
 		};
 		1474587B1B6678F900B282D6 /* SMLeftSideAvatarViewTableViewCell */ = {
@@ -534,6 +555,7 @@
 				141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */,
 				14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */,
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
+				142043101B6F90740092A6D7 /* SMTopicListFilter.m in Sources */,
 				140403871B6B6EA500DD4442 /* SMHttpDataManager.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
 				141A5BF31B638FF100A5F666 /* NSURL+SMURL.m in Sources */,
