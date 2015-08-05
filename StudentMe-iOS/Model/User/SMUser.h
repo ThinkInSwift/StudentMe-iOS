@@ -12,4 +12,6 @@
 @property (strong, nonatomic) NSString *token, *secret, *uid, *avatar, *userName;
 
 - (instancetype)initWithHttpResponseData:(id)data;
+- (void)saveToUserDefault;
++ (SMUser *)userFromUserDefault;
 @end

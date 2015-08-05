@@ -129,6 +129,9 @@
 
 - (NSDictionary *)configureTokenAndSecretWithDic:(NSDictionary *)dict {
     NSMutableDictionary *mutableDic = [dict mutableCopy];
+    if (!self.user) {
+        self.user = [SMUser userFromUserDefault];
+    }
     [mutableDic setObject:self.user.token forKey:@"accessToken"];
     [mutableDic setObject:self.user.secret forKey:@"accessSecret"];
     

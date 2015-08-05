@@ -52,8 +52,6 @@
                            @"filterId":object.filterId,
                            @"isImageList":object.isImageList,
                            @"topOrder":object.topOrder,
-                           @"token": @"4d41b3de2e5dc369db88bcd3c18a9",
-                           @"secret": @"19bede689d8a368350dc2f0c12a09"
                            };
     
     

@@ -7,6 +7,7 @@
 //
 
 #import "SMUser.h"
+#import "NSUserDefaults+SMUserDefaults.h"
 
 @implementation SMUser
 
@@ -20,8 +21,40 @@
         _token      = dic[@"token"];
         _avatar     = dic[@"avatar"];
         
+        [self saveToUserDefault];
     }
     
     return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:self.userName forKey:@"userName"];
+    [encoder encodeObject:self.uid forKey:@"uid"];
+    [encoder encodeObject:self.secret forKey:@"secret"];
+    [encoder encodeObject:self.token forKey:@"token"];
+    [encoder encodeObject:self.avatar forKey:@"avatar"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self.userName = [decoder decodeObjectForKey:@"userName"];
+        self.uid = [decoder decodeObjectForKey:@"uid"];
+        self.secret = [decoder decodeObjectForKey:@"secret"];
+        self.token = [decoder decodeObjectForKey:@"token"];
+        self.avatar = [decoder decodeObjectForKey:@"avatar"];
+    }
+    return self;
+}
+
+- (void)saveToUserDefault {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self] forKey:[NSUserDefaults smkeyUserSecretInfo]];
+}
+
++ (SMUser *)userFromUserDefault {
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:[NSUserDefaults smkeyUserSecretInfo]];
+    SMUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    return user;
 }
 @end
