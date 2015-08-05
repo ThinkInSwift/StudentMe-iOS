@@ -7,13 +7,15 @@
 //
 #import "NSURL+SMURL.h"
 #import "SMTopicListFilter.h"
+#import "SMUser.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
 #import <AFNetworking/AFNetworking.h>
 
 @interface SMHttpDataManager : RACSignal
-@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
+@property (strong, nonatomic) AFHTTPSessionManager *manager;
+@property (strong, nonatomic) SMUser *user;
 + (instancetype)sharedManager;
 
 

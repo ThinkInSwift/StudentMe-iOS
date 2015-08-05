@@ -8,18 +8,25 @@
 
 #import "SMHttpDataManager.h"
 
+
 @implementation SMHttpDataManager
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.manager = [[AFHTTPRequestOperationManager alloc] init];
-        self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
-        self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+        [self configureSessionManager];
     }
     
     return self;
 }
 
+- (void)configureSessionManager {
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    [config setHTTPAdditionalHeaders:@{@"Content-Type":@"application/json"}];
+    self.manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:config];
+    
+    self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:@[@"text/html"]];
+    
+}
 
 
 + (instancetype)sharedManager {
@@ -44,13 +51,14 @@
     @weakify(self);
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smLoginString] parameters:data constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFormData:[self dictToJsonData:data] name:@""];
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [subscriber sendNext:responseObject];
-            [subscriber sendCompleted];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [subscriber sendError:error];
+        [self.manager POST:[NSURL smLoginString] parameters:data
+                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                       self.user = [[SMUser alloc] initWithHttpResponseData:responseObject];
+                       [subscriber sendNext:responseObject];
+                       [subscriber sendCompleted];
+        }
+                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                       [subscriber sendError:error];
         }];
         return [RACDisposable disposableWithBlock:^{
             //
@@ -68,14 +76,14 @@
     @weakify(self);
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smForumlistString] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFormData:[self dictToJsonData:data] name:@""];
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [subscriber sendNext:responseObject];
-            [subscriber sendCompleted];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [subscriber sendError:error];
-        }];
+        [self.manager POST:[NSURL smForumlistString] parameters:nil
+                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                       [subscriber sendNext:responseObject];
+                       [subscriber sendCompleted];
+        }
+                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                       [subscriber sendError:error];
+                   }];
         
         return [RACDisposable disposableWithBlock:^{
         }];
@@ -90,14 +98,15 @@
     @weakify(self);
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smForumTopiclistString] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFormData:[filter convertObjectToJson:filter] name:@""];
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [subscriber sendNext:responseObject];
-            [subscriber sendCompleted];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [subscriber sendError:error];
-        }];
+        [self.manager POST:[NSURL smForumTopiclistString]
+                parameters:[self configureTokenAndSecretWithDic:[filter convertObjectToDict:filter]]
+                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                       [subscriber sendNext:responseObject];
+                       [subscriber sendCompleted];
+        }
+                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                       [subscriber sendError:error];
+                   }];
         
         return [RACDisposable disposableWithBlock:^{
             //
@@ -116,6 +125,16 @@
     return data;
 }
 
+//加入 secret 和 token
+
+- (NSDictionary *)configureTokenAndSecretWithDic:(NSDictionary *)dict {
+    NSMutableDictionary *mutableDic = [dict mutableCopy];
+    [mutableDic setObject:self.user.token forKey:@"accessToken"];
+    [mutableDic setObject:self.user.secret forKey:@"accessSecret"];
+    
+    return [mutableDic copy];
+}
+
 //生成 request
 - (NSMutableURLRequest *)getRequest:(NSString*)method body:(NSData *)data strUrl:(NSString *)strUrl{
     
@@ -130,4 +149,7 @@
     return request;
     
 }
+
+
+
 @end

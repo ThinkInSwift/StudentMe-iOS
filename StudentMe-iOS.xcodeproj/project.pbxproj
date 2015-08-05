@@ -24,6 +24,7 @@
 		141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */; };
 		141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */; };
 		142043101B6F90740092A6D7 /* SMTopicListFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */; };
+		1420435E1B7219900092A6D7 /* SMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1420435D1B7219900092A6D7 /* SMUser.m */; };
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		14808F641B68CDF200813830 /* SCPullRefresh in Resources */ = {isa = PBXBuildFile; fileRef = 14808F631B68CDF200813830 /* SCPullRefresh */; };
@@ -80,6 +81,8 @@
 		141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDrawerVisualStateManager.m; path = SMVisualStateManager/SMDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		1420430E1B6F90740092A6D7 /* SMTopicListFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicListFilter.h; path = Model/Post/SMTopicListFilter.h; sourceTree = "<group>"; };
 		1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTopicListFilter.m; path = Model/Post/SMTopicListFilter.m; sourceTree = "<group>"; };
+		1420435C1B7219900092A6D7 /* SMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUser.h; path = Model/User/SMUser.h; sourceTree = "<group>"; };
+		1420435D1B7219900092A6D7 /* SMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUser.m; path = Model/User/SMUser.m; sourceTree = "<group>"; };
 		1474587C1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLeftSideAvatarViewTableViewCell.h; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.h; sourceTree = "<group>"; };
 		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -327,6 +330,7 @@
 		1420430C1B6F8FF80092A6D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1420435B1B7219670092A6D7 /* User */,
 				1420430D1B6F90060092A6D7 /* Post */,
 			);
 			name = Model;
@@ -339,6 +343,15 @@
 				1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */,
 			);
 			name = Post;
+			sourceTree = "<group>";
+		};
+		1420435B1B7219670092A6D7 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				1420435C1B7219900092A6D7 /* SMUser.h */,
+				1420435D1B7219900092A6D7 /* SMUser.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		1474587B1B6678F900B282D6 /* SMLeftSideAvatarViewTableViewCell */ = {
@@ -568,6 +581,7 @@
 				14CE72E51B6B31B300D7F3B6 /* SMAboutViewController.m in Sources */,
 				141A5C001B639BDD00A5F666 /* AppDelegate.m in Sources */,
 				141A5C0E1B639FD000A5F666 /* SMLeftSideViewTableViewCell.m in Sources */,
+				1420435E1B7219900092A6D7 /* SMUser.m in Sources */,
 				141A5C081B639EC100A5F666 /* SMSideDrawerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

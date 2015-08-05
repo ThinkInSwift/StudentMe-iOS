@@ -25,7 +25,7 @@
 }
 
 + (NSString *)smForumTopiclistString {
-    return [[self prefixbbsUrlString] stringByAppendingPathComponent:@"forum/topiclist"];
+    return [[self prefixbbsUrlString] stringByAppendingString:@"forum/topiclist"];
 }
 
 

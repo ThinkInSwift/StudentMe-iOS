@@ -43,20 +43,21 @@
     return self;
 }
 
-- (NSData *) convertObjectToJson:(SMTopicListFilter *)object {
-    NSError *writeError = nil;
-    NSDictionary *dict = @{@"boardId":[NSString stringWithFormat:@"%ld", object.boardId],
+- (NSDictionary *) convertObjectToDict:(SMTopicListFilter *)object {
+    NSDictionary *dict = @{@"boardId":[NSString stringWithFormat:@"%ld", (long)object.boardId],
                            @"page":object.page,
                            @"pageSize":object.pageSize,
                            @"sortby":object.sortBy,
                            @"filterType":object.filterType,
                            @"filterId":object.filterId,
                            @"isImageList":object.isImageList,
-                           @"topOrder":object.topOrder
+                           @"topOrder":object.topOrder,
+                           @"token": @"4d41b3de2e5dc369db88bcd3c18a9",
+                           @"secret": @"19bede689d8a368350dc2f0c12a09"
                            };
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&writeError];
     
-    return jsonData;
+    
+    return dict;
 }
 
 @end

@@ -29,5 +29,5 @@ typedef NS_ENUM(NSInteger, SMTopicListFilterFid) {
 @property (assign, nonatomic) NSInteger boardId;
 - (SMTopicListFilter *)initFilterWithOption:(SMTopicListFilterFid)option;
 
-- (NSData *)convertObjectToJson:(SMTopicListFilter *)object;
+- (NSDictionary *)convertObjectToDict:(SMTopicListFilter *)object;
 @end
