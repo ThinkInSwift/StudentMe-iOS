@@ -29,6 +29,8 @@
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		14808F641B68CDF200813830 /* SCPullRefresh in Resources */ = {isa = PBXBuildFile; fileRef = 14808F631B68CDF200813830 /* SCPullRefresh */; };
+		14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AEBDC71B7328F600C3C42E /* SMPostTopicListTableViewCell.m */; };
+		14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */; };
 		14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */; };
 		14CE72DC1B6B315300D7F3B6 /* SMCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DB1B6B315300D7F3B6 /* SMCategoriesViewController.m */; };
 		14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DF1B6B317C00D7F3B6 /* SMNotificationViewController.m */; };
@@ -90,6 +92,9 @@
 		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
 		14808F631B68CDF200813830 /* SCPullRefresh */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SCPullRefresh; path = UILib/SCPullRefresh; sourceTree = "<group>"; };
+		14AEBDC61B7328F600C3C42E /* SMPostTopicListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPostTopicListTableViewCell.h; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.h; sourceTree = "<group>"; };
+		14AEBDC71B7328F600C3C42E /* SMPostTopicListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPostTopicListTableViewCell.m; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.m; sourceTree = "<group>"; };
+		14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMPostTopicListTableViewCell.xib; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.xib; sourceTree = "<group>"; };
 		14CE72D61B6B311F00D7F3B6 /* SMLatestPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLatestPostsViewController.h; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.h; sourceTree = "<group>"; };
 		14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLatestPostsViewController.m; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.m; sourceTree = "<group>"; };
 		14CE72DA1B6B315300D7F3B6 /* SMCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCategoriesViewController.h; path = SMViewControllers/SMCategoriesViewController/SMCategoriesViewController.h; sourceTree = "<group>"; };
@@ -296,6 +301,7 @@
 		141A5C0A1B639F6600A5F666 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				14AEBDC51B7328B500C3C42E /* SMPostTopicListTableViewCell */,
 				1474587B1B6678F900B282D6 /* SMLeftSideAvatarViewTableViewCell */,
 				141A5C101B639FE900A5F666 /* SMLeftSideViewTableViewCell */,
 			);
@@ -375,6 +381,16 @@
 				14808F631B68CDF200813830 /* SCPullRefresh */,
 			);
 			name = UILib;
+			sourceTree = "<group>";
+		};
+		14AEBDC51B7328B500C3C42E /* SMPostTopicListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14AEBDC61B7328F600C3C42E /* SMPostTopicListTableViewCell.h */,
+				14AEBDC71B7328F600C3C42E /* SMPostTopicListTableViewCell.m */,
+				14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */,
+			);
+			name = SMPostTopicListTableViewCell;
 			sourceTree = "<group>";
 		};
 		14CE72D51B6B30D600D7F3B6 /* SMLatestPostsViewController */ = {
@@ -515,6 +531,7 @@
 			files = (
 				147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */,
 				14808F641B68CDF200813830 /* SCPullRefresh in Resources */,
+				14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */,
 				14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */,
 				141A5BD01B63187700A5F666 /* Main.storyboard in Resources */,
 				141A5BD51B63187700A5F666 /* LaunchScreen.xib in Resources */,
@@ -575,6 +592,7 @@
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
 				142043101B6F90740092A6D7 /* SMTopicListFilter.m in Sources */,
 				142043611B7227520092A6D7 /* NSUserDefaults+SMUserDefaults.m in Sources */,
+				14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */,
 				140403871B6B6EA500DD4442 /* SMHttpDataManager.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
 				141A5BF31B638FF100A5F666 /* NSURL+SMURL.m in Sources */,

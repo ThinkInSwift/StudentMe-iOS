@@ -8,6 +8,7 @@
 
 #import "SMHostViewController.h"
 #import "SMHttpDataManager.h"
+#import "SMPostTopicListTableViewCell.h"
 
 #import <UIViewController+MMDrawerController.h>
 #import <UIBarButtonItem+BlocksKit.h>
@@ -40,6 +41,9 @@
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
     [self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    for (NSString *identifier in @[@"SMPostTopicListTableViewCell"]) {
+        [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:identifier];
+    }
     
     __weak typeof(self) weakSelf = self;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
@@ -65,16 +69,22 @@
     return 10;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [SMPostTopicListTableViewCell height];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"SMPostTopicListTableViewCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SMPostTopicListTableViewCell *cell = (SMPostTopicListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[SMPostTopicListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     }
-    
+    cell.postCreateTimeLabel.text = @"一分钟前";
+    cell.postNameLabel.text       = @"SeanChense";
+    cell.postTitleLabel.text      = @"圣·光电，光电之魂";
     
     return cell;
 }
