@@ -11,6 +11,7 @@
 @interface SMHostViewController : SMBaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView * tableView;
+@property (strong, nonatomic) NSMutableArray *dataSource;
 
 
 @end

@@ -20,7 +20,11 @@
     // Configure the view for the selected state
 }
 
-
+- (void)configureWithData:(SMTopic *)topic {
+//    cell.postCreateTimeLabel.text = topic.lastReplyDate
+    self.postNameLabel.text       = topic.userNickName;
+    self.postTitleLabel.text      = topic.title;
+}
 
 + (CGFloat)height {
     return 50.0;

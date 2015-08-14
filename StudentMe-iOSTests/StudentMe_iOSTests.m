@@ -13,6 +13,7 @@
 #import "SMTopicListFilter.h"
 
 #import "SMHttpDataManager.h"
+#import "SMTopic.h"
 
 
 @interface StudentMe_iOSTests : XCTestCase
@@ -87,7 +88,8 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"test testTopicList async handle"];
     SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
-        NSLog(@"succ is %@", x);
+        SMTopic *topic = [[SMTopic alloc] initWithDictionary:x[@"list"][0]];
+        NSLog(@"topic is %@", topic);
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
     } completed:^{

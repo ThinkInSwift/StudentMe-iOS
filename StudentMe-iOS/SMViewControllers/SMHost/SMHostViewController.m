@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
-    
+    [self initData];
 }
 
 - (void)setUp {
@@ -51,6 +51,19 @@
     }];
 }
 
+- (void)initData {
+    __weak typeof(self) weakSelf = self;
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
+    [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
+        weakSelf.dataSource = x;
+        [weakSelf.tableView reloadData];
+    } error:^(NSError *error) {
+        NSLog(@"err is %@", error);
+    } completed:^{
+        NSLog(@"completed");
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -66,7 +79,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return self.dataSource || self.dataSource.count != 0 ? self.dataSource.count : 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,9 +99,8 @@
         cell = [[SMPostTopicListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     }
-    cell.postCreateTimeLabel.text = @"一分钟前";
-    cell.postNameLabel.text       = @"SeanChense";
-    cell.postTitleLabel.text      = @"圣·光电，光电之魂";
+    SMTopic *topic = [[SMTopic alloc] initWithDictionary:self.dataSource[indexPath.row]];
+    [cell configureWithData:topic];
     
     return cell;
 }

@@ -101,8 +101,18 @@
         [self.manager POST:[NSURL smForumTopiclistString]
                 parameters:[self configureTokenAndSecretWithDic:[filter convertObjectToDict:filter]]
                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                       [subscriber sendNext:responseObject];
-                       [subscriber sendCompleted];
+                       if (!responseObject[@"list"] || [responseObject[@"list"] count] == 0) {
+                           NSError *err = [[NSError alloc] initWithDomain:@"forumTopiclistWithFilter"
+                                                                     code:10001
+                                                                 userInfo:@{
+                                                                            @"info":@"获取失败"
+                                                                           }];
+                           [subscriber sendError:err];
+                       } else {
+                           [subscriber sendNext:responseObject[@"list"]];
+                           [subscriber sendCompleted];
+                       }
+                       
         }
                    failure:^(NSURLSessionDataTask *task, NSError *error) {
                        [subscriber sendError:error];

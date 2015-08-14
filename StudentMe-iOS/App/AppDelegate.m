@@ -14,6 +14,7 @@
 
 #import <MMDrawerController/MMDrawerController.h>
 
+
 @interface AppDelegate ()
 @property (strong, nonatomic) MMDrawerController * drawerController;
 @end
@@ -61,6 +62,7 @@
         [self.window setTintColor:tintColor];
     }
     [self.window setRootViewController:self.drawerController];
+    
     return YES;
 }
 

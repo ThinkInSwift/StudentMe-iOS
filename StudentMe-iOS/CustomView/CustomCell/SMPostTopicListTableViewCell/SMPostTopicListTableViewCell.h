@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMTopic.h"
 
 @interface SMPostTopicListTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *postTitleLabel;
@@ -14,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *postNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postAvatarImgView;
 + (CGFloat)height;
+
+- (void)configureWithData:(SMTopic *)topic;
 @end

@@ -18,12 +18,13 @@
 		141A5C081B639EC100A5F666 /* SMSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C071B639EC100A5F666 /* SMSideDrawerViewController.m */; };
 		141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */; };
 		141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */; };
-		142043101B6F90740092A6D7 /* SMTopicListFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */; };
 		1420435E1B7219900092A6D7 /* SMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1420435D1B7219900092A6D7 /* SMUser.m */; };
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		14808F641B68CDF200813830 /* SCPullRefresh in Resources */ = {isa = PBXBuildFile; fileRef = 14808F631B68CDF200813830 /* SCPullRefresh */; };
 		14A119D21B78EA1600319F45 /* UIViewController+SCCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */; };
+		14A119E81B7DBB5500319F45 /* SMTopicListFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119E71B7DBB5500319F45 /* SMTopicListFilter.m */; };
+		14A119EB1B7DBB7800319F45 /* SMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119EA1B7DBB7800319F45 /* SMTopic.m */; };
 		14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AEBDC71B7328F600C3C42E /* SMPostTopicListTableViewCell.m */; };
 		14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */; };
 		14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */; };
@@ -74,8 +75,6 @@
 		141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNavigationViewController.m; path = SMViewControllers/SMNavigationViewController/SMNavigationViewController.m; sourceTree = "<group>"; };
 		141A5C161B63A52A00A5F666 /* SMDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMDrawerVisualStateManager.h; path = SMVisualStateManager/SMDrawerVisualStateManager.h; sourceTree = "<group>"; };
 		141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDrawerVisualStateManager.m; path = SMVisualStateManager/SMDrawerVisualStateManager.m; sourceTree = "<group>"; };
-		1420430E1B6F90740092A6D7 /* SMTopicListFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicListFilter.h; path = Model/Post/SMTopicListFilter.h; sourceTree = "<group>"; };
-		1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTopicListFilter.m; path = Model/Post/SMTopicListFilter.m; sourceTree = "<group>"; };
 		1420435C1B7219900092A6D7 /* SMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUser.h; path = Model/User/SMUser.h; sourceTree = "<group>"; };
 		1420435D1B7219900092A6D7 /* SMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUser.m; path = Model/User/SMUser.m; sourceTree = "<group>"; };
 		1474587C1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLeftSideAvatarViewTableViewCell.h; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.h; sourceTree = "<group>"; };
@@ -84,6 +83,10 @@
 		14808F631B68CDF200813830 /* SCPullRefresh */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SCPullRefresh; path = UILib/SCPullRefresh; sourceTree = "<group>"; };
 		14A119D01B78EA1600319F45 /* UIViewController+SCCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SCCategorys.h"; path = "OC_Category/UIViewController+SCCategorys.h"; sourceTree = "<group>"; };
 		14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SCCategorys.m"; path = "OC_Category/UIViewController+SCCategorys.m"; sourceTree = "<group>"; };
+		14A119E61B7DBB5500319F45 /* SMTopicListFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicListFilter.h; path = Model/Topic/SMTopicListFilter.h; sourceTree = "<group>"; };
+		14A119E71B7DBB5500319F45 /* SMTopicListFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTopicListFilter.m; path = Model/Topic/SMTopicListFilter.m; sourceTree = "<group>"; };
+		14A119E91B7DBB7800319F45 /* SMTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopic.h; path = Model/Topic/SMTopic.h; sourceTree = "<group>"; };
+		14A119EA1B7DBB7800319F45 /* SMTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTopic.m; path = Model/Topic/SMTopic.m; sourceTree = "<group>"; };
 		14AEBDC61B7328F600C3C42E /* SMPostTopicListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPostTopicListTableViewCell.h; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.h; sourceTree = "<group>"; };
 		14AEBDC71B7328F600C3C42E /* SMPostTopicListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPostTopicListTableViewCell.m; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.m; sourceTree = "<group>"; };
 		14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMPostTopicListTableViewCell.xib; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.xib; sourceTree = "<group>"; };
@@ -316,18 +319,20 @@
 			isa = PBXGroup;
 			children = (
 				1420435B1B7219670092A6D7 /* User */,
-				1420430D1B6F90060092A6D7 /* Post */,
+				1420430D1B6F90060092A6D7 /* Topic */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		1420430D1B6F90060092A6D7 /* Post */ = {
+		1420430D1B6F90060092A6D7 /* Topic */ = {
 			isa = PBXGroup;
 			children = (
-				1420430E1B6F90740092A6D7 /* SMTopicListFilter.h */,
-				1420430F1B6F90740092A6D7 /* SMTopicListFilter.m */,
+				14A119E61B7DBB5500319F45 /* SMTopicListFilter.h */,
+				14A119E71B7DBB5500319F45 /* SMTopicListFilter.m */,
+				14A119E91B7DBB7800319F45 /* SMTopic.h */,
+				14A119EA1B7DBB7800319F45 /* SMTopic.m */,
 			);
-			name = Post;
+			name = Topic;
 			sourceTree = "<group>";
 		};
 		1420435B1B7219670092A6D7 /* User */ = {
@@ -577,14 +582,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */,
+				14A119EB1B7DBB7800319F45 /* SMTopic.m in Sources */,
 				14E78F911B78E79E00523970 /* SMLeftSideViewTableViewCell.m in Sources */,
 				14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */,
 				14E78F9E1B78E7C600523970 /* UIColor+SMColor.m in Sources */,
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
 				14E78F9D1B78E7C600523970 /* NSUserDefaults+SMUserDefaults.m in Sources */,
 				14E78F9C1B78E7C600523970 /* NSURL+SMURL.m in Sources */,
-				142043101B6F90740092A6D7 /* SMTopicListFilter.m in Sources */,
 				14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */,
+				14A119E81B7DBB5500319F45 /* SMTopicListFilter.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
 				14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */,
 				1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */,
@@ -763,6 +769,40 @@
 				INFOPLIST_FILE = "StudentMe-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"ActionSheetPicker-3.0\"",
+					"-l\"BlocksKit\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MMDrawerController\"",
+					"-l\"Masonry\"",
+					"-l\"NSDate+TimeAgo\"",
+					"-l\"ReactiveCocoa\"",
+					"-l\"SDWebImage\"",
+					"-l\"TTTAttributedLabel\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudentMe-iOS.app/StudentMe-iOS";
 			};
@@ -780,6 +820,40 @@
 				INFOPLIST_FILE = "StudentMe-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"ActionSheetPicker-3.0\"",
+					"-l\"BlocksKit\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MMDrawerController\"",
+					"-l\"Masonry\"",
+					"-l\"NSDate+TimeAgo\"",
+					"-l\"ReactiveCocoa\"",
+					"-l\"SDWebImage\"",
+					"-l\"TTTAttributedLabel\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StudentMe-iOS.app/StudentMe-iOS";
 			};
