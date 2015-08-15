@@ -38,7 +38,8 @@
 
 
 @interface SMTopic : NSObject
-@property (nonatomic, strong, readwrite) NSString *boardName, *sourceWebUrl, *subject, *title, *userAvatar, *userNickName;
+@property (nonatomic, strong, readwrite) NSString *boardName, *sourceWebUrl, *subject, *title, *userNickName;
+@property (nonatomic, strong, readwrite) NSURL *userAvatar;
 @property (nonatomic, strong, readwrite) NSNumber *boardId, *gender, *replies, *topicId, *userId;
 @property (nonatomic, strong, readwrite) NSDate *lastReplyDate;
 

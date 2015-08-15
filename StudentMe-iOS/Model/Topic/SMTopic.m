@@ -58,7 +58,7 @@
         _sourceWebUrl= dict[@"sourceWebUrl"];
         _subject = dict[@"subject"];
         _title = dict[@"title"];
-        _userAvatar = dict[@"userAvatar"];
+        _userAvatar = [NSURL URLWithString:dict[@"userAvatar"]];
         _userNickName = dict[@"user_nick_name"];
         _boardId = dict[@"board_id"];
         _gender = dict[@"gender"];

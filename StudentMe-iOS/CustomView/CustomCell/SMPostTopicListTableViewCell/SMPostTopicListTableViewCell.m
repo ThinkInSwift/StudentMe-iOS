@@ -7,6 +7,7 @@
 //
 
 #import "SMPostTopicListTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation SMPostTopicListTableViewCell
 
@@ -24,6 +25,7 @@
 //    cell.postCreateTimeLabel.text = topic.lastReplyDate
     self.postNameLabel.text       = topic.userNickName;
     self.postTitleLabel.text      = topic.title;
+    [self.postAvatarImgView sd_setImageWithURL:topic.userAvatar placeholderImage:[UIImage imageNamed:@"yae"]];
 }
 
 + (CGFloat)height {
