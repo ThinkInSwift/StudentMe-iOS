@@ -11,7 +11,7 @@
 @implementation SMLeftSideAvatarViewTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.avatarImgView.userInteractionEnabled = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

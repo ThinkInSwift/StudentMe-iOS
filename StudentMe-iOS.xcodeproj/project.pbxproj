@@ -36,6 +36,8 @@
 		14BF0FB11B80A1EA00FAF970 /* SMValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FB01B80A1EA00FAF970 /* SMValidation.m */; };
 		14BF0FB41B80A20E00FAF970 /* SMHttpDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FB31B80A20E00FAF970 /* SMHttpDataManager.m */; };
 		14BF0FB71B80A39200FAF970 /* SMErr.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FB61B80A39200FAF970 /* SMErr.m */; };
+		14BF0FBC1B80B8F300FAF970 /* SMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FBA1B80B8F300FAF970 /* SMLoginViewController.m */; };
+		14BF0FBD1B80B8F300FAF970 /* SMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BF0FBB1B80B8F300FAF970 /* SMLoginViewController.xib */; };
 		14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */; };
 		14CE72DC1B6B315300D7F3B6 /* SMCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DB1B6B315300D7F3B6 /* SMCategoriesViewController.m */; };
 		14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DF1B6B317C00D7F3B6 /* SMNotificationViewController.m */; };
@@ -118,6 +120,9 @@
 		14BF0FB31B80A20E00FAF970 /* SMHttpDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHttpDataManager.m; path = SMNet/SMHttpDataManager/SMHttpDataManager.m; sourceTree = "<group>"; };
 		14BF0FB51B80A39200FAF970 /* SMErr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMErr.h; sourceTree = "<group>"; };
 		14BF0FB61B80A39200FAF970 /* SMErr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMErr.m; sourceTree = "<group>"; };
+		14BF0FB91B80B8F300FAF970 /* SMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLoginViewController.h; path = SMViewControllers/SMLoginViewController/SMLoginViewController.h; sourceTree = "<group>"; };
+		14BF0FBA1B80B8F300FAF970 /* SMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLoginViewController.m; path = SMViewControllers/SMLoginViewController/SMLoginViewController.m; sourceTree = "<group>"; };
+		14BF0FBB1B80B8F300FAF970 /* SMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLoginViewController.xib; path = SMViewControllers/SMLoginViewController/SMLoginViewController.xib; sourceTree = "<group>"; };
 		14CE72D61B6B311F00D7F3B6 /* SMLatestPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLatestPostsViewController.h; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.h; sourceTree = "<group>"; };
 		14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLatestPostsViewController.m; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.m; sourceTree = "<group>"; };
 		14CE72DA1B6B315300D7F3B6 /* SMCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCategoriesViewController.h; path = SMViewControllers/SMCategoriesViewController/SMCategoriesViewController.h; sourceTree = "<group>"; };
@@ -247,6 +252,7 @@
 		141A5BF41B639A8C00A5F666 /* SMViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				14BF0FB81B80B8C800FAF970 /* SMLoginViewController */,
 				14CE72E11B6B318900D7F3B6 /* SMAboutViewController */,
 				14CE72DD1B6B315C00D7F3B6 /* SMNotificationViewController */,
 				14CE72D91B6B312E00D7F3B6 /* SMCategoriesViewController */,
@@ -464,6 +470,16 @@
 			name = SMValidation;
 			sourceTree = "<group>";
 		};
+		14BF0FB81B80B8C800FAF970 /* SMLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14BF0FB91B80B8F300FAF970 /* SMLoginViewController.h */,
+				14BF0FBA1B80B8F300FAF970 /* SMLoginViewController.m */,
+				14BF0FBB1B80B8F300FAF970 /* SMLoginViewController.xib */,
+			);
+			name = SMLoginViewController;
+			sourceTree = "<group>";
+		};
 		14CE72D51B6B30D600D7F3B6 /* SMLatestPostsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +633,7 @@
 			files = (
 				147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */,
 				14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */,
+				14BF0FBD1B80B8F300FAF970 /* SMLoginViewController.xib in Resources */,
 				14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */,
 				141A5BD01B63187700A5F666 /* Main.storyboard in Resources */,
 				141A5BD51B63187700A5F666 /* LaunchScreen.xib in Resources */,
@@ -682,6 +699,7 @@
 				14BF0FB11B80A1EA00FAF970 /* SMValidation.m in Sources */,
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
 				14E78F9D1B78E7C600523970 /* NSUserDefaults+SMUserDefaults.m in Sources */,
+				14BF0FBC1B80B8F300FAF970 /* SMLoginViewController.m in Sources */,
 				14E78F9C1B78E7C600523970 /* NSURL+SMURL.m in Sources */,
 				14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */,
 				146A105F1B80813D00176D7A /* SCPullRefreshViewController.m in Sources */,

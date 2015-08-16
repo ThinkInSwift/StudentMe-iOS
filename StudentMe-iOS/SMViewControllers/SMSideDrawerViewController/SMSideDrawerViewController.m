@@ -11,8 +11,11 @@
 #import "SMLeftSideAvatarViewTableViewCell.h"
 #import "SMAboutViewController.h"
 #import "SMNavigationViewController.h"
+#import "SMLoginViewController.h"
 
 #import "UIColor+SMColor.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <UIGestureRecognizer+RACSignalSupport.h>
 
 @interface SMSideDrawerViewController ()
 
@@ -172,7 +175,14 @@
 
 
 - (UITableViewCell *)configureAvatarCell:(SMLeftSideAvatarViewTableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // do custom configure
+    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] init];
+    [cell.avatarImgView addGestureRecognizer:ges];
+    __weak typeof(self) weakSelf = self;
+    [ges.rac_gestureSignal subscribeNext:^(id x) {
+        NSLog(@"avatarImgView tapped!");
+        [weakSelf willPresentLoginViewController];
+    }];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
@@ -302,6 +312,13 @@
     SMNavigationViewController *navigationController = [[SMNavigationViewController alloc] initWithRootViewController:vc];
     
     [self.mm_drawerController setCenterViewController:navigationController withCloseAnimation:YES completion:nil];
+}
+
+
+- (void)willPresentLoginViewController {
+    SMLoginViewController *login = [[SMLoginViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end
