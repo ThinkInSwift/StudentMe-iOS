@@ -31,7 +31,7 @@
     if (self) {
         _boardId      = option;
         _page         = @"1";
-        _pageSize     = @"20";
+        _pageSize     = @"40";
         _sortBy       = @"all";
         _filterType   = @"sortid";
         _filterId     = @"";

@@ -66,6 +66,10 @@
         _topicId = dict[@"topic_id"];
         _userId = dict[@"user_id"];
         _lastReplyDate = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"last_reply_date"] integerValue]/1000.0];
+        
+        if ([_userNickName isEqualToString:@"Seanchense"]) {
+            _userNickName = @"SeanChense";
+        }
 
     }
     
