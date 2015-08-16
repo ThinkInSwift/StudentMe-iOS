@@ -40,6 +40,8 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
+    [self.tableView setEstimatedRowHeight:[SMPostTopicListTableViewCell height]];
+    [self.tableView setRowHeight:UITableViewAutomaticDimension];
     [self.view addSubview:self.tableView];
     [self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     for (NSString *identifier in @[@"SMPostTopicListTableViewCell"]) {
@@ -87,7 +89,8 @@
     return 0.1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [SMPostTopicListTableViewCell height];
 }
 

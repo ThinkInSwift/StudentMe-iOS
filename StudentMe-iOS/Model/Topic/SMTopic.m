@@ -42,10 +42,10 @@
 
 @implementation SMTopic
 
-+ (NSDateFormatter *)dateFormatter {
+- (NSDateFormatter *)dateFormatter {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh-CN"];
-    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+//    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
     return dateFormatter;
 }
 
@@ -65,8 +65,8 @@
         _replies = dict[@"replies"];
         _topicId = dict[@"topic_id"];
         _userId = dict[@"user_id"];
-        _lastReplyDate = dict[@"last_reply_date"];
-        
+        _lastReplyDate = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"last_reply_date"] integerValue]/1000.0];
+
     }
     
     return self;
