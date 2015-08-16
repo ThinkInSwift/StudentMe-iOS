@@ -48,7 +48,7 @@ static NSUInteger const kBubbleCout = 5;
             animationGroup.speed = 1;
             animationGroup.repeatCount = NSIntegerMax;
             animationGroup.beginTime = i / 1.0;
-            
+    
             [animationLayer addAnimation:animationGroup forKey:kInitAnimation];
             [self.layerArray addObject:animationLayer];
         }

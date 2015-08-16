@@ -12,7 +12,7 @@
 #import "SCCircularRefreshView.h"
 
 
-//#define kBubbleAnimation
+#define kBubbleAnimation    1
 #define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
 
 

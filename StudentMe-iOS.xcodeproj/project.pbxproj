@@ -19,14 +19,23 @@
 		141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */; };
 		141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */; };
 		1420435E1B7219900092A6D7 /* SMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1420435D1B7219900092A6D7 /* SMUser.m */; };
+		146A105D1B80813D00176D7A /* SCBubbleRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A10581B80813D00176D7A /* SCBubbleRefreshView.m */; };
+		146A105E1B80813D00176D7A /* SCCircularRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A105A1B80813D00176D7A /* SCCircularRefreshView.m */; };
+		146A105F1B80813D00176D7A /* SCPullRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A105C1B80813D00176D7A /* SCPullRefreshViewController.m */; };
+		146A10621B80814700176D7A /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A10611B80814700176D7A /* CAAnimation+Blocks.m */; };
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
-		14808F641B68CDF200813830 /* SCPullRefresh in Resources */ = {isa = PBXBuildFile; fileRef = 14808F631B68CDF200813830 /* SCPullRefresh */; };
 		14A119D21B78EA1600319F45 /* UIViewController+SCCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */; };
 		14A119E81B7DBB5500319F45 /* SMTopicListFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119E71B7DBB5500319F45 /* SMTopicListFilter.m */; };
 		14A119EB1B7DBB7800319F45 /* SMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119EA1B7DBB7800319F45 /* SMTopic.m */; };
 		14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AEBDC71B7328F600C3C42E /* SMPostTopicListTableViewCell.m */; };
 		14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */; };
+		14BF0FA91B8086FD00FAF970 /* ScrollViewFrameAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FA61B8086FD00FAF970 /* ScrollViewFrameAccessor.m */; };
+		14BF0FAA1B8086FD00FAF970 /* ViewFrameAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FA81B8086FD00FAF970 /* ViewFrameAccessor.m */; };
+		14BF0FAD1B80870F00FAF970 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FAC1B80870F00FAF970 /* DACircularProgressView.m */; };
+		14BF0FB11B80A1EA00FAF970 /* SMValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FB01B80A1EA00FAF970 /* SMValidation.m */; };
+		14BF0FB41B80A20E00FAF970 /* SMHttpDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FB31B80A20E00FAF970 /* SMHttpDataManager.m */; };
+		14BF0FB71B80A39200FAF970 /* SMErr.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BF0FB61B80A39200FAF970 /* SMErr.m */; };
 		14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */; };
 		14CE72DC1B6B315300D7F3B6 /* SMCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DB1B6B315300D7F3B6 /* SMCategoriesViewController.m */; };
 		14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE72DF1B6B317C00D7F3B6 /* SMNotificationViewController.m */; };
@@ -34,7 +43,6 @@
 		14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CE72E41B6B31B300D7F3B6 /* SMAboutViewController.xib */; };
 		14E78F911B78E79E00523970 /* SMLeftSideViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E78F8F1B78E79E00523970 /* SMLeftSideViewTableViewCell.m */; };
 		14E78F921B78E79E00523970 /* SMLeftSideViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E78F901B78E79E00523970 /* SMLeftSideViewTableViewCell.xib */; };
-		14E78F951B78E7B400523970 /* SMHttpDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E78F941B78E7B400523970 /* SMHttpDataManager.m */; };
 		14E78F9C1B78E7C600523970 /* NSURL+SMURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E78F971B78E7C600523970 /* NSURL+SMURL.m */; };
 		14E78F9D1B78E7C600523970 /* NSUserDefaults+SMUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E78F991B78E7C600523970 /* NSUserDefaults+SMUserDefaults.m */; };
 		14E78F9E1B78E7C600523970 /* UIColor+SMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E78F9B1B78E7C600523970 /* UIColor+SMColor.m */; };
@@ -77,10 +85,17 @@
 		141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDrawerVisualStateManager.m; path = SMVisualStateManager/SMDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		1420435C1B7219900092A6D7 /* SMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUser.h; path = Model/User/SMUser.h; sourceTree = "<group>"; };
 		1420435D1B7219900092A6D7 /* SMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUser.m; path = Model/User/SMUser.m; sourceTree = "<group>"; };
+		146A10571B80813D00176D7A /* SCBubbleRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCBubbleRefreshView.h; path = UILib/SCPullRefresh/SCBubbleRefreshView.h; sourceTree = "<group>"; };
+		146A10581B80813D00176D7A /* SCBubbleRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCBubbleRefreshView.m; path = UILib/SCPullRefresh/SCBubbleRefreshView.m; sourceTree = "<group>"; };
+		146A10591B80813D00176D7A /* SCCircularRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCCircularRefreshView.h; path = UILib/SCPullRefresh/SCCircularRefreshView.h; sourceTree = "<group>"; };
+		146A105A1B80813D00176D7A /* SCCircularRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCCircularRefreshView.m; path = UILib/SCPullRefresh/SCCircularRefreshView.m; sourceTree = "<group>"; };
+		146A105B1B80813D00176D7A /* SCPullRefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCPullRefreshViewController.h; path = UILib/SCPullRefresh/SCPullRefreshViewController.h; sourceTree = "<group>"; };
+		146A105C1B80813D00176D7A /* SCPullRefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCPullRefreshViewController.m; path = UILib/SCPullRefresh/SCPullRefreshViewController.m; sourceTree = "<group>"; };
+		146A10601B80814700176D7A /* CAAnimation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAAnimation+Blocks.h"; path = "UILib/SCPullRefresh/CAAnimationBlocks/CAAnimation+Blocks.h"; sourceTree = "<group>"; };
+		146A10611B80814700176D7A /* CAAnimation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+Blocks.m"; path = "UILib/SCPullRefresh/CAAnimationBlocks/CAAnimation+Blocks.m"; sourceTree = "<group>"; };
 		1474587C1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLeftSideAvatarViewTableViewCell.h; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.h; sourceTree = "<group>"; };
 		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
-		14808F631B68CDF200813830 /* SCPullRefresh */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SCPullRefresh; path = UILib/SCPullRefresh; sourceTree = "<group>"; };
 		14A119D01B78EA1600319F45 /* UIViewController+SCCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SCCategorys.h"; path = "OC_Category/UIViewController+SCCategorys.h"; sourceTree = "<group>"; };
 		14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SCCategorys.m"; path = "OC_Category/UIViewController+SCCategorys.m"; sourceTree = "<group>"; };
 		14A119E61B7DBB5500319F45 /* SMTopicListFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicListFilter.h; path = Model/Topic/SMTopicListFilter.h; sourceTree = "<group>"; };
@@ -90,6 +105,19 @@
 		14AEBDC61B7328F600C3C42E /* SMPostTopicListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPostTopicListTableViewCell.h; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.h; sourceTree = "<group>"; };
 		14AEBDC71B7328F600C3C42E /* SMPostTopicListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPostTopicListTableViewCell.m; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.m; sourceTree = "<group>"; };
 		14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMPostTopicListTableViewCell.xib; path = CustomView/CustomCell/SMPostTopicListTableViewCell/SMPostTopicListTableViewCell.xib; sourceTree = "<group>"; };
+		14BF0FA41B8086FD00FAF970 /* FrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FrameAccessor.h; path = UILib/SCPullRefresh/Additions/FrameAccessor/FrameAccessor.h; sourceTree = "<group>"; };
+		14BF0FA51B8086FD00FAF970 /* ScrollViewFrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollViewFrameAccessor.h; path = UILib/SCPullRefresh/Additions/FrameAccessor/ScrollViewFrameAccessor.h; sourceTree = "<group>"; };
+		14BF0FA61B8086FD00FAF970 /* ScrollViewFrameAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollViewFrameAccessor.m; path = UILib/SCPullRefresh/Additions/FrameAccessor/ScrollViewFrameAccessor.m; sourceTree = "<group>"; };
+		14BF0FA71B8086FD00FAF970 /* ViewFrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewFrameAccessor.h; path = UILib/SCPullRefresh/Additions/FrameAccessor/ViewFrameAccessor.h; sourceTree = "<group>"; };
+		14BF0FA81B8086FD00FAF970 /* ViewFrameAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewFrameAccessor.m; path = UILib/SCPullRefresh/Additions/FrameAccessor/ViewFrameAccessor.m; sourceTree = "<group>"; };
+		14BF0FAB1B80870F00FAF970 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DACircularProgressView.h; path = UILib/SCPullRefresh/Additions/DACircularProgress/DACircularProgressView.h; sourceTree = "<group>"; };
+		14BF0FAC1B80870F00FAF970 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DACircularProgressView.m; path = UILib/SCPullRefresh/Additions/DACircularProgress/DACircularProgressView.m; sourceTree = "<group>"; };
+		14BF0FAF1B80A1EA00FAF970 /* SMValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMValidation.h; path = SMNet/SMValidation/SMValidation.h; sourceTree = "<group>"; };
+		14BF0FB01B80A1EA00FAF970 /* SMValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMValidation.m; path = SMNet/SMValidation/SMValidation.m; sourceTree = "<group>"; };
+		14BF0FB21B80A20E00FAF970 /* SMHttpDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHttpDataManager.h; path = SMNet/SMHttpDataManager/SMHttpDataManager.h; sourceTree = "<group>"; };
+		14BF0FB31B80A20E00FAF970 /* SMHttpDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHttpDataManager.m; path = SMNet/SMHttpDataManager/SMHttpDataManager.m; sourceTree = "<group>"; };
+		14BF0FB51B80A39200FAF970 /* SMErr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMErr.h; sourceTree = "<group>"; };
+		14BF0FB61B80A39200FAF970 /* SMErr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMErr.m; sourceTree = "<group>"; };
 		14CE72D61B6B311F00D7F3B6 /* SMLatestPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLatestPostsViewController.h; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.h; sourceTree = "<group>"; };
 		14CE72D71B6B311F00D7F3B6 /* SMLatestPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLatestPostsViewController.m; path = SMViewControllers/SMLatestPostsViewController/SMLatestPostsViewController.m; sourceTree = "<group>"; };
 		14CE72DA1B6B315300D7F3B6 /* SMCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCategoriesViewController.h; path = SMViewControllers/SMCategoriesViewController/SMCategoriesViewController.h; sourceTree = "<group>"; };
@@ -102,8 +130,6 @@
 		14E78F8E1B78E79E00523970 /* SMLeftSideViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLeftSideViewTableViewCell.h; path = CustomView/CustomCell/SMLeftSideViewTableViewCell/SMLeftSideViewTableViewCell.h; sourceTree = "<group>"; };
 		14E78F8F1B78E79E00523970 /* SMLeftSideViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideViewTableViewCell/SMLeftSideViewTableViewCell.m; sourceTree = "<group>"; };
 		14E78F901B78E79E00523970 /* SMLeftSideViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideViewTableViewCell/SMLeftSideViewTableViewCell.xib; sourceTree = "<group>"; };
-		14E78F931B78E7B400523970 /* SMHttpDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMHttpDataManager.h; path = SMNet/SMHttpDataManager.h; sourceTree = "<group>"; };
-		14E78F941B78E7B400523970 /* SMHttpDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMHttpDataManager.m; path = SMNet/SMHttpDataManager.m; sourceTree = "<group>"; };
 		14E78F961B78E7C600523970 /* NSURL+SMURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+SMURL.h"; path = "OC_Category/NSURL+SMURL.h"; sourceTree = "<group>"; };
 		14E78F971B78E7C600523970 /* NSURL+SMURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+SMURL.m"; path = "OC_Category/NSURL+SMURL.m"; sourceTree = "<group>"; };
 		14E78F981B78E7C600523970 /* NSUserDefaults+SMUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+SMUserDefaults.h"; path = "OC_Category/NSUserDefaults+SMUserDefaults.h"; sourceTree = "<group>"; };
@@ -137,8 +163,8 @@
 		140403841B6B6C4B00DD4442 /* SMHttpDataManager */ = {
 			isa = PBXGroup;
 			children = (
-				14E78F931B78E7B400523970 /* SMHttpDataManager.h */,
-				14E78F941B78E7B400523970 /* SMHttpDataManager.m */,
+				14BF0FB21B80A20E00FAF970 /* SMHttpDataManager.h */,
+				14BF0FB31B80A20E00FAF970 /* SMHttpDataManager.m */,
 			);
 			name = SMHttpDataManager;
 			sourceTree = "<group>";
@@ -212,6 +238,7 @@
 		141A5BEF1B638FB900A5F666 /* SMNet */ = {
 			isa = PBXGroup;
 			children = (
+				14BF0FAE1B80A1BC00FAF970 /* SMValidation */,
 				140403841B6B6C4B00DD4442 /* SMHttpDataManager */,
 			);
 			name = SMNet;
@@ -344,6 +371,30 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		146A10551B80810800176D7A /* SCPullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				14BF0FA11B8086AE00FAF970 /* Additions */,
+				146A10571B80813D00176D7A /* SCBubbleRefreshView.h */,
+				146A10581B80813D00176D7A /* SCBubbleRefreshView.m */,
+				146A10591B80813D00176D7A /* SCCircularRefreshView.h */,
+				146A105A1B80813D00176D7A /* SCCircularRefreshView.m */,
+				146A105B1B80813D00176D7A /* SCPullRefreshViewController.h */,
+				146A105C1B80813D00176D7A /* SCPullRefreshViewController.m */,
+				146A10561B80810C00176D7A /* CAAnimationBlocks */,
+			);
+			name = SCPullRefresh;
+			sourceTree = "<group>";
+		};
+		146A10561B80810C00176D7A /* CAAnimationBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				146A10601B80814700176D7A /* CAAnimation+Blocks.h */,
+				146A10611B80814700176D7A /* CAAnimation+Blocks.m */,
+			);
+			name = CAAnimationBlocks;
+			sourceTree = "<group>";
+		};
 		1474587B1B6678F900B282D6 /* SMLeftSideAvatarViewTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,7 +408,7 @@
 		14808F621B68CDCF00813830 /* UILib */ = {
 			isa = PBXGroup;
 			children = (
-				14808F631B68CDF200813830 /* SCPullRefresh */,
+				146A10551B80810800176D7A /* SCPullRefresh */,
 			);
 			name = UILib;
 			sourceTree = "<group>";
@@ -370,6 +421,47 @@
 				14AEBDC81B7328F600C3C42E /* SMPostTopicListTableViewCell.xib */,
 			);
 			name = SMPostTopicListTableViewCell;
+			sourceTree = "<group>";
+		};
+		14BF0FA11B8086AE00FAF970 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				14BF0FA31B8086F000FAF970 /* FrameAccessor */,
+				14BF0FA21B8086E400FAF970 /* DACircularProgress */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
+		14BF0FA21B8086E400FAF970 /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				14BF0FAB1B80870F00FAF970 /* DACircularProgressView.h */,
+				14BF0FAC1B80870F00FAF970 /* DACircularProgressView.m */,
+			);
+			name = DACircularProgress;
+			sourceTree = "<group>";
+		};
+		14BF0FA31B8086F000FAF970 /* FrameAccessor */ = {
+			isa = PBXGroup;
+			children = (
+				14BF0FA41B8086FD00FAF970 /* FrameAccessor.h */,
+				14BF0FA51B8086FD00FAF970 /* ScrollViewFrameAccessor.h */,
+				14BF0FA61B8086FD00FAF970 /* ScrollViewFrameAccessor.m */,
+				14BF0FA71B8086FD00FAF970 /* ViewFrameAccessor.h */,
+				14BF0FA81B8086FD00FAF970 /* ViewFrameAccessor.m */,
+			);
+			name = FrameAccessor;
+			sourceTree = "<group>";
+		};
+		14BF0FAE1B80A1BC00FAF970 /* SMValidation */ = {
+			isa = PBXGroup;
+			children = (
+				14BF0FAF1B80A1EA00FAF970 /* SMValidation.h */,
+				14BF0FB01B80A1EA00FAF970 /* SMValidation.m */,
+				14BF0FB51B80A39200FAF970 /* SMErr.h */,
+				14BF0FB61B80A39200FAF970 /* SMErr.m */,
+			);
+			name = SMValidation;
 			sourceTree = "<group>";
 		};
 		14CE72D51B6B30D600D7F3B6 /* SMLatestPostsViewController */ = {
@@ -524,7 +616,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */,
-				14808F641B68CDF200813830 /* SCPullRefresh in Resources */,
 				14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */,
 				14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */,
 				141A5BD01B63187700A5F666 /* Main.storyboard in Resources */,
@@ -581,28 +672,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				146A105D1B80813D00176D7A /* SCBubbleRefreshView.m in Sources */,
 				141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */,
 				14A119EB1B7DBB7800319F45 /* SMTopic.m in Sources */,
+				14BF0FB71B80A39200FAF970 /* SMErr.m in Sources */,
 				14E78F911B78E79E00523970 /* SMLeftSideViewTableViewCell.m in Sources */,
 				14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */,
 				14E78F9E1B78E7C600523970 /* UIColor+SMColor.m in Sources */,
+				14BF0FB11B80A1EA00FAF970 /* SMValidation.m in Sources */,
 				141A5C041B639DF200A5F666 /* SMHostViewController.m in Sources */,
 				14E78F9D1B78E7C600523970 /* NSUserDefaults+SMUserDefaults.m in Sources */,
 				14E78F9C1B78E7C600523970 /* NSURL+SMURL.m in Sources */,
 				14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */,
+				146A105F1B80813D00176D7A /* SCPullRefreshViewController.m in Sources */,
 				14A119E81B7DBB5500319F45 /* SMTopicListFilter.m in Sources */,
+				14BF0FA91B8086FD00FAF970 /* ScrollViewFrameAccessor.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
+				14BF0FB41B80A20E00FAF970 /* SMHttpDataManager.m in Sources */,
 				14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */,
 				1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */,
-				14E78F951B78E7B400523970 /* SMHttpDataManager.m in Sources */,
 				141A5BFC1B639B3500A5F666 /* SMBaseViewController.m in Sources */,
 				14CE72DC1B6B315300D7F3B6 /* SMCategoriesViewController.m in Sources */,
+				14BF0FAD1B80870F00FAF970 /* DACircularProgressView.m in Sources */,
 				14A119D21B78EA1600319F45 /* UIViewController+SCCategorys.m in Sources */,
 				141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */,
 				14CE72E51B6B31B300D7F3B6 /* SMAboutViewController.m in Sources */,
 				141A5C001B639BDD00A5F666 /* AppDelegate.m in Sources */,
+				14BF0FAA1B8086FD00FAF970 /* ViewFrameAccessor.m in Sources */,
 				1420435E1B7219900092A6D7 /* SMUser.m in Sources */,
 				141A5C081B639EC100A5F666 /* SMSideDrawerViewController.m in Sources */,
+				146A10621B80814700176D7A /* CAAnimation+Blocks.m in Sources */,
+				146A105E1B80813D00176D7A /* SCCircularRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

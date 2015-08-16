@@ -21,7 +21,6 @@
         _token      = dic[@"token"];
         _avatar     = dic[@"avatar"];
         
-        [self saveToUserDefault];
     }
     
     return self;

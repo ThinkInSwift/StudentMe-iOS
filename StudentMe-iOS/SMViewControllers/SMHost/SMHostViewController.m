@@ -11,10 +11,11 @@
 #import "SMPostTopicListTableViewCell.h"
 
 #import <UIViewController+MMDrawerController.h>
+#import "UIViewController+SCCategorys.h"
 #import <UIBarButtonItem+BlocksKit.h>
 
 
-@interface SMHostViewController ()
+@interface SMHostViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -37,7 +38,7 @@
 
 - (void)setUp {
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.tableView setEstimatedRowHeight:[SMPostTopicListTableViewCell height]];
@@ -52,16 +53,31 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
         [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     }];
+    
+    self.refreshBlock = ^{
+        [weakSelf initData];
+    };
+    
+    self.loadMoreBlock = ^{
+        
+        __strong typeof(self) strongSelf = weakSelf;
+        
+        [strongSelf performSelector:@selector(endLoadMore) withObject:strongSelf afterDelay:2.0];
+        
+    };
 }
 
 - (void)initData {
     __weak typeof(self) weakSelf = self;
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
         weakSelf.dataSource = x;
         [weakSelf.tableView reloadData];
+        [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
+        [weakSelf showAlertWithMessage:error.userInfo[@"info"]];
+        [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } completed:^{
         NSLog(@"completed");
     }];

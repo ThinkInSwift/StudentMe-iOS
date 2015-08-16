@@ -7,6 +7,7 @@
 //
 
 #import "SMHttpDataManager.h"
+#import "SMValidation.h"
 
 
 @implementation SMHttpDataManager
@@ -21,7 +22,6 @@
 
 - (void)configureSessionManager {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    [config setHTTPAdditionalHeaders:@{@"Content-Type":@"application/json"}];
     self.manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:config];
     
     self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:@[@"text/html"]];
@@ -53,9 +53,15 @@
         @strongify(self);
         [self.manager POST:[NSURL smLoginString] parameters:data
                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                       self.user = [[SMUser alloc] initWithHttpResponseData:responseObject];
-                       [subscriber sendNext:responseObject];
-                       [subscriber sendCompleted];
+                       if ([SMValidation isFailLoginWithResp:responseObject]) {
+                           [subscriber sendError:[SMErr errWithErrCode:SMRespErrCodeLoginPwdNotRight]];
+                       } else {
+                           self.user = [[SMUser alloc] initWithHttpResponseData:responseObject];
+                           [self.user saveToUserDefault];
+                           [subscriber sendNext:responseObject];
+                           [subscriber sendCompleted];
+                       }
+                       
         }
                    failure:^(NSURLSessionDataTask *task, NSError *error) {
                        [subscriber sendError:error];
@@ -101,11 +107,11 @@
         [self.manager POST:[NSURL smForumTopiclistString]
                 parameters:[self configureTokenAndSecretWithDic:[filter convertObjectToDict:filter]]
                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                       if (!responseObject[@"list"] || [responseObject[@"list"] count] == 0) {
+                       if ([SMValidation isNeedLoginWithResp:responseObject]) {
                            NSError *err = [[NSError alloc] initWithDomain:@"forumTopiclistWithFilter"
-                                                                     code:10001
+                                                                     code:SMRespErrCodeNeedLogin
                                                                  userInfo:@{
-                                                                            @"info":@"获取失败"
+                                                                            @"info":[SMErr errMessage:SMRespErrCodeNeedLogin]
                                                                            }];
                            [subscriber sendError:err];
                        } else {
@@ -139,11 +145,14 @@
 
 - (NSDictionary *)configureTokenAndSecretWithDic:(NSDictionary *)dict {
     NSMutableDictionary *mutableDic = [dict mutableCopy];
-    if (!self.user) {
+    if (!self.user || !self.user.token) {
         self.user = [SMUser userFromUserDefault];
     }
-    [mutableDic setObject:self.user.token forKey:@"accessToken"];
-    [mutableDic setObject:self.user.secret forKey:@"accessSecret"];
+    if (self.user.token || self.user.secret) {
+        [mutableDic setObject:self.user.token forKey:@"accessToken"];
+        [mutableDic setObject:self.user.secret forKey:@"accessSecret"];
+    }
+    
     
     return [mutableDic copy];
 }
