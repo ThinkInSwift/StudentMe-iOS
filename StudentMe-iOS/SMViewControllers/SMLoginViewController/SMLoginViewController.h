@@ -9,6 +9,6 @@
 #import "SMBaseViewController.h"
 
 @interface SMLoginViewController : SMBaseViewController <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
