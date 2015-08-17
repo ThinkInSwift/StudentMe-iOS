@@ -12,7 +12,7 @@
 + (NSString *)errMessage:(NSUInteger)errcode {
     switch (errcode) {
         case SMRespErrCodeNeedLogin: return @"抱歉，您尚未登录，没有权限访问该版块";
-            
+        case SMRespErrCodeLoginPwdNotRight: return @"用户名或者密码错误";
             
         default:return @"未知错误";
             
@@ -20,7 +20,7 @@
 }
 
 + (NSError *)errWithErrCode:(NSUInteger)errcode {
-    NSError *err = [[NSError alloc] initWithDomain:nil code:errcode userInfo:@{@"info":[self errMessage:errcode]}];
+    NSError *err = [[NSError alloc] initWithDomain:[self errMessage:errcode] code:errcode userInfo:@{@"info":[self errMessage:errcode]}];
     
     return err;
 }

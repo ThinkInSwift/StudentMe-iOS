@@ -8,10 +8,14 @@
 
 #import "SMLoginViewController.h"
 #import "SMLoginInputTableViewCell.h"
+#import "SMHttpDataManager.h"
 
+#import "UIViewController+SCCategorys.h"
 
 #import <UIBarButtonItem+BlocksKit.h>
 #import <Masonry/Masonry.h>
+#import <MBProgressHUD.h>
+
 
 static NSString *const identifier = @"SMLoginInputTableViewCell";
 
@@ -21,6 +25,7 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
 
 @implementation SMLoginViewController {
     RACSignal *nameSignal, *passwordSignal, *btnSignal;
+    NSString *name, *pwd;
 }
 
 - (void)viewDidLoad {
@@ -55,8 +60,10 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
     
     
     btnSignal = [self.btn_login rac_signalForControlEvents:UIControlEventTouchUpInside];
+    @weakify(self);
     [btnSignal subscribeNext:^(id x) {
-        NSLog(@"Btn tapped");
+        @strongify(self);
+        [self willLogin];
     }];
     
 }
@@ -88,8 +95,9 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
                     return @YES;
                 }
             }];
-            
-            
+            [[cell configureWithStyle:indexPath.row] subscribeNext:^(id x) {
+                name = x;
+            }];
 
             break;
         }
@@ -101,6 +109,10 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
                     return @YES;
                 }
 
+            }];
+            
+            [[cell configureWithStyle:indexPath.row] subscribeNext:^(id x) {
+                pwd = x;
             }];
             break;
         }
@@ -131,6 +143,25 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
     return cell;
 }
 
+- (void)willLogin {
+    @weakify(self);
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:indicator];
+    [indicator setFrame:self.btn_login.frame];
+    [indicator startAnimating];
+    self.btn_login.hidden = YES;
+    [[[SMHttpDataManager sharedManager] LoginWithUsername:name password:pwd] subscribeNext:^(id x) {
+        @strongify(self);
+        [indicator removeFromSuperview];
+        [self showHudWithMessage:@"登录成功"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } error:^(NSError *error) {
+        @strongify(self);
+        self.btn_login.hidden = NO;
+        [indicator removeFromSuperview];
+        [self showAlertWithMessage:error.userInfo[@"info"]];
+    }];
+}
 
 
 @end
