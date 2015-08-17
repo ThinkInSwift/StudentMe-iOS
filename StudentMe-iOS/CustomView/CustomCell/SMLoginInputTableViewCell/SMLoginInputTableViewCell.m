@@ -20,7 +20,7 @@
     // Configure the view for the selected state
 }
 
-- (void)configureWithStyle:(SMLoginInputCellStyle)style {
+- (RACSignal *)configureWithStyle:(SMLoginInputCellStyle)style {
     switch (style) {
         case SMLoginInputCellStyleName: {
             self.title.text = @"用户名";
@@ -30,11 +30,13 @@
         case SMLoginInputCellStylePassword: {
             self.title.text = @"密码";
             self.input.placeholder = @"required";
+            self.input.secureTextEntry = YES;
             break;
         }
         default:
             break;
     }
+    return self.input.rac_textSignal;
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <ReactiveCocoa/ReactiveCocoa.h>
 typedef NS_ENUM(NSInteger, SMLoginInputCellStyle) {
     SMLoginInputCellStyleName,
     SMLoginInputCellStylePassword
@@ -17,5 +17,5 @@ typedef NS_ENUM(NSInteger, SMLoginInputCellStyle) {
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UITextField *input;
 
-- (void)configureWithStyle:(SMLoginInputCellStyle)style;
+- (RACSignal *)configureWithStyle:(SMLoginInputCellStyle)style;
 @end

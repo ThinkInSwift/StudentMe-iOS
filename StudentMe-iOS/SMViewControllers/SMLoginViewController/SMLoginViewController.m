@@ -9,7 +9,7 @@
 #import "SMLoginViewController.h"
 #import "SMLoginInputTableViewCell.h"
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
+
 #import <UIBarButtonItem+BlocksKit.h>
 #import <Masonry/Masonry.h>
 
@@ -19,7 +19,9 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
 
 @end
 
-@implementation SMLoginViewController
+@implementation SMLoginViewController {
+    RACSignal *nameSignal, *passwordSignal, *btnSignal;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +36,6 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
     
     self.navigationItem.leftBarButtonItem = btn_cancel;
     
-    self.title = @"登录";
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -43,10 +44,21 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
          forCellReuseIdentifier:identifier];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.view).with.offset(130);
+        make.top.equalTo(weakSelf.view).with.offset(120);
         make.height.equalTo(@82);
         make.width.equalTo(weakSelf.view);
     }];
+    
+    [self.btn_login mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.tableView.mas_bottom).with.offset(10);
+    }];
+    
+    
+    btnSignal = [self.btn_login rac_signalForControlEvents:UIControlEventTouchUpInside];
+    [btnSignal subscribeNext:^(id x) {
+        NSLog(@"Btn tapped");
+    }];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -67,7 +79,55 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
     if (!cell) {
         cell = [[SMLoginInputTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    [cell configureWithStyle:indexPath.row];
+    switch (indexPath.row) {
+        case 0: {
+            nameSignal = [[cell configureWithStyle:indexPath.row] map:^id(id value) {
+                if (!value ||[(NSString *)value length] == 0) {
+                    return @NO;
+                } else {
+                    return @YES;
+                }
+            }];
+            
+            
+
+            break;
+        }
+        case 1: {
+            passwordSignal = [[cell configureWithStyle:indexPath.row] map:^id(id value) {
+                if (!value ||[(NSString *)value length] == 0) {
+                    return @NO;
+                } else {
+                    return @YES;
+                }
+
+            }];
+            break;
+        }
+        default:
+            break;
+    }
+    
+    if (!nameSignal || !passwordSignal) {
+        return cell;
+    }
+    
+    RACSignal *validInputSignal = [RACSignal combineLatest:@[nameSignal, passwordSignal] reduce:^id(NSNumber *nameBool, NSNumber *pwdBool){
+        return @([nameBool boolValue] && [pwdBool boolValue]);
+    }];
+    
+    RAC(self.btn_login, alpha) =
+    [validInputSignal map:^id(NSNumber *value) {
+        return [value boolValue] ? @1.0 : @0.3;
+
+    }];
+    
+    RAC(self.btn_login, enabled) =
+    [validInputSignal map:^id(NSNumber *value) {
+        return value;
+    }];
+    
+    
     return cell;
 }
 

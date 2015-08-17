@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SMLoginViewController">
             <connections>
+                <outlet property="btn_login" destination="Tk8-SO-0wu" id="Bop-vb-Jw0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,12 +21,20 @@
                     <color key="textColor" red="0.49019607840000001" green="0.7843137255" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tk8-SO-0wu">
+                    <rect key="frame" x="277" y="263" width="46" height="30"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" red="0.50196078430000002" green="0.78823529410000004" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="NLw-it-Gey" secondAttribute="trailing" constant="20" id="17m-BW-v5h"/>
+                <constraint firstAttribute="centerX" secondItem="Tk8-SO-0wu" secondAttribute="centerX" id="TFn-Zx-Cr4"/>
                 <constraint firstItem="NLw-it-Gey" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fbi-e0-wVh"/>
-                <constraint firstItem="NLw-it-Gey" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="sBS-5X-PdP"/>
+                <constraint firstItem="NLw-it-Gey" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="sBS-5X-PdP"/>
                 <constraint firstItem="NLw-it-Gey" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="199" id="veb-BV-ugq"/>
             </constraints>
             <variation key="default">

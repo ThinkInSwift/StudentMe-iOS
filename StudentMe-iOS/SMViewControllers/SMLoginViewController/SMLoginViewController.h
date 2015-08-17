@@ -10,5 +10,6 @@
 
 @interface SMLoginViewController : SMBaseViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *btn_login;
 
 @end
