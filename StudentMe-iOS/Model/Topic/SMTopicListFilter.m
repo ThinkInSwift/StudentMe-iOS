@@ -43,15 +43,15 @@
     return self;
 }
 
-- (NSDictionary *) convertObjectToDict:(SMTopicListFilter *)object {
-    NSDictionary *dict = @{@"boardId":[NSString stringWithFormat:@"%ld", (long)object.boardId],
-                           @"page":object.page,
-                           @"pageSize":object.pageSize,
-                           @"sortby":object.sortBy,
-                           @"filterType":object.filterType,
-                           @"filterId":object.filterId,
-                           @"isImageList":object.isImageList,
-                           @"topOrder":object.topOrder,
+- (NSDictionary *) convertObjectToDict {
+    NSDictionary *dict = @{@"boardId":[NSString stringWithFormat:@"%ld", (long)self.boardId],
+                           @"page":self.page,
+                           @"pageSize":self.pageSize,
+                           @"sortby":self.sortBy,
+                           @"filterType":self.filterType,
+                           @"filterId":self.filterId,
+                           @"isImageList":self.isImageList,
+                           @"topOrder":self.topOrder,
                            };
     
     

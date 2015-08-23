@@ -35,4 +35,10 @@
  */
 
 - (RACSignal *)forumTopiclistWithFilter:(SMTopicListFilter *)filter;
+
+/**
+ *  获取某个帖子的回复列表
+ */
+
+- (RACSignal *)forumPostlistWithTopicId:(NSString *)topicId page:(NSString *)page;
 @end

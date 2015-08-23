@@ -18,4 +18,5 @@
 #pragma mark - post
 + (NSString *)smForumlistString;
 + (NSString *)smForumTopiclistString;
++ (NSString *)smForumPostlistString;
 @end

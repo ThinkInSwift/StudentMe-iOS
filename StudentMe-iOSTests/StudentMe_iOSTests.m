@@ -86,10 +86,18 @@
 
 - (void)testTopicList {
     XCTestExpectation *expectation = [self expectationWithDescription:@"test testTopicList async handle"];
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
-        SMTopic *topic = [[SMTopic alloc] initWithDictionary:x[@"list"][0]];
-        NSLog(@"topic is %@", topic);
+        SMTopic *topic = [[SMTopic alloc] initWithDictionary:x[1]];
+        NSLog(@"topicId is %@", topic.topicId);
+        
+        [[[SMHttpDataManager sharedManager] forumPostlistWithTopicId:topic.topicId page:@"20"] subscribeNext:^(id x) {
+            NSLog(@"post list is %@", x);
+        } error:^(NSError *error) {
+            NSLog(@"post list erri is %@", error);
+        } completed:^{
+            NSLog(@"post list succ");
+        }];
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
     } completed:^{

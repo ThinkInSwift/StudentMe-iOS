@@ -63,7 +63,7 @@
         _boardId = dict[@"board_id"];
         _gender = dict[@"gender"];
         _replies = dict[@"replies"];
-        _topicId = dict[@"topic_id"];
+        _topicId = [NSString stringWithFormat:@"%@", dict[@"topic_id"]];
         _userId = dict[@"user_id"];
         _lastReplyDate = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"last_reply_date"] integerValue]/1000.0];
         

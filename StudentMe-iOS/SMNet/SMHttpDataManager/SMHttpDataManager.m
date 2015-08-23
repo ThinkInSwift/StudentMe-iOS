@@ -105,7 +105,7 @@
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
         [self.manager POST:[NSURL smForumTopiclistString]
-                parameters:[self configureTokenAndSecretWithDic:[filter convertObjectToDict:filter]]
+                parameters:[self configureTokenAndSecretWithDic:[filter convertObjectToDict]]
                    success:^(NSURLSessionDataTask *task, id responseObject) {
                        if ([SMValidation isNeedLoginWithResp:responseObject]) {
                            NSError *err = [[NSError alloc] initWithDomain:@"forumTopiclistWithFilter"
@@ -130,6 +130,38 @@
     }] replayLazily];
 }
 
+- (RACSignal *)forumPostlistWithTopicId:(NSString *)topicId page:(NSString *)page {
+    NSDictionary *dict = [self configureTokenAndSecretWithDic:@{@"topicId" : topicId,
+                                                                @"page" : page,
+                                                                @"authorId" : @"0",//只看楼主
+                                                                @"order" : @"0",//排列顺序
+                                                                @"pageSize" : @"20"}];
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [self.manager POST:[NSURL smForumPostlistString] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"forumPostlistWithTopicId succ response is %@", responseObject);
+            if ([SMValidation isNeedLoginWithResp:responseObject]) {
+                NSError *err = [[NSError alloc] initWithDomain:@"forumTopiclistWithFilter"
+                                                          code:SMRespErrCodeNeedLogin
+                                                      userInfo:@{
+                                                                 @"info":[SMErr errMessage:SMRespErrCodeNeedLogin]
+                                                                 }];
+                [subscriber sendError:err];
+            } else {
+                [subscriber sendNext:responseObject[@"list"]];
+                [subscriber sendCompleted];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        
+        
+        return [RACDisposable disposableWithBlock:^{
+            //
+        }];
+    }];
+}
 
 #pragma mark - private methods
 
