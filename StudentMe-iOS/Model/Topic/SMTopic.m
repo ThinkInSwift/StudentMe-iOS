@@ -60,11 +60,11 @@
         _title = dict[@"title"];
         _userAvatar = [NSURL URLWithString:dict[@"userAvatar"]];
         _userNickName = dict[@"user_nick_name"];
-        _boardId = dict[@"board_id"];
+        _boardId = [NSString stringWithFormat:@"%@",dict[@"board_id"]];
         _gender = dict[@"gender"];
-        _replies = dict[@"replies"];
+        _replies = [NSString stringWithFormat:@"%@",dict[@"replies"]];
         _topicId = [NSString stringWithFormat:@"%@", dict[@"topic_id"]];
-        _userId = dict[@"user_id"];
+        _userId = [NSString stringWithFormat:@"%@",dict[@"user_id"]];
         _lastReplyDate = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"last_reply_date"] integerValue]/1000.0];
         
         if ([_userNickName isEqualToString:@"Seanchense"]) {
