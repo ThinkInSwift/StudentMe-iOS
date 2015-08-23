@@ -9,13 +9,14 @@
 #import "SMHostViewController.h"
 #import "SMHttpDataManager.h"
 #import "SMPostTopicListTableViewCell.h"
+#import "SMPostTopicReplyListViewController.h"
 
 #import <UIViewController+MMDrawerController.h>
 #import "UIViewController+SCCategorys.h"
 #import <UIBarButtonItem+BlocksKit.h>
 
 
-@interface SMHostViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface SMHostViewController () 
 
 @end
 
@@ -125,6 +126,12 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SMTopic *topic = [[SMTopic alloc] initWithDictionary:self.dataSource[indexPath.row]];
+    SMPostTopicReplyListViewController *vc = [[SMPostTopicReplyListViewController alloc] initWithTopic:topic];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end
 

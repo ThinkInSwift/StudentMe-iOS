@@ -8,7 +8,7 @@
 
 #import "SCPullRefreshViewController.h"
 
-@interface SMHostViewController : SCPullRefreshViewController 
+@interface SMHostViewController : SCPullRefreshViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray *dataSource;
 
 
