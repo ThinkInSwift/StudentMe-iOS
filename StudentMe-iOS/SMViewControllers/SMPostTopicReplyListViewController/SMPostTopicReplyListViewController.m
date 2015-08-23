@@ -10,12 +10,13 @@
 #import "SMHttpDataManager.h"
 #import "SMPostTopicReplyListTableViewCell.h"
 #import "SMTopic.h"
+#import "SMTopicReply.h"
 
 #import "UIViewController+SCCategorys.h"
 #import <UIBarButtonItem+BlocksKit.h>
 
 @interface SMPostTopicReplyListViewController ()
-
+@property (strong, nonatomic) SMTopic *topic;
 @end
 
 @implementation SMPostTopicReplyListViewController
@@ -24,7 +25,7 @@
     self = [self init];
     if (self) {
         _dataSource = [@[] mutableCopy];
-        [_dataSource addObject:topic];//暂时
+        _topic      = topic;
     }
     return self;
 }
@@ -64,7 +65,16 @@
 }
 
 - (void)initData {
-    
+    @weakify(self);
+    [[[SMHttpDataManager sharedManager] forumPostlistWithTopicId:self.topic.topicId page:@"1"] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.dataSource addObjectsFromArray:x[@"list"]];
+    } error:^(NSError *error) {
+        //
+    } completed:^{
+        @strongify(self);
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -99,7 +109,8 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     }
     
-    
+    SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:self.dataSource[indexPath.row]];
+    [cell configureCellWithReply:reply];
     return cell;
 }
 

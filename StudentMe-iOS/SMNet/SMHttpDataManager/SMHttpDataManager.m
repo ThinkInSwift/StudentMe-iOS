@@ -149,7 +149,7 @@
                                                                  }];
                 [subscriber sendError:err];
             } else {
-                [subscriber sendNext:responseObject[@"list"]];
+                [subscriber sendNext:responseObject];
                 [subscriber sendCompleted];
             }
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
