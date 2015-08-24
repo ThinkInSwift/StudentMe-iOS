@@ -133,7 +133,7 @@
 - (RACSignal *)forumPostlistWithTopicId:(NSString *)topicId page:(NSString *)page {
     NSDictionary *dict = [self configureTokenAndSecretWithDic:@{@"topicId" : topicId,
                                                                 @"page" : page,
-                                                                @"authorId" : @"0",//只看楼主
+                                                                @"authorId" : @"0",//只看该作者
                                                                 @"order" : @"0",//排列顺序
                                                                 @"pageSize" : @"20"}];
     @weakify(self);

@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMAutoSizeLabel.h"
 @class SMTopicReply;
 
 @interface SMPostTopicReplyListTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *replyContentLabel;
+@property (weak, nonatomic) IBOutlet SMAutoSizeLabel *replyContentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *replyDateLabel;
 
 - (void)configureCellWithReply:(SMTopicReply *)reply;

@@ -26,10 +26,11 @@
 
 - (void)configureCellWithReply:(SMTopicReply *)reply {
     [self.iconImgView sd_setImageWithURL:reply.icon];
-    self.userNameLabel.text = reply.replyContent;
+    self.userNameLabel.text = reply.replyName;
     self.replyContentLabel.text = reply.replyContent;
     self.replyDateLabel.text    = [reply.postsDate timeAgo];
 }
+
 
 + (CGFloat)height {
     return 60.f;
