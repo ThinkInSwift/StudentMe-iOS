@@ -56,11 +56,12 @@
 - (instancetype)initWithTopic:(NSDictionary *)topicDict {
     self = [self init];
     if (self) {
-//        self.icon           = [NSURL URLWithString:dict[@"userAvatar"]];
-//        self.replyName      = topic.userNickName;
-//        self.replyPostId    = topic.topicId;
-//        self.replyId        = topic.userId;
-//        self.replyContent   = topic.title;
+        _icon           = [NSURL URLWithString:topicDict[@"icon"]];
+        _replyName      = topicDict[@"user_nick_name"];
+        _replyId        = [NSString stringWithFormat:@"%@", topicDict[@"user_id"]];
+        _replyPostId    = [NSString stringWithFormat:@"%@", topicDict[@"topic_id"]];
+        _replyContent   = [self replyContent:topicDict[@"content"]];
+        _postsDate      = [NSDate dateWithTimeIntervalSince1970:[(NSString *)topicDict[@"create_date"] integerValue]/1000.0];
         
     }
     return self;
@@ -76,6 +77,10 @@
         _replyContent   = [self replyContent:dict[@"reply_content"]];
         _quoteUserName  = [self quoteUserNameWithQuoteContent:dict[@"quote_content"]];
         _postsDate      = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"posts_date"] integerValue]/1000.0];
+        if (_quoteUserName) {
+            _replyContent   = [_quoteUserName stringByAppendingString:_replyContent];
+        }
+        
     }
     return self;
 }
@@ -100,6 +105,6 @@
     }
     
     userName = strs[0];
-    return [@"@" stringByAppendingString:userName];
+    return [[@"@" stringByAppendingString:userName] stringByAppendingString:@" "];
 }
 @end

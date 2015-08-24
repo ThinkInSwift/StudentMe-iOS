@@ -62,13 +62,21 @@
         [strongSelf performSelector:@selector(endLoadMore) withObject:strongSelf afterDelay:2.0];
         
     };
+    
+    self.title = self.topic.title;
 }
 
 - (void)initData {
     @weakify(self);
     [[[SMHttpDataManager sharedManager] forumPostlistWithTopicId:self.topic.topicId page:@"1"] subscribeNext:^(id x) {
         @strongify(self);
-        [self.dataSource addObjectsFromArray:x[@"list"]];
+        for (NSDictionary *dict in x[@"list"]) {
+            SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:dict];
+            [self.dataSource addObject:reply];
+        }
+        SMTopicReply *reply = [[SMTopicReply alloc] initWithTopic:x[@"topic"]];
+        [self.dataSource insertObject:reply atIndex:0];
+        
     } error:^(NSError *error) {
         //
     } completed:^{
@@ -99,6 +107,7 @@
     return [SMPostTopicReplyListTableViewCell height];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"SMPostTopicReplyListTableViewCell";
     
@@ -109,7 +118,7 @@
         [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     }
     
-    SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:self.dataSource[indexPath.row]];
+    SMTopicReply *reply = self.dataSource[indexPath.row];
     [cell configureCellWithReply:reply];
     return cell;
 }
