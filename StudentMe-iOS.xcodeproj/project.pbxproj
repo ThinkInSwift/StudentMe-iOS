@@ -26,6 +26,8 @@
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		14874A621B8AC42700F0FF99 /* SMAutoSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */; };
+		14874A671B8B11B300F0FF99 /* SMWriteReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A651B8B11B300F0FF99 /* SMWriteReplyViewController.m */; };
+		14874A681B8B11B300F0FF99 /* SMWriteReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14874A661B8B11B300F0FF99 /* SMWriteReplyViewController.xib */; };
 		14A119D21B78EA1600319F45 /* UIViewController+SCCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */; };
 		14A119E81B7DBB5500319F45 /* SMTopicListFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119E71B7DBB5500319F45 /* SMTopicListFilter.m */; };
 		14A119EB1B7DBB7800319F45 /* SMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119EA1B7DBB7800319F45 /* SMTopic.m */; };
@@ -108,6 +110,9 @@
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
 		14874A601B8AC42700F0FF99 /* SMAutoSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAutoSizeLabel.h; path = CustomView/SMAutoSizeLabel/SMAutoSizeLabel.h; sourceTree = "<group>"; };
 		14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAutoSizeLabel.m; path = CustomView/SMAutoSizeLabel/SMAutoSizeLabel.m; sourceTree = "<group>"; };
+		14874A641B8B11B300F0FF99 /* SMWriteReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWriteReplyViewController.h; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.h; sourceTree = "<group>"; };
+		14874A651B8B11B300F0FF99 /* SMWriteReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWriteReplyViewController.m; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.m; sourceTree = "<group>"; };
+		14874A661B8B11B300F0FF99 /* SMWriteReplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMWriteReplyViewController.xib; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.xib; sourceTree = "<group>"; };
 		14A119D01B78EA1600319F45 /* UIViewController+SCCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SCCategorys.h"; path = "OC_Category/UIViewController+SCCategorys.h"; sourceTree = "<group>"; };
 		14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SCCategorys.m"; path = "OC_Category/UIViewController+SCCategorys.m"; sourceTree = "<group>"; };
 		14A119E61B7DBB5500319F45 /* SMTopicListFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicListFilter.h; path = Model/Topic/SMTopicListFilter.h; sourceTree = "<group>"; };
@@ -273,6 +278,7 @@
 		141A5BF41B639A8C00A5F666 /* SMViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				14874A631B8B118200F0FF99 /* SMWriteReplyViewController */,
 				14D99EF91B89AD0600C0965D /* SMPostTopicReplyListViewController */,
 				14BF0FB81B80B8C800FAF970 /* SMLoginViewController */,
 				14CE72E11B6B318900D7F3B6 /* SMAboutViewController */,
@@ -453,6 +459,16 @@
 				14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */,
 			);
 			name = SMAutoSizeLabel;
+			sourceTree = "<group>";
+		};
+		14874A631B8B118200F0FF99 /* SMWriteReplyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14874A641B8B11B300F0FF99 /* SMWriteReplyViewController.h */,
+				14874A651B8B11B300F0FF99 /* SMWriteReplyViewController.m */,
+				14874A661B8B11B300F0FF99 /* SMWriteReplyViewController.xib */,
+			);
+			name = SMWriteReplyViewController;
 			sourceTree = "<group>";
 		};
 		14AEBDC51B7328B500C3C42E /* SMPostTopicListTableViewCell */ = {
@@ -702,6 +718,7 @@
 				14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */,
 				14BF0FBD1B80B8F300FAF970 /* SMLoginViewController.xib in Resources */,
 				14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */,
+				14874A681B8B11B300F0FF99 /* SMWriteReplyViewController.xib in Resources */,
 				141A5BD01B63187700A5F666 /* Main.storyboard in Resources */,
 				141A5BD51B63187700A5F666 /* LaunchScreen.xib in Resources */,
 				14E78F921B78E79E00523970 /* SMLeftSideViewTableViewCell.xib in Resources */,
@@ -789,6 +806,7 @@
 				141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */,
 				14D99F011B89EEDB00C0965D /* SMTopicReply.m in Sources */,
 				14CE72E51B6B31B300D7F3B6 /* SMAboutViewController.m in Sources */,
+				14874A671B8B11B300F0FF99 /* SMWriteReplyViewController.m in Sources */,
 				141A5C001B639BDD00A5F666 /* AppDelegate.m in Sources */,
 				14BF0FAA1B8086FD00FAF970 /* ViewFrameAccessor.m in Sources */,
 				1420435E1B7219900092A6D7 /* SMUser.m in Sources */,

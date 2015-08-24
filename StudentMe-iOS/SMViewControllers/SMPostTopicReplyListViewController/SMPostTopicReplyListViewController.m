@@ -11,6 +11,7 @@
 #import "SMPostTopicReplyListTableViewCell.h"
 #import "SMTopic.h"
 #import "SMTopicReply.h"
+#import "SMWriteReplyViewController.h"
 
 #import "UIViewController+SCCategorys.h"
 #import <UIBarButtonItem+BlocksKit.h>
@@ -64,6 +65,11 @@
     };
     
     self.title = self.topic.title;
+    
+    UIBarButtonItem *btnReply = [[UIBarButtonItem alloc] bk_initWithBarButtonSystemItem:UIBarButtonSystemItemEdit handler:^(id sender) {
+        [weakSelf willReplyUserWithName:weakSelf.topic.userNickName];
+    }];
+    self.navigationItem.rightBarButtonItem = btnReply;
 }
 
 - (void)initData {
@@ -123,6 +129,11 @@
     return cell;
 }
 
+- (void)willReplyUserWithName:(NSString *)name {
+    SMWriteReplyViewController *vc = [[SMWriteReplyViewController alloc] initWithReplyUserName:name];
+    UINavigationController *nav    = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
+}
 
 
 @end
