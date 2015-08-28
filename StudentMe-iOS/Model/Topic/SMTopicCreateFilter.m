@@ -60,7 +60,7 @@
 //    [json setObject:<#(id)#> forKey:@"typeId"];
     [json setObject:@"0" forKey:@"isQuote"];
     [json setObject:_replyId forKey:@"replyId"];
-    [json setObject:_content forKey:@"title"];
+    [json setObject:@"From iOS" forKey:@"title"];
     [json setObject:[self contentArray] forKey:@"content"];
     
     [body setObject:json forKey:@"json"];
@@ -74,12 +74,17 @@
     
 }
 
-- (NSArray *)contentArray {
+- (NSString *)contentArray {
     NSMutableDictionary *dict = [@{} mutableCopy];
     [dict setObject:@"0" forKey:@"type"];
     [dict setObject:_content forKey:@"infor"];
     
     NSArray *array = @[dict];
-    return array;
+    
+    NSError* err;
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:array options:NSJSONWritingPrettyPrinted error:&err];
+    NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return dataString;
 }
 @end
