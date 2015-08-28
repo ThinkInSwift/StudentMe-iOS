@@ -66,10 +66,10 @@
     
     self.title = self.topic.title;
     
-    UIBarButtonItem *btnReply = [[UIBarButtonItem alloc] bk_initWithBarButtonSystemItem:UIBarButtonSystemItemEdit handler:^(id sender) {
-        [weakSelf willReplyUserWithName:weakSelf.topic.userNickName];
-    }];
-    self.navigationItem.rightBarButtonItem = btnReply;
+//    UIBarButtonItem *btnReply = [[UIBarButtonItem alloc] bk_initWithTitle:@"抢沙发" style:UIBarButtonItemStylePlain handler:^(id sender) {
+//        [weakSelf willReplyUserWithName:weakSelf.topic.userNickName];
+//    }];
+//    self.navigationItem.rightBarButtonItem = btnReply;
 }
 
 - (void)initData {
@@ -129,10 +129,18 @@
     return cell;
 }
 
-- (void)willReplyUserWithName:(NSString *)name {
-    SMWriteReplyViewController *vc = [[SMWriteReplyViewController alloc] initWithReplyUserName:name];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SMTopicReply *reply = self.dataSource[indexPath.row];
+    [self willReply:reply];
+     
+}
+
+- (void)willReply:(SMTopicReply *)reply {
+    SMWriteReplyViewController *vc = [[SMWriteReplyViewController alloc] initWithReply:reply topic:self.topic];
     UINavigationController *nav    = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:nav animated:YES completion:nil];
+    });
 }
 
 

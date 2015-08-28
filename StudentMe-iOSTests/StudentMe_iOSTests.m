@@ -111,4 +111,32 @@
     }];
 }
 
+- (void)testTopicReply {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test testTopicList async handle"];
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+    [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
+        SMTopic *topic = [[SMTopic alloc] initWithDictionary:x[9]];
+        NSLog(@"topicId is %@", topic.topicId);
+        
+        SMTopicCreateFilter *createFilter = [[SMTopicCreateFilter alloc] initWithFilterStyle:SMTopicCreateFilterStyleReplyPost fid:topic.boardId tid:topic.topicId replyId:topic.userId content:@"看看kkhkhkhkhk"];
+        [[[SMHttpDataManager sharedManager] forumTopicAdminWithFilter:createFilter] subscribeNext:^(id x) {
+            NSLog(@"forumTopicAdminWithFilter resp is %@", x);
+        } error:^(NSError *error) {
+            NSLog(@"forumTopicAdminWithFilter erro is %@", error);
+        } completed:^{
+            NSLog(@"forumTopicAdminWithFilter list succ");
+        }];
+    } error:^(NSError *error) {
+        NSLog(@"err is %@", error);
+    } completed:^{
+        NSLog(@"completed");
+    }];
+    
+    [self waitForExpectationsWithTimeout:15.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"testTopicList fail err is %@", error);
+        }
+    }];
+}
+
 @end

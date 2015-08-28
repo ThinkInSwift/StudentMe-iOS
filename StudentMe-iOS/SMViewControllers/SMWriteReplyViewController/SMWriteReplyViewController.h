@@ -7,7 +7,9 @@
 //
 
 #import "SMBaseViewController.h"
+@class SMTopic;
 
+@class SMTopicReply;
 @interface SMWriteReplyViewController : SMBaseViewController
-- (instancetype)initWithReplyUserName:(NSString *)name;
+- (instancetype)initWithReply:(SMTopicReply *)reply topic:(SMTopic *)topic;
 @end

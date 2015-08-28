@@ -7,6 +7,7 @@
 //
 #import "NSURL+SMURL.h"
 #import "SMTopicListFilter.h"
+#import "SMTopicCreateFilter.h"
 #import "SMUser.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -41,4 +42,12 @@
  */
 
 - (RACSignal *)forumPostlistWithTopicId:(NSString *)topicId page:(NSString *)page;
+/**
+ *  回复帖子、创建帖子
+ *
+ *  @param filter filter description
+ *
+ *  @return return value description
+ */
+- (RACSignal *)forumTopicAdminWithFilter:(SMTopicCreateFilter *)filter;
 @end

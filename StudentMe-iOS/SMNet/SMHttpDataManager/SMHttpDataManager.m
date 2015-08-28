@@ -9,6 +9,8 @@
 #import "SMHttpDataManager.h"
 #import "SMValidation.h"
 
+#import <CommonCrypto/CommonDigest.h>
+
 
 @implementation SMHttpDataManager
 - (instancetype)init {
@@ -163,6 +165,34 @@
     }];
 }
 
+- (RACSignal *)forumTopicAdminWithFilter:(SMTopicCreateFilter *)filter {
+    NSDictionary *dict = [self configureBaseParamsWithDict:[filter dict]];
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [self.manager POST:[NSURL smForumTopicAdminString] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"forumTopicAdminWithFilter succ response is %@", responseObject);
+            if ([SMValidation isNeedLoginWithResp:responseObject]) {
+                NSError *err = [[NSError alloc] initWithDomain:@"forumTopiclistWithFilter"
+                                                          code:SMRespErrCodeNeedLogin
+                                                      userInfo:@{
+                                                                 @"info":[SMErr errMessage:SMRespErrCodeNeedLogin]
+                                                                 }];
+                [subscriber sendError:err];
+            } else {
+                [subscriber sendNext:responseObject];
+                [subscriber sendCompleted];
+            }
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [subscriber sendError:error];
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+            //
+        }];
+    }];
+}
+
 #pragma mark - private methods
 
 //dict to jsonData
@@ -171,6 +201,12 @@
     
     NSData* data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&err];
     return data;
+}
+
+- (NSDictionary *)configureBaseParamsWithDict:(NSDictionary *)dict {
+    NSMutableDictionary *mutableDict = [dict mutableCopy];
+    [mutableDict setObject:[self appHash] forKey:@"apphash"];
+    return [self configureTokenAndSecretWithDic: [mutableDict copy]];
 }
 
 //加入 secret 和 token
@@ -204,6 +240,28 @@
     
 }
 
+- (NSString *)appHash {
+    static NSString *authKey = @"appbyme_key";
+    double time = [[NSDate date] timeIntervalSince1970];
+    NSString *timeStr = [NSString stringWithFormat:@"%f", time/1000.0];
+    NSString *timeStrSub = [timeStr substringWithRange:NSMakeRange(0, 5)];
+    NSString *timeWithAuth = [timeStrSub stringByAppendingString:authKey];
+    NSString *md5Str = [self md5:timeWithAuth];
+    NSString *hash = [md5Str substringWithRange:NSMakeRange(8, 8)];
+    return hash;
+}
 
+
+- (NSString *)md5:(NSString *)input {
+    const char *cStr = [input UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5( cStr, (unsigned int)strlen(cStr), digest ); // This is the md5 call
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return  output;
+}
 
 @end

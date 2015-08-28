@@ -19,4 +19,5 @@
 + (NSString *)smForumlistString;
 + (NSString *)smForumTopiclistString;
 + (NSString *)smForumPostlistString;
++ (NSString *)smForumTopicAdminString;
 @end

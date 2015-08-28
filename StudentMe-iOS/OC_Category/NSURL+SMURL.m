@@ -32,6 +32,10 @@
     return [[self prefixbbsUrlString] stringByAppendingString:@"forum/postlist"];
 }
 
++ (NSString *)smForumTopicAdminString {
+    return [[self prefixbbsUrlString] stringByAppendingString:@"forum/topicadmin"];
+}
+
 #pragma mark - private method
 
 + (NSString *)prefixbbsUrlString {

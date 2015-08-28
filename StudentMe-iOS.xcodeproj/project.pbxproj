@@ -28,6 +28,7 @@
 		14874A621B8AC42700F0FF99 /* SMAutoSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */; };
 		14874A671B8B11B300F0FF99 /* SMWriteReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A651B8B11B300F0FF99 /* SMWriteReplyViewController.m */; };
 		14874A681B8B11B300F0FF99 /* SMWriteReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14874A661B8B11B300F0FF99 /* SMWriteReplyViewController.xib */; };
+		14874A6B1B900E4C00F0FF99 /* SMTopicCreateFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A6A1B900E4C00F0FF99 /* SMTopicCreateFilter.m */; };
 		14A119D21B78EA1600319F45 /* UIViewController+SCCategorys.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */; };
 		14A119E81B7DBB5500319F45 /* SMTopicListFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119E71B7DBB5500319F45 /* SMTopicListFilter.m */; };
 		14A119EB1B7DBB7800319F45 /* SMTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A119EA1B7DBB7800319F45 /* SMTopic.m */; };
@@ -113,6 +114,8 @@
 		14874A641B8B11B300F0FF99 /* SMWriteReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWriteReplyViewController.h; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.h; sourceTree = "<group>"; };
 		14874A651B8B11B300F0FF99 /* SMWriteReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMWriteReplyViewController.m; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.m; sourceTree = "<group>"; };
 		14874A661B8B11B300F0FF99 /* SMWriteReplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMWriteReplyViewController.xib; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.xib; sourceTree = "<group>"; };
+		14874A691B900E4C00F0FF99 /* SMTopicCreateFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicCreateFilter.h; path = Model/Topic/SMTopicCreateFilter.h; sourceTree = "<group>"; };
+		14874A6A1B900E4C00F0FF99 /* SMTopicCreateFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMTopicCreateFilter.m; path = Model/Topic/SMTopicCreateFilter.m; sourceTree = "<group>"; };
 		14A119D01B78EA1600319F45 /* UIViewController+SCCategorys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SCCategorys.h"; path = "OC_Category/UIViewController+SCCategorys.h"; sourceTree = "<group>"; };
 		14A119D11B78EA1600319F45 /* UIViewController+SCCategorys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SCCategorys.m"; path = "OC_Category/UIViewController+SCCategorys.m"; sourceTree = "<group>"; };
 		14A119E61B7DBB5500319F45 /* SMTopicListFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMTopicListFilter.h; path = Model/Topic/SMTopicListFilter.h; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				14A119EA1B7DBB7800319F45 /* SMTopic.m */,
 				14D99EFF1B89EEDB00C0965D /* SMTopicReply.h */,
 				14D99F001B89EEDB00C0965D /* SMTopicReply.m */,
+				14874A691B900E4C00F0FF99 /* SMTopicCreateFilter.h */,
+				14874A6A1B900E4C00F0FF99 /* SMTopicCreateFilter.m */,
 			);
 			name = Topic;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 				14A119EB1B7DBB7800319F45 /* SMTopic.m in Sources */,
 				14BF0FB71B80A39200FAF970 /* SMErr.m in Sources */,
 				14E78F911B78E79E00523970 /* SMLeftSideViewTableViewCell.m in Sources */,
+				14874A6B1B900E4C00F0FF99 /* SMTopicCreateFilter.m in Sources */,
 				14CE72D81B6B311F00D7F3B6 /* SMLatestPostsViewController.m in Sources */,
 				14E78F9E1B78E7C600523970 /* UIColor+SMColor.m in Sources */,
 				14BF0FB11B80A1EA00FAF970 /* SMValidation.m in Sources */,
