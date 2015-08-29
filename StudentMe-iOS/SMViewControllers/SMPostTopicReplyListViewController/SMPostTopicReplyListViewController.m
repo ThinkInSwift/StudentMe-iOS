@@ -131,12 +131,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SMTopicReply *reply = self.dataSource[indexPath.row];
-    [self willReply:reply];
+    if (indexPath.row == 0) {
+        [self willReply:reply style:SMWriteReplyStyleReplyTC];
+    } else {
+        [self willReply:reply style:SMWriteReplyStyleReplyOthers];
+    }
      
 }
 
-- (void)willReply:(SMTopicReply *)reply {
-    SMWriteReplyViewController *vc = [[SMWriteReplyViewController alloc] initWithReply:reply topic:self.topic];
+- (void)willReply:(SMTopicReply *)reply style:(SMWriteReplyStyle)style{
+    SMWriteReplyViewController *vc = [[SMWriteReplyViewController alloc] initWithReply:reply topic:self.topic style:style];
     UINavigationController *nav    = [[UINavigationController alloc] initWithRootViewController:vc];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:nav animated:YES completion:nil];

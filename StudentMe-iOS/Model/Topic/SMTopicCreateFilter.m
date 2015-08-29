@@ -12,8 +12,9 @@
 - (instancetype)initWithFilterStyle:(SMTopicCreateFilterStyle)style
                                 fid:(NSString *)fid
                                 tid:(NSString *)tid
-                            replyPostId:(NSString *)replyPostId
-                            content:(NSString *)content {
+                        replyPostId:(NSString *)replyPostId
+                            content:(NSString *)content
+                          isReplyTC:(BOOL)isReplyTC{
     self = [self init];
     if (self) {
         switch (style) {
@@ -34,6 +35,7 @@
         _tid = tid;
         _replyId = replyPostId;
         _content = content;
+        _isReplyRC = isReplyTC;
     }
     
     return self;
@@ -59,6 +61,9 @@
     [json setObject:@"1" forKey:@"isOnlyAuthor"];
 //    [json setObject:<#(id)#> forKey:@"typeId"];
     [json setObject:@"1" forKey:@"isQuote"];
+    if (self.isReplyRC) {
+        [json setObject:@"0" forKey:@"isQuote"];//回复楼主不能应用楼主的内容
+    }
     [json setObject:_replyId forKey:@"replyId"];
     [json setObject:@"From iOS" forKey:@"title"];
     [json setObject:[self contentArray] forKey:@"content"];

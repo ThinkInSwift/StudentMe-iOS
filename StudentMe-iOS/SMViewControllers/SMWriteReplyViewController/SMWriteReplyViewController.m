@@ -19,14 +19,16 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (nonatomic, strong) SMTopicReply *reply;
 @property (nonatomic, strong) SMTopic *topic;
+@property (nonatomic, assign) SMWriteReplyStyle style;
 @end
 
 @implementation SMWriteReplyViewController
-- (instancetype)initWithReply:(SMTopicReply *)reply topic:(SMTopic *)topic {
+- (instancetype)initWithReply:(SMTopicReply *)reply topic:(SMTopic *)topic style:(SMWriteReplyStyle)style {
     self = [self init];
     if (self) {
         _reply  = reply;
         _topic  = topic;
+        _style  = style;
     }
     
     return self;
@@ -75,12 +77,22 @@
 
 - (void)willPostReply {
     @weakify(self);
-    SMTopicCreateFilter *filter = [[SMTopicCreateFilter alloc] initWithFilterStyle:SMTopicCreateFilterStyleReplyPost
-                                                                               fid:self.topic.boardId
-                                                                               tid:self.topic.topicId
-                                                                           replyPostId:self.reply.replyPostId
-                                                                           content:self.contentTextView.text];
-    
+    SMTopicCreateFilter *filter;
+    if (self.style == SMWriteReplyStyleReplyTC) {
+        filter = [[SMTopicCreateFilter alloc] initWithFilterStyle:SMTopicCreateFilterStyleReplyPost
+                                                       fid:self.topic.boardId
+                                                       tid:self.topic.topicId
+                                               replyPostId:self.reply.replyPostId
+                                                   content:self.contentTextView.text
+                                                 isReplyTC:YES];
+    } else {
+        filter = [[SMTopicCreateFilter alloc] initWithFilterStyle:SMTopicCreateFilterStyleReplyPost
+                                                              fid:self.topic.boardId
+                                                              tid:self.topic.topicId
+                                                      replyPostId:self.reply.replyPostId
+                                                          content:self.contentTextView.text
+                                                        isReplyTC:NO];
+    }
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"请稍候...";
     [[[SMHttpDataManager sharedManager] forumTopicAdminWithFilter:filter] subscribeNext:^(id x) {

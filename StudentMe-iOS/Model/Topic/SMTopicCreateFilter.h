@@ -17,6 +17,7 @@ typedef NS_OPTIONS(NSInteger, SMTopicCreateFilterStyle) {
 @interface SMTopicCreateFilter : NSObject
 
 @property (nonatomic, strong) NSString *act, *fid, *tid, *replyId, *content;
+@property (nonatomic, assign) BOOL isReplyRC;
 /**
  *  封装回复帖子的表单参数
  *
@@ -32,6 +33,7 @@ typedef NS_OPTIONS(NSInteger, SMTopicCreateFilterStyle) {
                                 fid:(NSString *)fid
                                 tid:(NSString *)tid
                             replyPostId:(NSString *)replyPostId
-                            content:(NSString *)content;
+                            content:(NSString *)content
+                          isReplyTC:(BOOL)isReplyTC;
 - (NSDictionary *)dict;
 @end
