@@ -118,7 +118,7 @@
         SMTopic *topic = [[SMTopic alloc] initWithDictionary:x[9]];
         NSLog(@"topicId is %@", topic.topicId);
         
-        SMTopicCreateFilter *createFilter = [[SMTopicCreateFilter alloc] initWithFilterStyle:SMTopicCreateFilterStyleReplyPost fid:topic.boardId tid:topic.topicId replyId:topic.userId content:@"看看kkhkhkhkhk"];
+        SMTopicCreateFilter *createFilter = [[SMTopicCreateFilter alloc] initWithFilterStyle:SMTopicCreateFilterStyleReplyPost fid:topic.boardId tid:topic.topicId replyPostId:topic.userId content:@"看看kkhkhkhkhk"];
         [[[SMHttpDataManager sharedManager] forumTopicAdminWithFilter:createFilter] subscribeNext:^(id x) {
             NSLog(@"forumTopicAdminWithFilter resp is %@", x);
         } error:^(NSError *error) {

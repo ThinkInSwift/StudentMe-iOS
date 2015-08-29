@@ -72,7 +72,7 @@
     if (self) {
         _icon           = [NSURL URLWithString:dict[@"icon"]];
         _replyName      = dict[@"reply_name"];
-        _replyId        = [NSString stringWithFormat:@"%@", dict[@"repy_id"]];
+        _replyId        = [NSString stringWithFormat:@"%@", dict[@"reply_id"]];
         _replyPostId    = [NSString stringWithFormat:@"%@", dict[@"reply_posts_id"]];
         _replyContent   = [self replyContent:dict[@"reply_content"]];
         _quoteUserName  = [self quoteUserNameWithQuoteContent:dict[@"quote_content"]];
@@ -85,9 +85,23 @@
     return self;
 }
 
+/**
+ *  需要区分所有 type 类型，目前知道  type 为 4 为 @某人
+ *                                type 为 0 为正常文本文字
+ *                                type 为 1 为图片附件？
+ *
+ *  @param array array description
+ *
+ *  @return return value description
+ */
 - (NSString *)replyContent:(NSArray *)array {
-    NSString *content;
-    content = array[0][@"infor"];
+    NSString *content = @"";
+    for (NSDictionary *dict in array) {
+        if ([dict[@"type"] isEqualToNumber:@1]) {
+            break;
+        }
+        content = [content stringByAppendingString:dict[@"infor"]];
+    }
     return content;
 }
 

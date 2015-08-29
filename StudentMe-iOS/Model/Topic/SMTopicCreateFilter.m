@@ -12,7 +12,7 @@
 - (instancetype)initWithFilterStyle:(SMTopicCreateFilterStyle)style
                                 fid:(NSString *)fid
                                 tid:(NSString *)tid
-                            replyId:(NSString *)replyId
+                            replyPostId:(NSString *)replyPostId
                             content:(NSString *)content {
     self = [self init];
     if (self) {
@@ -32,7 +32,7 @@
         }
         _fid = fid;
         _tid = tid;
-        _replyId = replyId;
+        _replyId = replyPostId;
         _content = content;
     }
     
@@ -58,7 +58,7 @@
     [json setObject:@"1" forKey:@"isAnonymous"];
     [json setObject:@"1" forKey:@"isOnlyAuthor"];
 //    [json setObject:<#(id)#> forKey:@"typeId"];
-    [json setObject:@"0" forKey:@"isQuote"];
+    [json setObject:@"1" forKey:@"isQuote"];
     [json setObject:_replyId forKey:@"replyId"];
     [json setObject:@"From iOS" forKey:@"title"];
     [json setObject:[self contentArray] forKey:@"content"];

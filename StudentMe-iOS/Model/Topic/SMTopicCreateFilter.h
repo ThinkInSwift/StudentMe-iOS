@@ -17,11 +17,21 @@ typedef NS_OPTIONS(NSInteger, SMTopicCreateFilterStyle) {
 @interface SMTopicCreateFilter : NSObject
 
 @property (nonatomic, strong) NSString *act, *fid, *tid, *replyId, *content;
-
+/**
+ *  封装回复帖子的表单参数
+ *
+ *  @param style   见 SMTopicCreateFilterStyle
+ *  @param fid     板块 id
+ *  @param tid     主题 id
+ *  @param replyPostId 回复的 id
+ *  @param content 内容
+ *
+ *  @return 实体
+ */
 - (instancetype)initWithFilterStyle:(SMTopicCreateFilterStyle)style
                                 fid:(NSString *)fid
                                 tid:(NSString *)tid
-                            replyId:(NSString *)replyId
+                            replyPostId:(NSString *)replyPostId
                             content:(NSString *)content;
 - (NSDictionary *)dict;
 @end

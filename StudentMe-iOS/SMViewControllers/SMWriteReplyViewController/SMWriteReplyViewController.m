@@ -12,6 +12,8 @@
 #import "SMTopicReply.h"
 
 #import "UIViewController+SCCategorys.h"
+
+#import <MBProgressHUD.h>
 #import <UIBarButtonItem+BlocksKit.h>
 @interface SMWriteReplyViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
@@ -76,14 +78,18 @@
     SMTopicCreateFilter *filter = [[SMTopicCreateFilter alloc] initWithFilterStyle:SMTopicCreateFilterStyleReplyPost
                                                                                fid:self.topic.boardId
                                                                                tid:self.topic.topicId
-                                                                           replyId:self.reply.replyId
+                                                                           replyPostId:self.reply.replyPostId
                                                                            content:self.contentTextView.text];
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"请稍候...";
     [[[SMHttpDataManager sharedManager] forumTopicAdminWithFilter:filter] subscribeNext:^(id x) {
         @strongify(self);
-        [self.navigationController popViewControllerAnimated:YES];
+        [hud hide:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     } error:^(NSError *error) {
         @strongify(self);
+        [hud hide:YES];
         [self showAlertWithMessage:[NSString stringWithFormat:@"%@", error]];
     } completed:^{
     }];

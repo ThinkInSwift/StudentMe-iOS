@@ -51,10 +51,23 @@
 //    userTitle = "\U767d\U9ccd (Lv.9)";
 //}
 @interface SMTopicReply : NSObject
-@property (nonatomic, strong) NSString *quoteUserName, *replyContent, *replyName, *replyId, *replyPostId;
+@property (nonatomic, strong) NSString *quoteUserName/*被该帖子引用的帖子发帖者*/, *replyContent/*回复的内容*/, *replyName/*回复者的名字*/, *replyId/*回复者的 id*/, *replyPostId/*该回复（帖子本身）的 id*/;
 @property (nonatomic, strong) NSURL *icon;
 @property (nonatomic, strong) NSDate *postsDate;
-
+/**
+ *  用 SMTopic 的 dict 字段 map 成 SMTopicReply
+ *
+ *  @param topicDict topicDict description
+ *
+ *  @return 实体
+ */
 - (instancetype)initWithTopic:(NSDictionary *)topicDict;
+/**
+ *  SMTopicReply 的 dict 封装实体
+ *
+ *  @param dict dict description
+ *
+ *  @return 实体
+ */
 - (instancetype)initWithDict:(NSDictionary *)dict;
 @end
