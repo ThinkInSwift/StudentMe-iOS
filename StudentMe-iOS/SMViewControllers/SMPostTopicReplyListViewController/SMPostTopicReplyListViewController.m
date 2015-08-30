@@ -35,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
+    [self beginRefresh];
     [self initData];
 }
 
@@ -60,8 +61,7 @@
         
         __strong typeof(self) strongSelf = weakSelf;
         
-        [strongSelf performSelector:@selector(endLoadMore) withObject:strongSelf afterDelay:2.0];
-        
+        [strongSelf loadMoreData];
     };
     
     self.title = self.topic.title;
@@ -88,9 +88,38 @@
     } completed:^{
         @strongify(self);
         [self.tableView reloadData];
+        [self performSelector:@selector(endRefresh) withObject:self afterDelay:0.0];
     }];
 }
 
+/**
+ *  除开楼主，回复的列表数目不是 20 的整数倍判断为没有后续回复
+ *  如果刚好回复数是 20 的整数倍，会出现重复的列表
+ */
+- (void)loadMoreData {
+    if ((self.dataSource.count - 1) % 20 != 0) {
+        [self performSelector:@selector(endLoadMore) withObject:self afterDelay:0.2];//没有后续的回复
+        return;
+    }
+    
+    @weakify(self);
+    NSString *nextPage = [NSString stringWithFormat:@"%lu", ((unsigned long)self.dataSource.count / 20) + 1];
+    [[[SMHttpDataManager sharedManager] forumPostlistWithTopicId:self.topic.topicId page:nextPage] subscribeNext:^(id x) {
+        @strongify(self);
+        for (NSDictionary *dict in x[@"list"]) {
+            SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:dict];
+            [self.dataSource addObject:reply];
+        }
+        
+        
+    } error:^(NSError *error) {
+        //
+    } completed:^{
+        @strongify(self);
+        [self.tableView reloadData];
+        [self performSelector:@selector(endLoadMore) withObject:self afterDelay:0.0];
+    }];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

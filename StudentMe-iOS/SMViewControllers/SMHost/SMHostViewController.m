@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
+    [self beginRefresh];
     [self initData];
 }
 
@@ -87,7 +88,7 @@
 - (void)loadMoreData {
     __weak typeof(self) weakSelf = self;
     SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
-    filter.page = [NSString stringWithFormat:@"%lu", self.dataSource.count / [filter.pageSize intValue] + 1];
+    filter.page = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataSource.count / [filter.pageSize intValue] + 1];
     
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
         [weakSelf.dataSource addObjectsFromArray:x];
