@@ -63,7 +63,7 @@
         
         __strong typeof(self) strongSelf = weakSelf;
         
-        [strongSelf performSelector:@selector(endLoadMore) withObject:strongSelf afterDelay:2.0];
+        [strongSelf loadMoreData];
         
     };
 }
@@ -72,13 +72,31 @@
     __weak typeof(self) weakSelf = self;
     SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
-        weakSelf.dataSource = x;
+        weakSelf.dataSource = [x mutableCopy];
         [weakSelf.tableView reloadData];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
         [weakSelf showAlertWithMessage:error.userInfo[@"info"]];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
+    } completed:^{
+        NSLog(@"completed");
+    }];
+}
+
+- (void)loadMoreData {
+    __weak typeof(self) weakSelf = self;
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+    filter.page = [NSString stringWithFormat:@"%lu", self.dataSource.count / [filter.pageSize intValue] + 1];
+    
+    [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
+        [weakSelf.dataSource addObjectsFromArray:x];
+        [weakSelf.tableView reloadData];
+        [weakSelf performSelector:@selector(endLoadMore) withObject:weakSelf afterDelay:0.0];
+    } error:^(NSError *error) {
+        NSLog(@"err is %@", error);
+        [weakSelf showAlertWithMessage:error.userInfo[@"info"]];
+        [weakSelf performSelector:@selector(endLoadMore) withObject:weakSelf afterDelay:0.0];
     } completed:^{
         NSLog(@"completed");
     }];
