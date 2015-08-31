@@ -36,6 +36,11 @@
     return [[self prefixbbsUrlString] stringByAppendingString:@"forum/topicadmin"];
 }
 
+#pragma mark - message
++ (NSString *)smMessageNotifylistString {
+    return [[self prefixbbsUrlString] stringByAppendingString:@"message/notifylist"];
+}
+
 #pragma mark - private method
 
 + (NSString *)prefixbbsUrlString {

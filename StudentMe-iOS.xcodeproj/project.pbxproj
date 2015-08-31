@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141556AC1B943F4600B006F5 /* SMNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 141556AB1B943F4600B006F5 /* SMNotify.m */; };
 		141A5BC71B63187700A5F666 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5BC61B63187700A5F666 /* main.m */; };
 		141A5BD01B63187700A5F666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141A5BCE1B63187700A5F666 /* Main.storyboard */; };
 		141A5BD21B63187700A5F666 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141A5BD11B63187700A5F666 /* Images.xcassets */; };
@@ -73,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141556AA1B943F4600B006F5 /* SMNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNotify.h; path = Model/Nofity/SMNotify.h; sourceTree = "<group>"; };
+		141556AB1B943F4600B006F5 /* SMNotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNotify.m; path = Model/Nofity/SMNotify.m; sourceTree = "<group>"; };
 		1417D05A1B6CC5280052E51B /* TestMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMock.h; sourceTree = "<group>"; };
 		141A5BC11B63187700A5F666 /* StudentMe-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StudentMe-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		141A5BC51B63187700A5F666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,6 +204,15 @@
 				14BF0FB31B80A20E00FAF970 /* SMHttpDataManager.m */,
 			);
 			name = SMHttpDataManager;
+			sourceTree = "<group>";
+		};
+		141556A91B943F2A00B006F5 /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				141556AA1B943F4600B006F5 /* SMNotify.h */,
+				141556AB1B943F4600B006F5 /* SMNotify.m */,
+			);
+			name = Notify;
 			sourceTree = "<group>";
 		};
 		141A5BB81B63187700A5F666 = {
@@ -385,6 +397,7 @@
 		1420430C1B6F8FF80092A6D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				141556A91B943F2A00B006F5 /* Notify */,
 				1420435B1B7219670092A6D7 /* User */,
 				1420430D1B6F90060092A6D7 /* Topic */,
 			);
@@ -802,6 +815,7 @@
 				14D99EFD1B89AD3900C0965D /* SMPostTopicReplyListViewController.m in Sources */,
 				141A5BC71B63187700A5F666 /* main.m in Sources */,
 				14D99EF71B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m in Sources */,
+				141556AC1B943F4600B006F5 /* SMNotify.m in Sources */,
 				14BF0FB41B80A20E00FAF970 /* SMHttpDataManager.m in Sources */,
 				14CE72E01B6B317C00D7F3B6 /* SMNotificationViewController.m in Sources */,
 				1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */,

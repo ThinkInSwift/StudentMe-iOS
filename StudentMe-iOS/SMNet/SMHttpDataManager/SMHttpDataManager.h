@@ -9,6 +9,7 @@
 #import "SMTopicListFilter.h"
 #import "SMTopicCreateFilter.h"
 #import "SMUser.h"
+#import "SMNotify.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -50,4 +51,13 @@
  *  @return return value description
  */
 - (RACSignal *)forumTopicAdminWithFilter:(SMTopicCreateFilter *)filter;
+
+
+#pragma mark - message methods
+/**
+ *  查询提醒列表
+ *
+ *  @return return value description
+ */
+- (RACSignal *)messageListWithFilter:(SMNotifyFilter *)filter;
 @end

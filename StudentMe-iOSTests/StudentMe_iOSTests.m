@@ -139,4 +139,22 @@
     }];
 }
 
+- (void)testMessageList {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test testMessageList async handle"];
+    SMNotifyFilter *filter = [[SMNotifyFilter alloc] initWithType:SMNotifyTypePost];
+    [[[SMHttpDataManager sharedManager] messageListWithFilter:filter] subscribeNext:^(id x) {
+        //
+    } error:^(NSError *error) {
+        //
+    } completed:^{
+        //
+    }];
+    
+    [self waitForExpectationsWithTimeout:15.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"testMessageList fail err is %@", error);
+        }
+    }];
+}
+
 @end

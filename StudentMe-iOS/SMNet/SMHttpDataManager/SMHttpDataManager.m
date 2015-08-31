@@ -193,6 +193,23 @@
     }];
 }
 
+#pragma mark - message methods
+- (RACSignal *)messageListWithFilter:(SMNotifyFilter *)filter {
+    @weakify(self);
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        [self.manager POST:[NSURL smMessageNotifylistString] parameters:[self configureBaseParamsWithDict:[filter dict]] success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"messageList succ response is %@", responseObject);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"messageList fail response is %@", error);
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+            //
+        }];
+    }];
+}
+
 #pragma mark - private methods
 
 //dict to jsonData

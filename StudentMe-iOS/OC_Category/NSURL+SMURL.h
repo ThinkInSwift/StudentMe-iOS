@@ -20,4 +20,7 @@
 + (NSString *)smForumTopiclistString;
 + (NSString *)smForumPostlistString;
 + (NSString *)smForumTopicAdminString;
+
+#pragma mark - message
++ (NSString *)smMessageNotifylistString;
 @end
