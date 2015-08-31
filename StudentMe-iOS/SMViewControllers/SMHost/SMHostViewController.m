@@ -35,7 +35,6 @@
     [super viewDidLoad];
     [self setUp];
     [self beginRefresh];
-    [self initData];
 }
 
 - (void)setUp {

@@ -36,7 +36,6 @@
     [super viewDidLoad];
     [self setUp];
     [self beginRefresh];
-    [self initData];
 }
 
 - (void)setUp {
@@ -76,6 +75,7 @@
     @weakify(self);
     [[[SMHttpDataManager sharedManager] forumPostlistWithTopicId:self.topic.topicId page:@"1"] subscribeNext:^(id x) {
         @strongify(self);
+        [self.dataSource removeAllObjects];
         for (NSDictionary *dict in x[@"list"]) {
             SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:dict];
             [self.dataSource addObject:reply];
