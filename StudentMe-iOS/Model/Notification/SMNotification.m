@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 UESTC-BBS. All rights reserved.
 //
 
-#import "SMNotify.h"
+#import "SMNotification.h"
 
-@implementation SMNotify
+@implementation SMNotification
 
 @end
 
 
-@implementation SMNotifyFilter
+@implementation SMNotificationFilter
 
-- (instancetype)initWithType:(SMNotifyType)type {
+- (instancetype)initWithType:(SMNotificationType)type {
     self = [self init];
     if (self) {
         switch (type) {

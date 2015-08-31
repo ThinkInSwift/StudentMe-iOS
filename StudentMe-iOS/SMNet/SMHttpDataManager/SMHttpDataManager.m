@@ -194,7 +194,7 @@
 }
 
 #pragma mark - message methods
-- (RACSignal *)messageListWithFilter:(SMNotifyFilter *)filter {
+- (RACSignal *)messageListWithFilter:(SMNotificationFilter *)filter {
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);

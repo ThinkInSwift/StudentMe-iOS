@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 UESTC-BBS. All rights reserved.
 //
 
-#import "SMBaseViewController.h"
+#import "SCPullRefreshViewController.h"
 
-@interface SMNotificationViewController : SMBaseViewController
+
+@interface SMNotificationViewController : SCPullRefreshViewController <UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) NSMutableArray *dataSource;
 
 @end

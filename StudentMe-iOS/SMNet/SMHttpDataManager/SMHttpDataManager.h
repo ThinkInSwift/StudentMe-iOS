@@ -9,7 +9,7 @@
 #import "SMTopicListFilter.h"
 #import "SMTopicCreateFilter.h"
 #import "SMUser.h"
-#import "SMNotify.h"
+#import "SMNotification.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
@@ -59,5 +59,5 @@
  *
  *  @return return value description
  */
-- (RACSignal *)messageListWithFilter:(SMNotifyFilter *)filter;
+- (RACSignal *)messageListWithFilter:(SMNotificationFilter *)filter;
 @end

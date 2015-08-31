@@ -12,6 +12,7 @@
 #import "SMAboutViewController.h"
 #import "SMNavigationViewController.h"
 #import "SMLoginViewController.h"
+#import "SMNotificationViewController.h"
 
 #import "UIColor+SMColor.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -271,19 +272,24 @@
     }
 }
 
-- (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell
+       didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell
+       didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-- (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell
+          didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell
+          didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     switch (indexPath.row) {
         case SectionSettingsLatest: {
             cell.leftImgView.image = [UIImage imageNamed:@"section_latest_highlighted"];
@@ -295,6 +301,8 @@
             break;
         case SectionSettingsNotification: {
             cell.leftImgView.image = [UIImage imageNamed:@"section_notification_highlighted"];
+            SMNotificationViewController *notiVc = [[SMNotificationViewController alloc] init];
+            [self setCenterViewController:notiVc];
         }
             break;
         case SectionSettingsAbout: {

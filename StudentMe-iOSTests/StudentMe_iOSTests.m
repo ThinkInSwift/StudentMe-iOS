@@ -141,7 +141,7 @@
 
 - (void)testMessageList {
     XCTestExpectation *expectation = [self expectationWithDescription:@"test testMessageList async handle"];
-    SMNotifyFilter *filter = [[SMNotifyFilter alloc] initWithType:SMNotifyTypePost];
+    SMNotificationFilter *filter = [[SMNotificationFilter alloc] initWithType:SMNotifyTypePost];
     [[[SMHttpDataManager sharedManager] messageListWithFilter:filter] subscribeNext:^(id x) {
         //
     } error:^(NSError *error) {
