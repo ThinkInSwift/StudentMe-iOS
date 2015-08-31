@@ -223,6 +223,7 @@
 - (NSDictionary *)configureBaseParamsWithDict:(NSDictionary *)dict {
     NSMutableDictionary *mutableDict = [dict mutableCopy];
     [mutableDict setObject:[self appHash] forKey:@"apphash"];
+    [mutableDict setObject:@"5" forKey:@"platType"];
     return [self configureTokenAndSecretWithDic: [mutableDict copy]];
 }
 
