@@ -14,10 +14,18 @@
 #import <UIViewController+MMDrawerController.h>
 #import "UIViewController+SCCategorys.h"
 #import <UIBarButtonItem+BlocksKit.h>
+#import <UIControl+BlocksKit.h>
 
+typedef NS_ENUM(NSInteger, SMSegmentZone) {
+    SMSegmentZoneWater,
+    SMSegmentZoneEmotion,
+    SMSegmentZoneJob,
+    SMSegmentZoneDeals
+};
 
-@interface SMHostViewController () 
-
+@interface SMHostViewController ()
+@property (nonatomic, strong, readwrite) NSMutableArray *dataSource;
+@property (nonatomic, assign, readwrite) SMSegmentZone segmentZone;
 @end
 
 @implementation SMHostViewController
@@ -26,6 +34,7 @@
     self = [super init];
     if (self) {
         [self setRestorationIdentifier:@"SMHostViewController"];
+        _segmentZone = SMSegmentZoneWater;
     }
     
     return self;
@@ -51,6 +60,18 @@
     }
     
     __weak typeof(self) weakSelf = self;
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"水区", @"情感", @"就业", @"二手"]];
+    [segmentedControl setSelectedSegmentIndex:self.segmentZone];
+    [segmentedControl setFrame:CGRectMake(0, 0, 250, 30)];
+    [segmentedControl bk_addEventHandler:^(UISegmentedControl* sender) {
+        __strong typeof(self) strongSelf = weakSelf;
+        strongSelf.segmentZone = sender.selectedSegmentIndex;
+        [strongSelf beginRefresh];
+    } forControlEvents:UIControlEventValueChanged];
+    
+    self.navigationItem.titleView = segmentedControl;
+    
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
         [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     }];
@@ -70,7 +91,24 @@
 
 - (void)initData {
     __weak typeof(self) weakSelf = self;
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+    SMTopicListFilter *filter;
+    switch (self.segmentZone) {
+        case SMSegmentZoneWater:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+            break;
+        case SMSegmentZoneEmotion:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterEmotion];
+            break;
+        case SMSegmentZoneDeals:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
+            break;
+        case SMSegmentZoneJob:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterJob];
+            break;
+        default:
+            break;
+    }
+    
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
         weakSelf.dataSource = [x mutableCopy];
         [weakSelf.tableView reloadData];
