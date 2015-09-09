@@ -124,7 +124,24 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 
 - (void)loadMoreData {
     __weak typeof(self) weakSelf = self;
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+    SMTopicListFilter *filter;
+    switch (self.segmentZone) {
+        case SMSegmentZoneWater:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+            break;
+        case SMSegmentZoneEmotion:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterEmotion];
+            break;
+        case SMSegmentZoneDeals:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
+            break;
+        case SMSegmentZoneJob:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterJob];
+            break;
+        default:
+            break;
+    }
+    
     filter.page = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataSource.count / [filter.pageSize intValue] + 1];
     
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
