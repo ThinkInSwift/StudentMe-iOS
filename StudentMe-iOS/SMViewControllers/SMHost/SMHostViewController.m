@@ -11,6 +11,7 @@
 #import "SMPostTopicListTableViewCell.h"
 #import "SMPostTopicReplyListViewController.h"
 #import "SMCategoriesViewController.h"
+#import "SCIndicatorTitleView.h"
 
 #import <UIViewController+MMDrawerController.h>
 #import "UIViewController+SCCategorys.h"
@@ -101,6 +102,8 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
         [strongSelf loadMoreData];
         
     };
+    
+    self.navigationItem.titleView = [[SCIndicatorTitleView alloc] initWithTitle:@[@"水区", @"情感", @"就业", @"二手"][_segmentZone]];
 }
 
 - (void)initData {
@@ -220,7 +223,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-#pragma amrk - Getter
+#pragma mark - Getter
 - (UIView *)blurView {
     if (!_blurView) {
         _blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
@@ -246,6 +249,10 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 - (void)didSelectZone:(NSInteger)zone {
     self.segmentZone = zone;
     [self beginRefresh];
+}
+
+- (void)didCancelSelectZone {
+    NSLog(@"用户取消选择板块");
 }
 @end
 

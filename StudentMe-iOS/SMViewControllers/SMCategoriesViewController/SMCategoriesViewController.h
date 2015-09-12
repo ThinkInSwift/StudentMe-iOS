@@ -10,10 +10,12 @@
 @protocol SMCategorySelectDelegate <NSObject>
 
 - (void)didSelectZone:(NSInteger)zone;
+- (void)didCancelSelectZone;
 
 @end
 
 @interface SMCategoriesViewController : SMBaseViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (nonatomic, weak) id <SMCategorySelectDelegate> delegate;
 @end
 

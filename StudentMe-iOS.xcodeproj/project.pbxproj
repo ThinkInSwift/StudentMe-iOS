@@ -19,6 +19,7 @@
 		141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C131B63A3DB00A5F666 /* SMNavigationViewController.m */; };
 		141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */; };
 		1420435E1B7219900092A6D7 /* SMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1420435D1B7219900092A6D7 /* SMUser.m */; };
+		14602B861BA3D31D003DEC44 /* SCIndicatorTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14602B851BA3D31D003DEC44 /* SCIndicatorTitleView.m */; };
 		146A105D1B80813D00176D7A /* SCBubbleRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A10581B80813D00176D7A /* SCBubbleRefreshView.m */; };
 		146A105E1B80813D00176D7A /* SCCircularRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A105A1B80813D00176D7A /* SCCircularRefreshView.m */; };
 		146A105F1B80813D00176D7A /* SCPullRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A105C1B80813D00176D7A /* SCPullRefreshViewController.m */; };
@@ -101,6 +102,8 @@
 		141A5C171B63A52A00A5F666 /* SMDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMDrawerVisualStateManager.m; path = SMVisualStateManager/SMDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		1420435C1B7219900092A6D7 /* SMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMUser.h; path = Model/User/SMUser.h; sourceTree = "<group>"; };
 		1420435D1B7219900092A6D7 /* SMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMUser.m; path = Model/User/SMUser.m; sourceTree = "<group>"; };
+		14602B841BA3D31D003DEC44 /* SCIndicatorTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCIndicatorTitleView.h; path = CustomView/IndicatoreTitleView/SCIndicatorTitleView.h; sourceTree = "<group>"; };
+		14602B851BA3D31D003DEC44 /* SCIndicatorTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCIndicatorTitleView.m; path = CustomView/IndicatoreTitleView/SCIndicatorTitleView.m; sourceTree = "<group>"; };
 		146A10571B80813D00176D7A /* SCBubbleRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCBubbleRefreshView.h; path = UILib/SCPullRefresh/SCBubbleRefreshView.h; sourceTree = "<group>"; };
 		146A10581B80813D00176D7A /* SCBubbleRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCBubbleRefreshView.m; path = UILib/SCPullRefresh/SCBubbleRefreshView.m; sourceTree = "<group>"; };
 		146A10591B80813D00176D7A /* SCCircularRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCCircularRefreshView.h; path = UILib/SCPullRefresh/SCCircularRefreshView.h; sourceTree = "<group>"; };
@@ -363,6 +366,7 @@
 		141A5C091B639F5700A5F666 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				14602B831BA3D2D4003DEC44 /* IndicatorTitleView */,
 				14874A5F1B8AC3F200F0FF99 /* SMAutoSizeLabel */,
 				141A5C0A1B639F6600A5F666 /* CustomCell */,
 			);
@@ -442,6 +446,15 @@
 				1420435D1B7219900092A6D7 /* SMUser.m */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		14602B831BA3D2D4003DEC44 /* IndicatorTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				14602B841BA3D31D003DEC44 /* SCIndicatorTitleView.h */,
+				14602B851BA3D31D003DEC44 /* SCIndicatorTitleView.m */,
+			);
+			name = IndicatorTitleView;
 			sourceTree = "<group>";
 		};
 		146A10551B80810800176D7A /* SCPullRefresh */ = {
@@ -847,6 +860,7 @@
 				14D7D8391B949BBF00C92AB2 /* SMNotificationTableViewCell.m in Sources */,
 				14BF0FAA1B8086FD00FAF970 /* ViewFrameAccessor.m in Sources */,
 				1420435E1B7219900092A6D7 /* SMUser.m in Sources */,
+				14602B861BA3D31D003DEC44 /* SCIndicatorTitleView.m in Sources */,
 				141A5C081B639EC100A5F666 /* SMSideDrawerViewController.m in Sources */,
 				146A10621B80814700176D7A /* CAAnimation+Blocks.m in Sources */,
 				14D7D83D1B949C4800C92AB2 /* SMNotification.m in Sources */,

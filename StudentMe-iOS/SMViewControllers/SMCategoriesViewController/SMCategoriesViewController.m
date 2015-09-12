@@ -18,6 +18,11 @@ typedef NS_ENUM(NSInteger, CellStyle) {
     CellStyleDeals
 };
 
+struct {
+    unsigned int didSelectZone : 1;
+    unsigned int didCancelSelectZone : 1;
+} _delegateFlags;
+
 @implementation SMCategoriesViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,13 +80,16 @@ typedef NS_ENUM(NSInteger, CellStyle) {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([_delegate respondsToSelector:@selector(didSelectZone:)]) {
+    if (_delegateFlags.didSelectZone) {
         [_delegate didSelectZone:indexPath.row];
     }
     [self disappearCategory];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (_delegateFlags.didCancelSelectZone) {
+        [_delegate didCancelSelectZone];
+    }
     [self disappearCategory];
 }
 
@@ -93,5 +101,11 @@ typedef NS_ENUM(NSInteger, CellStyle) {
         [self removeFromParentViewController];
         [self.view removeFromSuperview];
     }];
+}
+
+- (void)setDelegate:(id<SMCategorySelectDelegate>)delegate {
+    _delegate = delegate;
+    _delegateFlags.didSelectZone = [_delegate respondsToSelector:@selector(didSelectZone:)];
+    _delegateFlags.didCancelSelectZone = [_delegate respondsToSelector:@selector(didCancelSelectZone)];
 }
 @end
