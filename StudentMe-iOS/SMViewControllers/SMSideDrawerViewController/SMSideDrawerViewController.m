@@ -13,6 +13,7 @@
 #import "SMNavigationViewController.h"
 #import "SMLoginViewController.h"
 #import "SMNotificationViewController.h"
+#import "SMHostViewController.h"
 
 #import "UIColor+SMColor.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -111,7 +112,6 @@
     [self.tableView reloadData];
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -127,7 +127,7 @@
         case DrawerSectionUserInfo:
             return 1;
         case DrawerSectionSettings:
-            return 4;
+            return 3;
         default:
             return 0;
     }
@@ -297,6 +297,8 @@
             break;
         case SectionSettingsCategory: {
             cell.leftImgView.image = [UIImage imageNamed:@"section_categories_highlighted"];
+            SMHostViewController *vc = [[SMHostViewController alloc] init];
+            [self setCenterViewController:vc];
         }
             break;
         case SectionSettingsNotification: {
@@ -328,5 +330,7 @@
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
     [self presentViewController:nav animated:YES completion:nil];
 }
+
+
 
 @end

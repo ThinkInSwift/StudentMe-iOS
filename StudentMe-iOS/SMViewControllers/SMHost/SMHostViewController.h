@@ -10,5 +10,5 @@
 
 @interface SMHostViewController : SCPullRefreshViewController <UITableViewDataSource, UITableViewDelegate>
 
-
+- (void)removeBlurView;
 @end

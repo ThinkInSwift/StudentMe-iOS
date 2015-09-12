@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, DrawerSection){
 };
 
 typedef NS_ENUM(NSInteger, SectionSettings){
-    SectionSettingsLatest,
+    SectionSettingsLatest = -1,
     SectionSettingsCategory,
     SectionSettingsNotification,
     SectionSettingsAbout

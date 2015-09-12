@@ -7,7 +7,6 @@
 //
 
 #import "SMBaseViewController.h"
-
-@interface SMCategoriesViewController : SMBaseViewController
+@interface SMCategoriesViewController : SMBaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

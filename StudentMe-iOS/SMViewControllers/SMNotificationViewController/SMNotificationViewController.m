@@ -12,6 +12,9 @@
 
 #import "UIViewController+SCCategorys.h"
 
+#import <UIBarButtonItem+BlocksKit.h>
+#import <UIViewController+MMDrawerController.h>
+
 @implementation SMNotificationViewController
 
 - (void)viewDidLoad {
@@ -34,6 +37,10 @@
     }
     
     __weak typeof(self) weakSelf = self;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+        [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    }];
+    
     
     self.refreshBlock = ^{
         [weakSelf initData];

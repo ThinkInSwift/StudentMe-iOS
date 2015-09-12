@@ -10,6 +10,7 @@
 #import "SMHttpDataManager.h"
 #import "SMPostTopicListTableViewCell.h"
 #import "SMPostTopicReplyListViewController.h"
+#import "SMCategoriesViewController.h"
 
 #import <UIViewController+MMDrawerController.h>
 #import "UIViewController+SCCategorys.h"
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 @interface SMHostViewController ()
 @property (nonatomic, strong, readwrite) NSMutableArray *dataSource;
 @property (nonatomic, assign, readwrite) SMSegmentZone segmentZone;
+@property (nonatomic, strong, readwrite) UIView *blurView;
 @end
 
 @implementation SMHostViewController
@@ -44,6 +46,13 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     [super viewDidLoad];
     [self setUp];
     [self beginRefresh];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    if (_blurView) {
+        [_blurView setFrame:self.view.bounds];
+    }
 }
 
 - (void)setUp {
@@ -74,6 +83,22 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
         [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    }];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithBarButtonSystemItem:UIBarButtonSystemItemAction handler:^(id sender) {
+        [weakSelf.view addSubview:self.blurView];
+        [weakSelf.navigationController setNavigationBarHidden:YES animated:YES];
+        
+        SMCategoriesViewController *categoryVc = [[SMCategoriesViewController alloc] init];
+        categoryVc.view.frame = self.view.bounds;
+        categoryVc.view.alpha = 0;
+        [weakSelf.view addSubview:weakSelf.blurView];
+        [weakSelf.view addSubview:categoryVc.view];
+        [weakSelf addChildViewController:categoryVc];
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _blurView.alpha = 1;
+            categoryVc.view.alpha = 1;
+        } completion:nil];
     }];
     
     self.refreshBlock = ^{
@@ -204,6 +229,26 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     SMTopic *topic = [[SMTopic alloc] initWithDictionary:self.dataSource[indexPath.row]];
     SMPostTopicReplyListViewController *vc = [[SMPostTopicReplyListViewController alloc] initWithTopic:topic];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma amrk - Getter
+- (UIView *)blurView {
+    if (!_blurView) {
+        _blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+        _blurView.alpha = 1.0f;
+        _blurView.frame = [[UIScreen mainScreen] bounds];
+    }
+    return _blurView;
+}
+
+- (void)removeBlurView {
+    [UIView animateWithDuration:0.3 animations:^{
+        _blurView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [_blurView removeFromSuperview];
+    }];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 @end
