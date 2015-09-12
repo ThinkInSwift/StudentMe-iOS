@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     SMSegmentZoneDeals
 };
 
-@interface SMHostViewController ()
+@interface SMHostViewController () <SMCategorySelectDelegate>
 @property (nonatomic, strong, readwrite) NSMutableArray *dataSource;
 @property (nonatomic, assign, readwrite) SMSegmentZone segmentZone;
 @property (nonatomic, strong, readwrite) UIView *blurView;
@@ -69,18 +69,6 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     }
     
     __weak typeof(self) weakSelf = self;
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"水区", @"情感", @"就业", @"二手"]];
-    [segmentedControl setSelectedSegmentIndex:self.segmentZone];
-    [segmentedControl setFrame:CGRectMake(0, 0, 250, 30)];
-    [segmentedControl bk_addEventHandler:^(UISegmentedControl* sender) {
-        __strong typeof(self) strongSelf = weakSelf;
-        strongSelf.segmentZone = sender.selectedSegmentIndex;
-        [strongSelf beginRefresh];
-    } forControlEvents:UIControlEventValueChanged];
-    
-    self.navigationItem.titleView = segmentedControl;
-    
-
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
         [weakSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     }];
@@ -92,6 +80,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
         SMCategoriesViewController *categoryVc = [[SMCategoriesViewController alloc] init];
         categoryVc.view.frame = self.view.bounds;
         categoryVc.view.alpha = 0;
+        categoryVc.delegate = self;
         [weakSelf.view addSubview:weakSelf.blurView];
         [weakSelf.view addSubview:categoryVc.view];
         [weakSelf addChildViewController:categoryVc];
@@ -251,5 +240,12 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
+
+#pragma mark - CategoryControllerDelegate
+
+- (void)didSelectZone:(NSInteger)zone {
+    self.segmentZone = zone;
+    [self beginRefresh];
+}
 @end
 

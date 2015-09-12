@@ -7,6 +7,13 @@
 //
 
 #import "SMBaseViewController.h"
-@interface SMCategoriesViewController : SMBaseViewController <UITableViewDataSource, UITableViewDelegate>
+@protocol SMCategorySelectDelegate <NSObject>
+
+- (void)didSelectZone:(NSInteger)zone;
 
 @end
+
+@interface SMCategoriesViewController : SMBaseViewController <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, weak) id <SMCategorySelectDelegate> delegate;
+@end
+

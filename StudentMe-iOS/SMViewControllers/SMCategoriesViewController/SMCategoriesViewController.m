@@ -75,6 +75,9 @@ typedef NS_ENUM(NSInteger, CellStyle) {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([_delegate respondsToSelector:@selector(didSelectZone:)]) {
+        [_delegate didSelectZone:indexPath.row];
+    }
     [self disappearCategory];
 }
 
