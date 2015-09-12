@@ -11,4 +11,6 @@
 @interface SCIndicatorTitleView : UIView
 @property (nonatomic, copy) NSString *title;
 - (instancetype)initWithTitle:(NSString *)title;
+- (void)startIndicator;
+- (void)stopIndicator;
 @end

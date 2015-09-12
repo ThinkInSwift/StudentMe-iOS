@@ -27,7 +27,6 @@
     if (self) {
         _label = [[UILabel alloc] init];
         _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _label.text = _title;
         [self addSubview:_label];
         [self addSubview:_indicatorView];
         
@@ -40,9 +39,25 @@
             make.centerY.equalTo(_label);
             make.right.equalTo(_label.mas_left).with.offset(-5);
         }];
-        [_indicatorView startAnimating];
     }
     return self;
+}
+
+- (void)startIndicator {
+    _indicatorView.hidden = NO;
+    if (!_indicatorView.isAnimating) {
+        [_indicatorView startAnimating];
+    }
+}
+- (void)stopIndicator {
+    _indicatorView.hidden = YES;
+    if (_indicatorView.isAnimating) {
+        [_indicatorView stopAnimating];
+    }
+}
+
+- (void)setTitle:(NSString *)title {
+    _label.text = title;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

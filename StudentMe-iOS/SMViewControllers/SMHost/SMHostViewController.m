@@ -134,8 +134,10 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
         NSLog(@"err is %@", error);
         [weakSelf showAlertWithMessage:error.userInfo[@"info"]];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
+        [(SCIndicatorTitleView *)self.navigationItem.titleView stopIndicator];
     } completed:^{
         NSLog(@"completed");
+        [(SCIndicatorTitleView *)self.navigationItem.titleView stopIndicator];
     }];
 }
 
@@ -248,7 +250,10 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 
 - (void)didSelectZone:(NSInteger)zone {
     self.segmentZone = zone;
-    [self beginRefresh];
+    SCIndicatorTitleView *titleView = (SCIndicatorTitleView *)self.navigationItem.titleView;
+    [titleView setTitle:@[@"水区", @"情感", @"就业", @"二手"][zone]];
+    [titleView startIndicator];
+    [self initData];
 }
 
 - (void)didCancelSelectZone {
