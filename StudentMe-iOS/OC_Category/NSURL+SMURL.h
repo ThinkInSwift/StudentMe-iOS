@@ -10,17 +10,17 @@
 
 @interface NSURL (SMURL)
 
-+ (NSString *)smHostString;
++ (NSString *)sm_hostString;
 
 #pragma mark - user
-+ (NSString *)smLoginString;
++ (NSString *)sm_loginString;
 
 #pragma mark - post
-+ (NSString *)smForumlistString;
-+ (NSString *)smForumTopiclistString;
-+ (NSString *)smForumPostlistString;
-+ (NSString *)smForumTopicAdminString;
++ (NSString *)sm_forumlistString;
++ (NSString *)sm_forumTopiclistString;
++ (NSString *)sm_forumPostlistString;
++ (NSString *)sm_forumTopicAdminString;
 
 #pragma mark - message
-+ (NSString *)smMessageNotifylistString;
++ (NSString *)sm_messageNotifylistString;
 @end

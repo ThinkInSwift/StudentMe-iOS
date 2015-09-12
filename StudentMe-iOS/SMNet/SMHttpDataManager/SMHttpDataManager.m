@@ -53,7 +53,7 @@
     @weakify(self);
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smLoginString] parameters:data
+        [self.manager POST:[NSURL sm_loginString] parameters:data
                    success:^(NSURLSessionDataTask *task, id responseObject) {
                        if ([SMValidation isFailLoginWithResp:responseObject]) {
                            [subscriber sendError:[SMErr errWithErrCode:SMRespErrCodeLoginPwdNotRight]];
@@ -84,7 +84,7 @@
     @weakify(self);
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smForumlistString] parameters:nil
+        [self.manager POST:[NSURL sm_forumlistString] parameters:nil
                    success:^(NSURLSessionDataTask *task, id responseObject) {
                        [subscriber sendNext:responseObject];
                        [subscriber sendCompleted];
@@ -106,7 +106,7 @@
     @weakify(self);
     return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smForumTopiclistString]
+        [self.manager POST:[NSURL sm_forumTopiclistString]
                 parameters:[self configureTokenAndSecretWithDic:[filter convertObjectToDict]]
                    success:^(NSURLSessionDataTask *task, id responseObject) {
                        if ([SMValidation isNeedLoginWithResp:responseObject]) {
@@ -141,7 +141,7 @@
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smForumPostlistString] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self.manager POST:[NSURL sm_forumPostlistString] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"forumPostlistWithTopicId succ response is %@", responseObject);
             if ([SMValidation isNeedLoginWithResp:responseObject]) {
                 NSError *err = [[NSError alloc] initWithDomain:@"forumTopiclistWithFilter"
@@ -170,7 +170,7 @@
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smForumTopicAdminString] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self.manager POST:[NSURL sm_forumTopicAdminString] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"forumTopicAdminWithFilter succ response is %@", responseObject);
             if ([SMValidation isNeedLoginWithResp:responseObject]) {
                 NSError *err = [[NSError alloc] initWithDomain:@"forumTopiclistWithFilter"
@@ -198,7 +198,7 @@
     @weakify(self);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
-        [self.manager POST:[NSURL smMessageNotifylistString] parameters:[self configureBaseParamsWithDict:[filter dict]] success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self.manager POST:[NSURL sm_messageNotifylistString] parameters:[self configureBaseParamsWithDict:[filter dict]] success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"messageList succ response is %@", responseObject);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"messageList fail response is %@", error);

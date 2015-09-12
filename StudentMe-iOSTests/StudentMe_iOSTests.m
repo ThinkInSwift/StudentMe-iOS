@@ -46,7 +46,7 @@
 
 
 - (void)testUrlTools {
-    NSString *login = [NSURL smLoginString];
+    NSString *login = [NSURL sm_loginString];
     NSLog(@"user login url is %@", login);
 }
 

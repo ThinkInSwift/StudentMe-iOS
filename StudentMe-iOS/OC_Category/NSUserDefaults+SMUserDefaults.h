@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSUserDefaults (SMUserDefaults)
-+ (NSString *)smkeyUserSecretInfo;
++ (NSString *)sm_keyUserSecretInfo;
 @end

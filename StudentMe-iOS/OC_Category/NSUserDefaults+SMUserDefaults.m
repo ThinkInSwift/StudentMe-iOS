@@ -9,7 +9,7 @@
 #import "NSUserDefaults+SMUserDefaults.h"
 
 @implementation NSUserDefaults (SMUserDefaults)
-+ (NSString *)smkeyUserSecretInfo {
++ (NSString *)sm_keyUserSecretInfo {
     return @"smkeyUserSecretInfo";
 }
 @end

@@ -11,8 +11,8 @@
 @interface UIColor (SMColor)
 
 //for example
-+ (UIColor *)smBlue;
-+ (UIColor *)smBlueLight;
++ (UIColor *)sm_blue;
++ (UIColor *)sm_blueLight;
 
 
 @end

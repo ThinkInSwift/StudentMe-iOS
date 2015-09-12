@@ -10,41 +10,41 @@
 
 @implementation NSURL (SMURL)
 
-+ (NSString *)smHostString {
++ (NSString *)sm_hostString {
     return @"http://bbs.uestc.edu.cn";
 }
 
 #pragma mark - user
-+ (NSString *)smLoginString {
++ (NSString *)sm_loginString {
     return [[self prefixbbsUrlString] stringByAppendingString:@"user/login"];
 }
 
 #pragma mark - post
-+ (NSString *)smForumlistString {
++ (NSString *)sm_forumlistString {
     return [[self prefixbbsUrlString] stringByAppendingString:@"forum/forumlist"];
 }
 
-+ (NSString *)smForumTopiclistString {
++ (NSString *)sm_forumTopiclistString {
     return [[self prefixbbsUrlString] stringByAppendingString:@"forum/topiclist"];
 }
 
-+ (NSString *)smForumPostlistString {
++ (NSString *)sm_forumPostlistString {
     return [[self prefixbbsUrlString] stringByAppendingString:@"forum/postlist"];
 }
 
-+ (NSString *)smForumTopicAdminString {
++ (NSString *)sm_forumTopicAdminString {
     return [[self prefixbbsUrlString] stringByAppendingString:@"forum/topicadmin"];
 }
 
 #pragma mark - message
-+ (NSString *)smMessageNotifylistString {
++ (NSString *)sm_messageNotifylistString {
     return [[self prefixbbsUrlString] stringByAppendingString:@"message/notifylist"];
 }
 
 #pragma mark - private method
 
 + (NSString *)prefixbbsUrlString {
-    return [[self smHostString] stringByAppendingString:[self bbsMiddleUrlString]];
+    return [[self sm_hostString] stringByAppendingString:[self bbsMiddleUrlString]];
 }
 
 + (NSString *)bbsMiddleUrlString {

@@ -12,7 +12,7 @@
 #import <MBProgressHUD.h>
 @implementation UIViewController (SCCategorys)
 
-- (void)showAlertWithMessage:(NSString *)message {
+- (void)sc_showAlertWithMessage:(NSString *)message {
     UIAlertView *alert = [[UIAlertView alloc] init];
     alert.title = @"出错了";
     alert.message = message;
@@ -22,7 +22,7 @@
     [alert show];
 }
 
-- (void)showHudWithMessage:(NSString *)message {
+- (void)sc_showHudWithMessage:(NSString *)message {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = message;
     hud.mode = MBProgressHUDModeText;

@@ -14,12 +14,12 @@
  *
  *  @param message message description
  */
-- (void)showAlertWithMessage:(NSString *)message;
+- (void)sc_showAlertWithMessage:(NSString *)message;
 /**
  *  显示一个自动消失的 hud （toast）
  *
  *  @param message message description
  */
-- (void)showHudWithMessage:(NSString *)message;
+- (void)sc_showHudWithMessage:(NSString *)message;
 
 @end

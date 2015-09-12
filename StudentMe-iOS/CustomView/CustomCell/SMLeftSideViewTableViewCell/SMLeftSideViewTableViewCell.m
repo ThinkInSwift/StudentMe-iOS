@@ -20,7 +20,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     if (selected) {
-        self.titleLabel.textColor = [UIColor smBlue];
+        self.titleLabel.textColor = [UIColor sm_blue];
     
     } else {
         self.titleLabel.textColor = [UIColor darkGrayColor];

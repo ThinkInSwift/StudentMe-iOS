@@ -102,7 +102,7 @@
     } error:^(NSError *error) {
         @strongify(self);
         [hud hide:YES];
-        [self showAlertWithMessage:[NSString stringWithFormat:@"%@", error]];
+        [self sc_showAlertWithMessage:[NSString stringWithFormat:@"%@", error]];
     } completed:^{
     }];
 }

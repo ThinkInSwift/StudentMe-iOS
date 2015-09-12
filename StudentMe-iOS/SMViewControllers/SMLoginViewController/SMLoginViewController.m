@@ -153,13 +153,13 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
     [[[SMHttpDataManager sharedManager] LoginWithUsername:name password:pwd] subscribeNext:^(id x) {
         @strongify(self);
         [indicator removeFromSuperview];
-        [self showHudWithMessage:@"登录成功"];
+        [self sc_showHudWithMessage:@"登录成功"];
         [self dismissViewControllerAnimated:YES completion:nil];
     } error:^(NSError *error) {
         @strongify(self);
         self.btn_login.hidden = NO;
         [indicator removeFromSuperview];
-        [self showAlertWithMessage:error.userInfo[@"info"]];
+        [self sc_showAlertWithMessage:error.userInfo[@"info"]];
     }];
 }
 

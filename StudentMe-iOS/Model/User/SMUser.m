@@ -48,11 +48,11 @@
 }
 
 - (void)saveToUserDefault {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self] forKey:[NSUserDefaults smkeyUserSecretInfo]];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self] forKey:[NSUserDefaults sm_keyUserSecretInfo]];
 }
 
 + (SMUser *)userFromUserDefault {
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:[NSUserDefaults smkeyUserSecretInfo]];
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:[NSUserDefaults sm_keyUserSecretInfo]];
     SMUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return user;
 }
