@@ -11,4 +11,5 @@
 @interface SMLeftSideAvatarViewTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 + (CGFloat)cellHeight;
+- (void)showLoginButton:(BOOL)flag;
 @end

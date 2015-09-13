@@ -12,12 +12,19 @@
 
 - (void)awakeFromNib {
     self.avatarImgView.userInteractionEnabled = YES;
+    [self.avatarImgView setContentMode:UIViewContentModeScaleAspectFit];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)showLoginButton:(BOOL)flag {
+    self.avatarImgView.hidden = flag;
+    self.textLabel.text = flag ? @"登录" : nil;
+    
 }
 
 + (CGFloat)cellHeight {

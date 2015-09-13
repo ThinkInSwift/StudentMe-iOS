@@ -14,12 +14,14 @@
 #import "SMLoginViewController.h"
 #import "SMNotificationViewController.h"
 #import "SMHostViewController.h"
+#import "SMUser.h"
 
 #import "UIColor+SMColor.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <UIGestureRecognizer+RACSignalSupport.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@interface SMSideDrawerViewController ()
+@interface SMSideDrawerViewController () <SMLoginDelegate>
 
 @end
 
@@ -180,10 +182,16 @@
     [cell.avatarImgView addGestureRecognizer:ges];
     __weak typeof(self) weakSelf = self;
     [ges.rac_gestureSignal subscribeNext:^(id x) {
-        NSLog(@"avatarImgView tapped!");
-        [weakSelf willPresentLoginViewController];
+        //do other things
     }];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    SMUser *user = [SMUser userFromUserDefault];
+    [cell.avatarImgView sd_setImageWithURL:[NSURL URLWithString:user.avatar]];
+    if (!user) {
+        [cell showLoginButton:YES];
+    } else {
+        [cell showLoginButton:NO];
+    }
     return cell;
 }
 
@@ -274,7 +282,11 @@
 
 - (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell
        didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (!cell.avatarImgView.hidden) {
+        //do other things
+        return;
+    }
+    [self willPresentLoginViewController];
 }
 
 - (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell
@@ -327,10 +339,15 @@
 
 - (void)willPresentLoginViewController {
     SMLoginViewController *login = [[SMLoginViewController alloc] init];
+    login.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:login];
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+#pragma mark - Login Delegate
 
+- (void)didLoginSucc {
+    [self.tableView reloadData];
+}
 
 @end

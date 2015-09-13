@@ -154,11 +154,17 @@ static NSString *const identifier = @"SMLoginInputTableViewCell";
         @strongify(self);
         [indicator removeFromSuperview];
         [self sc_showHudWithMessage:@"登录成功"];
+        if ([self.delegate respondsToSelector:@selector(didLoginSucc)]) {
+            [self.delegate didLoginSucc];
+        }
         [self dismissViewControllerAnimated:YES completion:nil];
     } error:^(NSError *error) {
         @strongify(self);
         self.btn_login.hidden = NO;
         [indicator removeFromSuperview];
+        if ([self.delegate respondsToSelector:@selector(didLoginFail)]) {
+            [self.delegate didLoginFail];
+        }
         [self sc_showAlertWithMessage:error.userInfo[@"info"]];
     }];
 }

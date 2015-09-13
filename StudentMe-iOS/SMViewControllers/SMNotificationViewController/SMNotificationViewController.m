@@ -64,7 +64,7 @@
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
-        [weakSelf showAlertWithMessage:error.userInfo[@"info"]];
+        [weakSelf sc_showAlertWithMessage:error.userInfo[@"info"]];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } completed:^{
         NSLog(@"completed");
@@ -82,7 +82,7 @@
         [weakSelf performSelector:@selector(endLoadMore) withObject:weakSelf afterDelay:0.0];
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
-        [weakSelf showAlertWithMessage:error.userInfo[@"info"]];
+        [weakSelf sc_showAlertWithMessage:error.userInfo[@"info"]];
         [weakSelf performSelector:@selector(endLoadMore) withObject:weakSelf afterDelay:0.0];
     } completed:^{
         NSLog(@"completed");
