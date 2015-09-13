@@ -15,7 +15,8 @@ typedef NS_ENUM(NSInteger, CellStyle) {
     CellStyleWater,
     CellStyleEmotion,
     CellStyleJob,
-    CellStyleDeals
+    CellStyleDeals,
+    CellStylePartTimeJob
 };
 
 struct {
@@ -46,7 +47,7 @@ struct {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,6 +72,9 @@ struct {
             break;
         case CellStyleDeals:
             label.text = @"二手";
+            break;
+        case CellStylePartTimeJob:
+            label.text = @"兼职";
             break;
         default:
             break;

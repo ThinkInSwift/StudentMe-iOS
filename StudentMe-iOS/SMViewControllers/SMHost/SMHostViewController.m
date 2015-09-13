@@ -22,7 +22,8 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     SMSegmentZoneWater,
     SMSegmentZoneEmotion,
     SMSegmentZoneJob,
-    SMSegmentZoneDeals
+    SMSegmentZoneDeals,
+    SMSegmentZonePartTimeJob
 };
 
 @interface SMHostViewController () <SMCategorySelectDelegate>
@@ -122,6 +123,9 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
         case SMSegmentZoneJob:
             filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterJob];
             break;
+        case SMSegmentZonePartTimeJob:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterPartTimeJob];
+            break;
         default:
             break;
     }
@@ -156,6 +160,9 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
             break;
         case SMSegmentZoneJob:
             filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterJob];
+            break;
+        case SMSegmentZonePartTimeJob:
+            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterPartTimeJob];
             break;
         default:
             break;
@@ -251,7 +258,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 - (void)didSelectZone:(NSInteger)zone {
     self.segmentZone = zone;
     SCIndicatorTitleView *titleView = (SCIndicatorTitleView *)self.navigationItem.titleView;
-    [titleView setTitle:@[@"水区", @"情感", @"就业", @"二手"][zone]];
+    [titleView setTitle:@[@"水区", @"情感", @"就业", @"二手", @"兼职"][zone]];
     [titleView startIndicator];
     [self initData];
 }
