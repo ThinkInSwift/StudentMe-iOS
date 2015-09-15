@@ -26,6 +26,7 @@
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:config];
     
+    [self.manager.requestSerializer setValue:nil forHTTPHeaderField:@"User-Agent"];
     self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:@[@"text/html"]];
     
 }
