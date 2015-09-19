@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, SMTopicListFilterFid) {
     SMTopicListFilterDeals      = 61,
     SMTopicListFilterJob        = 214,
     SMTopicListFilterPartTimeJob = 183,
+    SMTopicListFilterHighTechNews = 211
 };
 
 

@@ -282,7 +282,7 @@
 
 - (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell
        didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!cell.avatarImgView.hidden) {
+    if (cell.avatarImgView.isHidden) {
         //do other things
         return;
     }

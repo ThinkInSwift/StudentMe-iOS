@@ -28,7 +28,6 @@
     
     [self.manager.requestSerializer setValue:nil forHTTPHeaderField:@"User-Agent"];
     self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObjectsFromArray:@[@"text/html"]];
-    
 }
 
 
