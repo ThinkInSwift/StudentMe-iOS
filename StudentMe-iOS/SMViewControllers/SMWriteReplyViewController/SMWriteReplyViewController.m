@@ -42,7 +42,6 @@
 - (void)setUp {
     @weakify(self);
     
-    self.contentTextView.text = [[@"@" stringByAppendingString:self.reply.replyName] stringByAppendingString:@" "];
     [self.contentTextView becomeFirstResponder];
     UIBarButtonItem *btn_cancel = [[UIBarButtonItem alloc] bk_initWithTitle:@"取消" style:UIBarButtonItemStylePlain handler:^(id sender) {
         @strongify(self);
@@ -50,7 +49,7 @@
     }];
     self.navigationItem.leftBarButtonItem = btn_cancel;
     
-    [self setTitle:@"回复"];
+    [self setTitle:[NSString stringWithFormat:@"回复『%@』", self.reply.replyName]];
     
     UIBarButtonItem *btn_post = [[UIBarButtonItem alloc] bk_initWithTitle:@"发表" style:UIBarButtonItemStylePlain handler:^(id sender) {
         @strongify(self);

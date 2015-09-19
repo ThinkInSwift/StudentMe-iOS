@@ -65,7 +65,7 @@
         [json setObject:@"0" forKey:@"isQuote"];//回复楼主不能应用楼主的内容
     }
     [json setObject:_replyId forKey:@"replyId"];
-    [json setObject:@"From iOS" forKey:@"title"];
+    [json setObject:@"来自『光电之王』的 iPhone" forKey:@"title"];
     [json setObject:[self contentArray] forKey:@"content"];
     
     [body setObject:json forKey:@"json"];
