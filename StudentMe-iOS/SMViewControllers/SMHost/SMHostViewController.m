@@ -51,6 +51,11 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     [self beginRefresh];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     if (_blurView) {
@@ -239,6 +244,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     SMTopic *topic = [[SMTopic alloc] initWithDictionary:self.dataSource[indexPath.row]];
     SMPostTopicReplyListViewController *vc = [[SMPostTopicReplyListViewController alloc] initWithTopic:topic];
     [self.navigationController pushViewController:vc animated:YES];
+    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 }
 
 #pragma mark - Getter
