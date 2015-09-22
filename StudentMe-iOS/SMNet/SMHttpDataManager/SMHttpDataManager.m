@@ -199,7 +199,8 @@
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self);
         [self.manager POST:[NSURL sm_messageNotifylistString] parameters:[self configureBaseParamsWithDict:[filter dict]] success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSLog(@"messageList succ response is %@", responseObject);
+            NSLog(@"start --- message list is %@", responseObject);
+            NSLog(@"end --- message list");
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"messageList fail response is %@", error);
         }];

@@ -1,5 +1,5 @@
 //
-//  SMNotify.h
+//  SMNotification.h
 //  StudentMe-iOS
 //
 //  Created by SeanChense on 15/8/31.
@@ -35,6 +35,14 @@ typedef NS_ENUM(NSInteger, SMNotificationType) {
     SMNotifyTypeFriend
 };
 @interface SMNotification : NSObject
+@property (nonatomic, copy) NSString *boardName;
+@property (nonatomic, copy) NSString *replyContent;
+@property (nonatomic, copy) NSString *replyNickName;
+@property (nonatomic, strong) NSDate *replyDate;
+@property (nonatomic, strong) NSURL *replyAvatar;
+@property (nonatomic, copy) NSString *topicId;
+
+- (instancetype)initWithDict:(NSDictionary *)dict;
 
 @end
 

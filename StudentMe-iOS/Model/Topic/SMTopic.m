@@ -40,6 +40,8 @@
 
 #import "SMTopic.h"
 
+#import "NSDate+SMDate.h"
+
 @implementation SMTopic
 
 - (NSDateFormatter *)dateFormatter {
@@ -65,7 +67,7 @@
         _replies = [NSString stringWithFormat:@"%@",dict[@"replies"]];
         _topicId = [NSString stringWithFormat:@"%@", dict[@"topic_id"]];
         _userId = [NSString stringWithFormat:@"%@",dict[@"user_id"]];
-        _lastReplyDate = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"last_reply_date"] integerValue]/1000.0];
+        _lastReplyDate = [NSDate sm_dateWithServerTimestamp:dict[@"last_reply_date"]];
         
         if ([_userNickName isEqualToString:@"Seanchense"]) {
             _userNickName = @"SeanChense";

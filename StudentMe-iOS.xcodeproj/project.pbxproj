@@ -53,6 +53,7 @@
 		14D7D8391B949BBF00C92AB2 /* SMNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D8371B949BBF00C92AB2 /* SMNotificationTableViewCell.m */; };
 		14D7D83A1B949BBF00C92AB2 /* SMNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D7D8381B949BBF00C92AB2 /* SMNotificationTableViewCell.xib */; };
 		14D7D83D1B949C4800C92AB2 /* SMNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D83C1B949C4800C92AB2 /* SMNotification.m */; };
+		14D8A5A01BB1A5E500D40E2A /* NSDate+SMDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A59F1BB1A5E500D40E2A /* NSDate+SMDate.m */; settings = {ASSET_TAGS = (); }; };
 		14D99EF71B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D99EF51B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m */; };
 		14D99EF81B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D99EF61B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib */; };
 		14D99EFD1B89AD3900C0965D /* SMPostTopicReplyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D99EFB1B89AD3900C0965D /* SMPostTopicReplyListViewController.m */; };
@@ -164,6 +165,8 @@
 		14D7D8381B949BBF00C92AB2 /* SMNotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMNotificationTableViewCell.xib; path = CustomView/CustomCell/SMNotificationTableViewCell/SMNotificationTableViewCell.xib; sourceTree = "<group>"; };
 		14D7D83B1B949C4800C92AB2 /* SMNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMNotification.h; path = Model/Notification/SMNotification.h; sourceTree = "<group>"; };
 		14D7D83C1B949C4800C92AB2 /* SMNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNotification.m; path = Model/Notification/SMNotification.m; sourceTree = "<group>"; };
+		14D8A59E1BB1A5E500D40E2A /* NSDate+SMDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SMDate.h"; sourceTree = "<group>"; };
+		14D8A59F1BB1A5E500D40E2A /* NSDate+SMDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SMDate.m"; sourceTree = "<group>"; };
 		14D99EF41B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPostTopicReplyListTableViewCell.h; path = CustomView/CustomCell/SMPostTopicReplyListTableViewCell/SMPostTopicReplyListTableViewCell.h; sourceTree = "<group>"; };
 		14D99EF51B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPostTopicReplyListTableViewCell.m; path = CustomView/CustomCell/SMPostTopicReplyListTableViewCell/SMPostTopicReplyListTableViewCell.m; sourceTree = "<group>"; };
 		14D99EF61B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMPostTopicReplyListTableViewCell.xib; path = CustomView/CustomCell/SMPostTopicReplyListTableViewCell/SMPostTopicReplyListTableViewCell.xib; sourceTree = "<group>"; };
@@ -657,6 +660,8 @@
 				14E78F991B78E7C600523970 /* NSUserDefaults+SMUserDefaults.m */,
 				14E78F9A1B78E7C600523970 /* UIColor+SMColor.h */,
 				14E78F9B1B78E7C600523970 /* UIColor+SMColor.m */,
+				14D8A59E1BB1A5E500D40E2A /* NSDate+SMDate.h */,
+				14D8A59F1BB1A5E500D40E2A /* NSDate+SMDate.m */,
 			);
 			name = OC_Category;
 			sourceTree = "<group>";
@@ -851,6 +856,7 @@
 				141A5BFC1B639B3500A5F666 /* SMBaseViewController.m in Sources */,
 				14CE72DC1B6B315300D7F3B6 /* SMCategoriesViewController.m in Sources */,
 				14BF0FAD1B80870F00FAF970 /* DACircularProgressView.m in Sources */,
+				14D8A5A01BB1A5E500D40E2A /* NSDate+SMDate.m in Sources */,
 				14A119D21B78EA1600319F45 /* UIViewController+SCCategorys.m in Sources */,
 				141A5C141B63A3DB00A5F666 /* SMNavigationViewController.m in Sources */,
 				14D99F011B89EEDB00C0965D /* SMTopicReply.m in Sources */,

@@ -62,7 +62,6 @@
         [self.window setTintColor:tintColor];
     }
     [self.window setRootViewController:self.drawerController];
-    
     return YES;
 }
 

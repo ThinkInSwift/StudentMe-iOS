@@ -7,8 +7,11 @@
 //
 
 #import "SMNotificationTableViewCell.h"
+#import "SMNotification.h"
 
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <NSDate+TimeAgo.h>
 @implementation SMNotificationTableViewCell
 
 - (void)awakeFromNib {
@@ -22,7 +25,10 @@
 }
 
 - (void)configureCellWithNotification:(SMNotification *)notification {
-    
+    [self.avatar sd_setImageWithURL:notification.replyAvatar];
+    self.descriptionLabel.text = notification.replyNickName;
+    self.notificationContent.text = notification.replyContent;
+    self.createDateLabel.text = [notification.replyDate timeAgo];
 }
 
 + (CGFloat)height {

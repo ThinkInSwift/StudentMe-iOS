@@ -38,9 +38,9 @@
 
 
 @interface SMTopic : NSObject
-@property (nonatomic, strong, readwrite) NSString *boardName, *sourceWebUrl, *subject, *title, *userNickName, *topicId;
+@property (nonatomic, copy, readwrite) NSString *boardName, *sourceWebUrl, *subject, *title, *userNickName, *topicId;
 @property (nonatomic, strong, readwrite) NSURL *userAvatar;
-@property (nonatomic, strong, readwrite) NSString *boardId, *gender, *replies, *userId;
+@property (nonatomic, copy, readwrite) NSString *boardId, *gender, *replies, *userId;
 @property (nonatomic, strong, readwrite) NSDate *lastReplyDate;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

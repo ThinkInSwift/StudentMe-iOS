@@ -9,6 +9,7 @@
 #import "SMNotificationViewController.h"
 #import "SMNotificationTableViewCell.h"
 #import "SMHttpDataManager.h"
+#import "SMNotification.h"
 
 #import "UIViewController+SCCategorys.h"
 
@@ -57,9 +58,9 @@
 
 - (void)initData {
     __weak typeof(self) weakSelf = self;
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
-    [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
-        weakSelf.dataSource = [x mutableCopy];
+    SMNotificationFilter *filter = [[SMNotificationFilter alloc] initWithType:SMNotifyTypePost];
+    [[[SMHttpDataManager sharedManager] messageListWithFilter:filter] subscribeNext:^(id x) {
+        weakSelf.dataSource = x;
         [weakSelf.tableView reloadData];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } error:^(NSError *error) {
@@ -73,17 +74,19 @@
 
 - (void)loadMoreData {
     __weak typeof(self) weakSelf = self;
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
-    filter.page = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataSource.count / [filter.pageSize intValue] + 1];
-    
-    [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
-        [weakSelf.dataSource addObjectsFromArray:x];
+    SMNotificationFilter *filter = [[SMNotificationFilter alloc] initWithType:SMNotifyTypePost];
+    [[[SMHttpDataManager sharedManager] messageListWithFilter:filter] subscribeNext:^(id x) {
+        NSMutableArray *temp = [weakSelf.dataSource mutableCopy];
+        [temp addObjectsFromArray:x];
+        weakSelf.dataSource = [temp copy];
         [weakSelf.tableView reloadData];
-        [weakSelf performSelector:@selector(endLoadMore) withObject:weakSelf afterDelay:0.0];
+        [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
+        NSLog(@"start --- message list is %@", x);
+        NSLog(@"end --- message list");
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
         [weakSelf sc_showAlertWithMessage:error.userInfo[@"info"]];
-        [weakSelf performSelector:@selector(endLoadMore) withObject:weakSelf afterDelay:0.0];
+        [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } completed:^{
         NSLog(@"completed");
     }];
@@ -107,7 +110,8 @@
     if (!cell) {
         cell = [[SMNotificationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    [cell configureCellWithNotification:[SMNotification new]];
+    SMNotification *noti = [[SMNotification alloc] initWithDict:self.dataSource[indexPath.row]];
+    [cell configureCellWithNotification:noti];
     return cell;
 }
 

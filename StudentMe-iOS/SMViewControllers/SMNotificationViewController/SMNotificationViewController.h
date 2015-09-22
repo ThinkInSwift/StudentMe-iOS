@@ -10,6 +10,6 @@
 
 
 @interface SMNotificationViewController : SCPullRefreshViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) NSMutableArray *dataSource;
+@property (nonatomic, copy) NSArray *dataSource;
 
 @end

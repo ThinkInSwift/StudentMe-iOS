@@ -138,6 +138,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
         weakSelf.dataSource = [x mutableCopy];
         [weakSelf.tableView reloadData];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
+        NSLog(@"more is %@", x);
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
         [weakSelf sc_showAlertWithMessage:error.userInfo[@"info"]];
@@ -181,6 +182,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
         [weakSelf.dataSource addObjectsFromArray:x];
         [weakSelf.tableView reloadData];
         [weakSelf performSelector:@selector(endLoadMore) withObject:weakSelf afterDelay:0.0];
+        NSLog(@"more is %@", x);
     } error:^(NSError *error) {
         NSLog(@"err is %@", error);
         [weakSelf sc_showAlertWithMessage:error.userInfo[@"info"]];
