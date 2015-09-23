@@ -101,11 +101,25 @@ const CGFloat elementRightPadding = 10.f;
             }];
             uiSwitch.transform = CGAffineTransformMakeScale(1, 1);
             uiSwitch.onTintColor = [UIColor sm_defaultBlue];
+            uiSwitch.on = YES;
+            uiSwitch.alpha = 0.3;
+            cell.userInteractionEnabled = NO;
             break;
         }
-        case SMSettingCellCategoryJar:
-            //
+        case SMSettingCellCategoryJar: {
+            UILabel *label = [SMSettingsViewControllerCellLabel new];
+            
+            [cell.contentView addSubview:label];
+            
+            [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(cell.contentView).with.offset(LabelLeftPadding);
+                make.centerY.equalTo(cell.contentView);
+            }];
+            label.text = @"加载板块";
+            
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
             break;
+        }
         default:
             break;
     }
