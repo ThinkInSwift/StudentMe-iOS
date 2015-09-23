@@ -9,16 +9,16 @@
 #import "SMBaseViewController.h"
 #import "UIViewController+MMDrawerController.h"
 
-typedef NS_ENUM(NSInteger, DrawerSection){
-    DrawerSectionUserInfo,
-    DrawerSectionSettings
+typedef NS_ENUM(NSInteger, SMDrawerSection){
+    SMDrawerSectionUserInfo,
+    SMDrawerSectionFunction
 };
 
-typedef NS_ENUM(NSInteger, SectionSettings){
-    SectionSettingsLatest = -1,
-    SectionSettingsCategory,
-    SectionSettingsNotification,
-    SectionSettingsAbout
+typedef NS_ENUM(NSInteger, SMSectionFunction){
+    SMSectionFunctionCategory,
+    SMSectionFunctionNotification,
+    SMSectionFunctionSettings,
+    SMSectionFunctionAbout
 };
 @interface SMSideDrawerViewController : SMBaseViewController <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;

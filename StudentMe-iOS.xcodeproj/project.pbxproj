@@ -54,6 +54,8 @@
 		14D7D83A1B949BBF00C92AB2 /* SMNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D7D8381B949BBF00C92AB2 /* SMNotificationTableViewCell.xib */; };
 		14D7D83D1B949C4800C92AB2 /* SMNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D83C1B949C4800C92AB2 /* SMNotification.m */; };
 		14D8A5A01BB1A5E500D40E2A /* NSDate+SMDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A59F1BB1A5E500D40E2A /* NSDate+SMDate.m */; settings = {ASSET_TAGS = (); }; };
+		14D8A5A51BB26DA900D40E2A /* SMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A5A31BB26DA900D40E2A /* SMSettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		14D8A5A61BB26DA900D40E2A /* SMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D8A5A41BB26DA900D40E2A /* SMSettingsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		14D99EF71B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D99EF51B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m */; };
 		14D99EF81B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D99EF61B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib */; };
 		14D99EFD1B89AD3900C0965D /* SMPostTopicReplyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D99EFB1B89AD3900C0965D /* SMPostTopicReplyListViewController.m */; };
@@ -167,6 +169,9 @@
 		14D7D83C1B949C4800C92AB2 /* SMNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMNotification.m; path = Model/Notification/SMNotification.m; sourceTree = "<group>"; };
 		14D8A59E1BB1A5E500D40E2A /* NSDate+SMDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SMDate.h"; sourceTree = "<group>"; };
 		14D8A59F1BB1A5E500D40E2A /* NSDate+SMDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SMDate.m"; sourceTree = "<group>"; };
+		14D8A5A21BB26DA900D40E2A /* SMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSettingsViewController.h; path = SMViewControllers/SMSettingsViewController/SMSettingsViewController.h; sourceTree = "<group>"; };
+		14D8A5A31BB26DA900D40E2A /* SMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMSettingsViewController.m; path = SMViewControllers/SMSettingsViewController/SMSettingsViewController.m; sourceTree = "<group>"; };
+		14D8A5A41BB26DA900D40E2A /* SMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMSettingsViewController.xib; path = SMViewControllers/SMSettingsViewController/SMSettingsViewController.xib; sourceTree = "<group>"; };
 		14D99EF41B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPostTopicReplyListTableViewCell.h; path = CustomView/CustomCell/SMPostTopicReplyListTableViewCell/SMPostTopicReplyListTableViewCell.h; sourceTree = "<group>"; };
 		14D99EF51B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPostTopicReplyListTableViewCell.m; path = CustomView/CustomCell/SMPostTopicReplyListTableViewCell/SMPostTopicReplyListTableViewCell.m; sourceTree = "<group>"; };
 		14D99EF61B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMPostTopicReplyListTableViewCell.xib; path = CustomView/CustomCell/SMPostTopicReplyListTableViewCell/SMPostTopicReplyListTableViewCell.xib; sourceTree = "<group>"; };
@@ -314,6 +319,7 @@
 		141A5BF41B639A8C00A5F666 /* SMViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				14D8A5A11BB26D8400D40E2A /* SMSettingsViewController */,
 				14874A631B8B118200F0FF99 /* SMWriteReplyViewController */,
 				14D99EF91B89AD0600C0965D /* SMPostTopicReplyListViewController */,
 				14BF0FB81B80B8C800FAF970 /* SMLoginViewController */,
@@ -629,6 +635,16 @@
 			name = SMAboutViewController;
 			sourceTree = "<group>";
 		};
+		14D8A5A11BB26D8400D40E2A /* SMSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14D8A5A21BB26DA900D40E2A /* SMSettingsViewController.h */,
+				14D8A5A31BB26DA900D40E2A /* SMSettingsViewController.m */,
+				14D8A5A41BB26DA900D40E2A /* SMSettingsViewController.xib */,
+			);
+			name = SMSettingsViewController;
+			sourceTree = "<group>";
+		};
 		14D99EF31B89AC8700C0965D /* SMPostTopicReplyListTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -768,6 +784,7 @@
 				14D99EFE1B89AD3900C0965D /* SMPostTopicReplyListViewController.xib in Resources */,
 				147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */,
 				14D7D83A1B949BBF00C92AB2 /* SMNotificationTableViewCell.xib in Resources */,
+				14D8A5A61BB26DA900D40E2A /* SMSettingsViewController.xib in Resources */,
 				14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */,
 				14BF0FBD1B80B8F300FAF970 /* SMLoginViewController.xib in Resources */,
 				14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */,
@@ -829,6 +846,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14874A621B8AC42700F0FF99 /* SMAutoSizeLabel.m in Sources */,
+				14D8A5A51BB26DA900D40E2A /* SMSettingsViewController.m in Sources */,
 				146A105D1B80813D00176D7A /* SCBubbleRefreshView.m in Sources */,
 				141A5C181B63A52A00A5F666 /* SMDrawerVisualStateManager.m in Sources */,
 				14BF0FC21B8190AC00FAF970 /* SMLoginInputTableViewCell.m in Sources */,

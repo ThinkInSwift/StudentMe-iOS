@@ -14,6 +14,7 @@
 #import "SMLoginViewController.h"
 #import "SMNotificationViewController.h"
 #import "SMHostViewController.h"
+#import "SMSettingsViewController.h"
 #import "SMUser.h"
 
 #import "UIColor+SMColor.h"
@@ -126,10 +127,10 @@
 {
     // Return the number of rows in the section.
     switch (section) {
-        case DrawerSectionUserInfo:
+        case SMDrawerSectionUserInfo:
             return 1;
-        case DrawerSectionSettings:
-            return 3;
+        case SMDrawerSectionFunction:
+            return 4;
         default:
             return 0;
     }
@@ -137,7 +138,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case DrawerSectionUserInfo: {
+        case SMDrawerSectionUserInfo: {
             static NSString *CellIdentifier = @"SMLeftSideAvatarViewTableViewCell";
             SMLeftSideAvatarViewTableViewCell *cell = (SMLeftSideAvatarViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil) {
@@ -147,7 +148,7 @@
             return [self configureAvatarCell:cell cellForRowAtIndexPath:indexPath];
         }
             break;
-        case DrawerSectionSettings: {
+        case SMDrawerSectionFunction: {
             static NSString *CellIdentifier = @"SMLeftSideViewTableViewCell";
             SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil) {
@@ -165,10 +166,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case DrawerSectionUserInfo:
+        case SMDrawerSectionUserInfo:
             return [SMLeftSideAvatarViewTableViewCell cellHeight];
             break;
-        case DrawerSectionSettings:
+        case SMDrawerSectionFunction:
             return [SMLeftSideViewTableViewCell cellHeight];
         default:
             return 0.f;
@@ -197,22 +198,22 @@
 
 - (UITableViewCell *)configureSettingsCell:(SMLeftSideViewTableViewCell *)cell cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case SectionSettingsLatest: {
-            cell.titleLabel.text = @"最新";
-            cell.leftImgView.image = [UIImage imageNamed:@"section_latest"];
-        }
-            break;
-        case SectionSettingsCategory: {
+        case SMSectionFunctionCategory: {
             cell.titleLabel.text = @"分类";
             cell.leftImgView.image = [UIImage imageNamed:@"section_categories"];
         }
             break;
-        case SectionSettingsNotification: {
+        case SMSectionFunctionNotification: {
             cell.titleLabel.text = @"提醒";
             cell.leftImgView.image = [UIImage imageNamed:@"section_notification"];
         }
             break;
-        case SectionSettingsAbout: {
+        case SMSectionFunctionSettings: {
+            cell.titleLabel.text = @"设置";
+            cell.leftImgView.image = [UIImage imageNamed:@"yae"];
+        }
+            break;
+        case SMSectionFunctionAbout: {
             cell.titleLabel.text = @"关于";
             cell.leftImgView.image = [UIImage imageNamed:@"section_about"];
         }
@@ -225,35 +226,7 @@
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case DrawerSectionUserInfo: {
-            static NSString *CellIdentifier = @"SMLeftSideAvatarViewTableViewCell";
-            SMLeftSideAvatarViewTableViewCell *cell = (SMLeftSideAvatarViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (cell == nil) {
-                cell = [[SMLeftSideAvatarViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
-            }
-            [self handleSectionUserInfoCell:cell didHighlightRowAtIndexPath:indexPath];
-        }
-            
-            break;
-        case DrawerSectionSettings: {
-            static NSString *CellIdentifier = @"SMLeftSideViewTableViewCell";
-            SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (cell == nil) {
-                cell = [[SMLeftSideViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
-            }
-            [self handleSectionSettingsCell:cell didHighlightRowAtIndexPath:indexPath];
-        }
-            break;
-        default:
-            break;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.section) {
-        case DrawerSectionUserInfo: {
+        case SMDrawerSectionUserInfo: {
             static NSString *CellIdentifier = @"SMLeftSideAvatarViewTableViewCell";
             SMLeftSideAvatarViewTableViewCell *cell = (SMLeftSideAvatarViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil) {
@@ -264,14 +237,42 @@
         }
             
             break;
-        case DrawerSectionSettings: {
+        case SMDrawerSectionFunction: {
             static NSString *CellIdentifier = @"SMLeftSideViewTableViewCell";
             SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil) {
                 cell = [[SMLeftSideViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
             }
-            [self handleSectionSettingsCell:cell didSelectRowAtIndexPath:indexPath];
+            [self handleSectionFunctionCell:cell didSelectRowAtIndexPath:indexPath];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case SMDrawerSectionUserInfo: {
+            static NSString *CellIdentifier = @"SMLeftSideAvatarViewTableViewCell";
+            SMLeftSideAvatarViewTableViewCell *cell = (SMLeftSideAvatarViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideAvatarViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            [self handleSectionUserInfoCell:cell didSelectRowAtIndexPath:indexPath];
+        }
+            
+            break;
+        case SMDrawerSectionFunction: {
+            static NSString *CellIdentifier = @"SMLeftSideViewTableViewCell";
+            SMLeftSideViewTableViewCell *cell = (SMLeftSideViewTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[SMLeftSideViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+            }
+            [self handleSectionFunctionCell:cell didSelectRowAtIndexPath:indexPath];
         }
             
             break;
@@ -280,8 +281,9 @@
     }
 }
 
+
 - (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell
-       didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+          didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (cell.avatarImgView.isHidden) {
         //do other things
         return;
@@ -289,37 +291,29 @@
     [self willPresentLoginViewController];
 }
 
-- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell
-       didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
-- (void)handleSectionUserInfoCell:(SMLeftSideAvatarViewTableViewCell *)cell
-          didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
-- (void)handleSectionSettingsCell:(SMLeftSideViewTableViewCell *)cell
+- (void)handleSectionFunctionCell:(SMLeftSideViewTableViewCell *)cell
           didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {
-        case SectionSettingsLatest: {
-            cell.leftImgView.image = [UIImage imageNamed:@"section_latest_highlighted"];
-        }
-            break;
-        case SectionSettingsCategory: {
+        case SMSectionFunctionCategory: {
             cell.leftImgView.image = [UIImage imageNamed:@"section_categories_highlighted"];
             SMHostViewController *vc = [[SMHostViewController alloc] init];
             [self setCenterViewController:vc];
         }
             break;
-        case SectionSettingsNotification: {
+        case SMSectionFunctionNotification: {
             cell.leftImgView.image = [UIImage imageNamed:@"section_notification_highlighted"];
             SMNotificationViewController *notiVc = [[SMNotificationViewController alloc] init];
             [self setCenterViewController:notiVc];
         }
             break;
-        case SectionSettingsAbout: {
+        case SMSectionFunctionSettings: {
+            cell.leftImgView.image = [UIImage imageNamed:@"section_notification_highlighted"];
+            SMSettingsViewController *setting = [[SMSettingsViewController alloc] init];
+            [self setCenterViewController:setting];
+        }
+            break;
+        case SMSectionFunctionAbout: {
             cell.leftImgView.image = [UIImage imageNamed:@"section_about_highlighted"];
             SMAboutViewController *aboutVc = [[SMAboutViewController alloc] init];
             [self setCenterViewController:aboutVc];
@@ -333,7 +327,9 @@
 - (void)setCenterViewController:(UIViewController *)vc {
     SMNavigationViewController *navigationController = [[SMNavigationViewController alloc] initWithRootViewController:vc];
     
-    [self.mm_drawerController setCenterViewController:navigationController withCloseAnimation:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mm_drawerController setCenterViewController:navigationController withCloseAnimation:YES completion:nil];
+    });
 }
 
 
