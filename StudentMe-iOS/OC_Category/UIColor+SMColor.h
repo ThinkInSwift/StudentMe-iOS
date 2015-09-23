@@ -14,5 +14,6 @@
 + (UIColor *)sm_blue;
 + (UIColor *)sm_blueLight;
 
++ (UIColor *)sm_defaultBlue;
 
 @end

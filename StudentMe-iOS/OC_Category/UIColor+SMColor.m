@@ -16,4 +16,8 @@
 + (UIColor *)sm_blueLight {
     return [UIColor colorWithRed:120.0/255.0 green:181.0/255.0 blue:209.0/255.0 alpha:1.0];
 }
+
++ (UIColor *)sm_defaultBlue {
+    return [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+}
 @end
