@@ -201,8 +201,11 @@
         [self.manager POST:[NSURL sm_messageNotifylistString] parameters:[self configureBaseParamsWithDict:[filter dict]] success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"start --- message list is %@", responseObject);
             NSLog(@"end --- message list");
+            [subscriber sendNext:responseObject];
+            [subscriber sendCompleted];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"messageList fail response is %@", error);
+            [subscriber sendError:error];
         }];
         
         return [RACDisposable disposableWithBlock:^{

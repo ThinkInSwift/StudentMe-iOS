@@ -60,7 +60,7 @@
     __weak typeof(self) weakSelf = self;
     SMNotificationFilter *filter = [[SMNotificationFilter alloc] initWithType:SMNotifyTypePost];
     [[[SMHttpDataManager sharedManager] messageListWithFilter:filter] subscribeNext:^(id x) {
-        weakSelf.dataSource = x;
+        weakSelf.dataSource = x[@"list"];
         [weakSelf.tableView reloadData];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
     } error:^(NSError *error) {
@@ -77,7 +77,7 @@
     SMNotificationFilter *filter = [[SMNotificationFilter alloc] initWithType:SMNotifyTypePost];
     [[[SMHttpDataManager sharedManager] messageListWithFilter:filter] subscribeNext:^(id x) {
         NSMutableArray *temp = [weakSelf.dataSource mutableCopy];
-        [temp addObjectsFromArray:x];
+        [temp addObjectsFromArray:x[@"list"]];
         weakSelf.dataSource = [temp copy];
         [weakSelf.tableView reloadData];
         [weakSelf performSelector:@selector(endRefresh) withObject:weakSelf afterDelay:0.0];
@@ -100,7 +100,11 @@
     return self.dataSource || self.dataSource.count != 0 ? self.dataSource.count : 10;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return [SMNotificationTableViewCell height];
+//}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [SMNotificationTableViewCell height];
 }
 
