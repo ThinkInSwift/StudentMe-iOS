@@ -10,6 +10,8 @@
 #import "SMNotificationTableViewCell.h"
 #import "SMHttpDataManager.h"
 #import "SMNotification.h"
+#import "SMPostTopicReplyListViewController.h"
+#import "SMTopic.h"
 
 #import "UIViewController+SCCategorys.h"
 
@@ -36,6 +38,7 @@
     for (NSString *identifier in @[@"SMNotificationTableViewCell"]) {
         [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:nil] forCellReuseIdentifier:identifier];
     }
+    self.title = @"提醒";
     
     __weak typeof(self) weakSelf = self;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
@@ -100,9 +103,6 @@
     return self.dataSource || self.dataSource.count != 0 ? self.dataSource.count : 10;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return [SMNotificationTableViewCell height];
-//}
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [SMNotificationTableViewCell height];
@@ -119,4 +119,12 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SMNotification *noti = [[SMNotification alloc] initWithDict:self.dataSource[indexPath.row]];
+    SMTopic *topic = [[SMTopic alloc] init];
+    topic.topicId = noti.topicId;
+    SMPostTopicReplyListViewController *vc = [[SMPostTopicReplyListViewController alloc] initWithTopic:topic];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end
