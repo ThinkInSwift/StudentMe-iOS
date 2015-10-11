@@ -750,6 +750,7 @@
 				TargetAttributes = {
 					141A5BC01B63187700A5F666 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = ZB89RB5DW9;
 					};
 					141A5BD91B63187700A5F666 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -1016,6 +1017,7 @@
 			baseConfigurationReference = 2BA567F2AE403AD275B3D2A5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StudentMe-iOS/App/StudentMe-Prefix.pch";
 				INFOPLIST_FILE = "StudentMe-iOS/Info.plist";
@@ -1031,6 +1033,7 @@
 			baseConfigurationReference = 43EA34263FE76C9E2A553A79 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StudentMe-iOS/App/StudentMe-Prefix.pch";
 				INFOPLIST_FILE = "StudentMe-iOS/Info.plist";
