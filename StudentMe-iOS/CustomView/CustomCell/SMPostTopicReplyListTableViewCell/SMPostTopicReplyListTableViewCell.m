@@ -27,7 +27,8 @@
 - (void)configureCellWithReply:(SMTopicReply *)reply {
     [self.iconImgView sd_setImageWithURL:reply.icon];
     self.userNameLabel.text = reply.replyName;
-    self.replyContentLabel.text = reply.replyContent;
+//    self.replyContentLabel.text = reply.replyContent;
+    self.replyContentLabel.attributedText = reply.replyContent;
     self.replyDateLabel.text    = [reply.postsDate timeAgo];
 }
 

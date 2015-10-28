@@ -51,8 +51,10 @@
 //    userTitle = "\U767d\U9ccd (Lv.9)";
 //}
 
-@implementation SMTopicReply
+#define REGEX_DETECT_GIF_LINK   @"/.*\\[mobcent_phiz=(.*)\\].*/"
+//@"/.*[mobcent_phiz=(.*)]" //see in http://bbs.uestc.edu.cn/forum.php?mod=viewthread&tid=1567147&page=1#pid27836679
 
+@implementation SMTopicReply
 - (instancetype)initWithTopic:(NSDictionary *)topicDict {
     self = [self init];
     if (self) {
@@ -78,7 +80,9 @@
         _quoteUserName  = [self quoteUserNameWithQuoteContent:dict[@"quote_content"]];
         _postsDate      = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"posts_date"] integerValue]/1000.0];
         if (_quoteUserName) {
-            _replyContent   = [_quoteUserName stringByAppendingString:_replyContent];
+            NSMutableAttributedString *temp = [[NSMutableAttributedString alloc] initWithString:_quoteUserName];
+            [temp appendAttributedString:_replyContent];
+            _replyContent = temp;
         }
         
     }
@@ -94,15 +98,44 @@
  *
  *  @return return value description
  */
-- (NSString *)replyContent:(NSArray *)array {
+- (NSAttributedString *)replyContent:(NSArray *)array {
+    NSMutableAttributedString *attributedContent;
     NSString *content = @"";
     for (NSDictionary *dict in array) {
         if ([dict[@"type"] isEqualToNumber:@1]) {
             break;
         }
         content = [content stringByAppendingString:dict[@"infor"]];
+        NSURL *url = nil;
+        NSUInteger stickerLocation;
+        content = [self p_handleStikerString:content stickerUrl:&url location:&stickerLocation];
+        attributedContent = [[NSMutableAttributedString alloc] initWithString:content];
+        
+        if (!url) {
+            return attributedContent;
+        }
+        
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        
+        dispatch_queue_t queue = dispatch_queue_create("io.seanchense.github", NULL);
+        dispatch_async(queue, ^{
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                textAttachment.image = image;
+            });
+        });
+        NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        if (stickerLocation == 0) {
+            [attributedContent replaceCharactersInRange:NSMakeRange(stickerLocation, 1) withAttributedString:attrStringWithImage];
+        } else {
+            if (attributedContent.length == stickerLocation) {
+                [attributedContent appendAttributedString:attrStringWithImage];
+            } else {
+                [attributedContent replaceCharactersInRange:NSMakeRange(stickerLocation + 1, 1) withAttributedString:attrStringWithImage];
+            }
+        }
     }
-    return content;
+    return attributedContent;
 }
 
                            
@@ -120,5 +153,46 @@
     
     userName = strs[0];
     return [[@"@" stringByAppendingString:userName] stringByAppendingString:@" "];
+}
+
+
+#pragma mark - private methods
+#warning 没有良好的实现
+- (NSString *)p_detectRegexStr:(NSString *)regexStr string:(NSString *)str stickerUrl:(NSURL **)url {
+    NSError *err = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexStr
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&err];
+    NSArray *array = [regex matchesInString:str options:0 range:NSMakeRange(0, str.length)];
+    
+    if (!array || array.count == 0  ) {
+        return str;
+    }
+    NSRange matchRange = [array[0] rangeAtIndex:0];
+    NSString *match = [str substringWithRange:matchRange];
+    NSString *urlStr = [match componentsSeparatedByString:@"="][1];
+    *url = [NSURL URLWithString:urlStr];
+    return str;
+    
+}
+
+- (NSString *)p_handleStikerString:(NSString *)str stickerUrl:(NSURL **)url location:(NSUInteger *)location{
+    NSLog(@"str is %@", str);
+    if (![str containsString:@"mobcent_phiz"]) {
+        return str;
+    }
+    
+    NSRange leftRange = [str rangeOfString:@"["];
+    *location = leftRange.location;
+    NSRange rightRange = [str rangeOfString:@"]"];
+    
+    NSRange replaceRange = NSMakeRange(leftRange.location, rightRange.location - leftRange.location + 1);
+    NSString *rawUrlStr = [str substringWithRange:replaceRange];
+    NSString *urlStr = [(NSString *)[rawUrlStr componentsSeparatedByString:@"="][1] componentsSeparatedByString:@"]"][0];
+    *url = [NSURL URLWithString:urlStr];
+    
+    NSMutableString *temp = [str mutableCopy];
+    [temp deleteCharactersInRange:replaceRange];
+    return [temp copy];
 }
 @end
