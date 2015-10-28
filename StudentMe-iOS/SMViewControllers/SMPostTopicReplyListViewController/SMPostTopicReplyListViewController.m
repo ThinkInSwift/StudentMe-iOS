@@ -77,10 +77,14 @@
         @strongify(self);
         [self.dataSource removeAllObjects];
         for (NSDictionary *dict in x[@"list"]) {
-            SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:dict];
+            SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:dict imageCallback:^{
+                [self.tableView reloadData];
+            }];
             [self.dataSource addObject:reply];
         }
-        SMTopicReply *reply = [[SMTopicReply alloc] initWithTopic:x[@"topic"]];
+        SMTopicReply *reply = [[SMTopicReply alloc] initWithTopic:x[@"topic"] imageCallback:^{
+            [self.tableView reloadData];
+        }];
         [self.dataSource insertObject:reply atIndex:0];
         
     } error:^(NSError *error) {
@@ -107,7 +111,9 @@
     [[[SMHttpDataManager sharedManager] forumPostlistWithTopicId:self.topic.topicId page:nextPage] subscribeNext:^(id x) {
         @strongify(self);
         for (NSDictionary *dict in x[@"list"]) {
-            SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:dict];
+            SMTopicReply *reply = [[SMTopicReply alloc] initWithDict:dict imageCallback:^{
+                [self.tableView reloadData];
+            }];
             [self.dataSource addObject:reply];
         }
         

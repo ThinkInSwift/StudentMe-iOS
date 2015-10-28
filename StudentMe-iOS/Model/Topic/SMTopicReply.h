@@ -62,7 +62,7 @@
  *
  *  @return 实体
  */
-- (instancetype)initWithTopic:(NSDictionary *)topicDict;
+- (instancetype)initWithTopic:(NSDictionary *)topicDict imageCallback:(void (^)(void))block;
 /**
  *  SMTopicReply 的 dict 封装实体
  *
@@ -70,6 +70,6 @@
  *
  *  @return 实体
  */
-- (instancetype)initWithDict:(NSDictionary *)dict;
+- (instancetype)initWithDict:(NSDictionary *)dict imageCallback:(void (^)(void))block;
 
 @end

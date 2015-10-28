@@ -55,28 +55,28 @@
 //@"/.*[mobcent_phiz=(.*)]" //see in http://bbs.uestc.edu.cn/forum.php?mod=viewthread&tid=1567147&page=1#pid27836679
 
 @implementation SMTopicReply
-- (instancetype)initWithTopic:(NSDictionary *)topicDict {
+- (instancetype)initWithTopic:(NSDictionary *)topicDict imageCallback:(void (^)(void))block {
     self = [self init];
     if (self) {
         _icon           = [NSURL URLWithString:topicDict[@"icon"]];
         _replyName      = topicDict[@"user_nick_name"];
         _replyId        = [NSString stringWithFormat:@"%@", topicDict[@"user_id"]];
         _replyPostId    = [NSString stringWithFormat:@"%@", topicDict[@"topic_id"]];
-        _replyContent   = [self replyContent:topicDict[@"content"]];
+        _replyContent   = [self replyContent:topicDict[@"content"] imageCallback:block];
         _postsDate      = [NSDate dateWithTimeIntervalSince1970:[(NSString *)topicDict[@"create_date"] integerValue]/1000.0];
         
     }
     return self;
 }
 
-- (instancetype)initWithDict:(NSDictionary *)dict {
+- (instancetype)initWithDict:(NSDictionary *)dict imageCallback:(void (^)(void))block {
     self = [self init];
     if (self) {
         _icon           = [NSURL URLWithString:dict[@"icon"]];
         _replyName      = dict[@"reply_name"];
         _replyId        = [NSString stringWithFormat:@"%@", dict[@"reply_id"]];
         _replyPostId    = [NSString stringWithFormat:@"%@", dict[@"reply_posts_id"]];
-        _replyContent   = [self replyContent:dict[@"reply_content"]];
+        _replyContent   = [self replyContent:dict[@"reply_content"] imageCallback:block];
         _quoteUserName  = [self quoteUserNameWithQuoteContent:dict[@"quote_content"]];
         _postsDate      = [NSDate dateWithTimeIntervalSince1970:[(NSString *)dict[@"posts_date"] integerValue]/1000.0];
         if (_quoteUserName) {
@@ -98,7 +98,7 @@
  *
  *  @return return value description
  */
-- (NSAttributedString *)replyContent:(NSArray *)array {
+- (NSAttributedString *)replyContent:(NSArray *)array imageCallback:(void (^)(void))block {
     NSMutableAttributedString *attributedContent;
     NSString *content = @"";
     for (NSDictionary *dict in array) {
@@ -115,25 +115,34 @@
             return attributedContent;
         }
         
-        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        if (!attributedContent) {
+            return nil;
+        }
         
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil];
+        textAttachment.bounds = CGRectMake(1, 0, 30, 30);
         dispatch_queue_t queue = dispatch_queue_create("io.seanchense.github", NULL);
         dispatch_async(queue, ^{
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 textAttachment.image = image;
+                block();
             });
         });
         NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
-        if (stickerLocation == 0) {
-            [attributedContent replaceCharactersInRange:NSMakeRange(stickerLocation, 1) withAttributedString:attrStringWithImage];
-        } else {
-            if (attributedContent.length == stickerLocation) {
-                [attributedContent appendAttributedString:attrStringWithImage];
-            } else {
-                [attributedContent replaceCharactersInRange:NSMakeRange(stickerLocation + 1, 1) withAttributedString:attrStringWithImage];
-            }
-        }
+//        if (stickerLocation == 0) {
+//            [attributedContent replaceCharactersInRange:NSMakeRange(stickerLocation, 1) withAttributedString:attrStringWithImage];
+//        } else {
+//            if (attributedContent.length == stickerLocation) {
+//                [attributedContent appendAttributedString:attrStringWithImage];
+//            } else {
+//                [attributedContent replaceCharactersInRange:NSMakeRange(stickerLocation + 1, 1) withAttributedString:attrStringWithImage];
+//            }
+//        }
+        NSMutableAttributedString *temp = [attrStringWithImage mutableCopy];
+        [temp appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        attrStringWithImage = [temp copy];
+        [attributedContent insertAttributedString:attrStringWithImage atIndex:stickerLocation];
     }
     return attributedContent;
 }
@@ -193,6 +202,9 @@
     
     NSMutableString *temp = [str mutableCopy];
     [temp deleteCharactersInRange:replaceRange];
+    if (temp.length == 0) {
+        [temp appendString:@" "];
+    }
     return [temp copy];
 }
 @end
