@@ -44,6 +44,14 @@
     }];
 }
 
+- (void)testJson {
+    NSString *path = @"SMCategories";
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:path ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+}
 
 - (void)testUrlTools {
     NSString *login = [NSURL sm_loginString];
@@ -67,26 +75,26 @@
     }];
 }
 
-//- (void)testForumlist {
-//    XCTestExpectation *expectation = [self expectationWithDescription:@"test testForumlist async handle"];
-//    [[[SMHttpDataManager sharedManager] forumlistWithFid:nil optionalType:nil] subscribeNext:^(id x) {
-//        NSLog(@"succ is %@", x);
-//    } error:^(NSError *error) {
-//        NSLog(@"err is %@", error);
-//    } completed:^{
-//        NSLog(@"completed");
-//    }];
-//    
-//    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
-//        if (error) {
-//            XCTFail(@"testForumlist fail err is %@", error);
-//        }
-//    }];
-//}
+- (void)testForumlist {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"test testForumlist async handle"];
+    [[[SMHttpDataManager sharedManager] forumlistWithFid:nil optionalType:nil] subscribeNext:^(id x) {
+        NSLog(@"succ is %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"err is %@", error);
+    } completed:^{
+        NSLog(@"completed");
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            XCTFail(@"testForumlist fail err is %@", error);
+        }
+    }];
+}
 
 - (void)testTopicList {
     XCTestExpectation *expectation = [self expectationWithDescription:@"test testTopicList async handle"];
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:@"25"];
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
         SMTopic *topic = [[SMTopic alloc] initWithDictionary:x[1]];
         NSLog(@"topicId is %@", topic.topicId);
@@ -113,7 +121,7 @@
 
 - (void)testTopicReply {
     XCTestExpectation *expectation = [self expectationWithDescription:@"test testTopicList async handle"];
-    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:@"25"];
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
         SMTopic *topic = [[SMTopic alloc] initWithDictionary:x[9]];
         NSLog(@"topicId is %@", topic.topicId);

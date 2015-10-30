@@ -18,18 +18,9 @@
 #import <UIBarButtonItem+BlocksKit.h>
 #import <UIControl+BlocksKit.h>
 
-typedef NS_ENUM(NSInteger, SMSegmentZone) {
-    SMSegmentZoneWater,
-    SMSegmentZoneEmotion,
-    SMSegmentZoneJob,
-    SMSegmentZoneDeals,
-    SMSegmentZonePartTimeJob,
-    SMSegmentZoneHighTechNews
-};
-
 @interface SMHostViewController () <SMCategorySelectDelegate>
 @property (nonatomic, strong, readwrite) NSMutableArray *dataSource;
-@property (nonatomic, assign, readwrite) SMSegmentZone segmentZone;
+@property (nonatomic, copy, readwrite) NSDictionary *category;
 @property (nonatomic, strong, readwrite) UIView *blurView;
 @end
 
@@ -39,7 +30,11 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
     self = [super init];
     if (self) {
         [self setRestorationIdentifier:@"SMHostViewController"];
-        _segmentZone = SMSegmentZoneWater;
+        _category = @{
+                      @"pid":@"25",
+                      @"name":@"水区",
+                      @"hasAdd":@"1"
+                      };
     }
     
     return self;
@@ -110,35 +105,12 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
         
     };
     
-    self.navigationItem.titleView = [[SCIndicatorTitleView alloc] initWithTitle:@[@"水区", @"情感", @"就业", @"二手", @"科技资讯"][_segmentZone]];
+    self.navigationItem.titleView = [[SCIndicatorTitleView alloc] initWithTitle:self.category[@"name"]];
 }
 
 - (void)initData {
     __weak typeof(self) weakSelf = self;
-    SMTopicListFilter *filter;
-    switch (self.segmentZone) {
-        case SMSegmentZoneWater:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
-            break;
-        case SMSegmentZoneEmotion:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterEmotion];
-            break;
-        case SMSegmentZoneDeals:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
-            break;
-        case SMSegmentZoneJob:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterJob];
-            break;
-        case SMSegmentZonePartTimeJob:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterPartTimeJob];
-            break;
-        case SMSegmentZoneHighTechNews:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterHighTechNews];
-            break;
-        default:
-            break;
-    }
-    
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:self.category[@"pid"]];
     [[[SMHttpDataManager sharedManager] forumTopiclistWithFilter:filter] subscribeNext:^(id x) {
         weakSelf.dataSource = [x mutableCopy];
         [weakSelf.tableView reloadData];
@@ -157,29 +129,7 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 
 - (void)loadMoreData {
     __weak typeof(self) weakSelf = self;
-    SMTopicListFilter *filter;
-    switch (self.segmentZone) {
-        case SMSegmentZoneWater:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterWater];
-            break;
-        case SMSegmentZoneEmotion:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterEmotion];
-            break;
-        case SMSegmentZoneDeals:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterDeals];
-            break;
-        case SMSegmentZoneJob:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterJob];
-            break;
-        case SMSegmentZonePartTimeJob:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterPartTimeJob];
-            break;
-        case SMSegmentZoneHighTechNews:
-            filter = [[SMTopicListFilter alloc] initFilterWithOption:SMTopicListFilterHighTechNews];
-            break;
-        default:
-            break;
-    }
+    SMTopicListFilter *filter = [[SMTopicListFilter alloc] initFilterWithOption:self.category[@"pid"]];
     
     filter.page = [NSString stringWithFormat:@"%lu", (unsigned long)self.dataSource.count / [filter.pageSize intValue] + 1];
     
@@ -270,10 +220,10 @@ typedef NS_ENUM(NSInteger, SMSegmentZone) {
 
 #pragma mark - CategoryControllerDelegate
 
-- (void)didSelectZone:(NSInteger)zone {
-    self.segmentZone = zone;
+- (void)didSelectZone:(NSDictionary *)category {
+    self.category = category;
     SCIndicatorTitleView *titleView = (SCIndicatorTitleView *)self.navigationItem.titleView;
-    [titleView setTitle:@[@"水区", @"情感", @"就业", @"二手", @"兼职", @"科技资讯"][zone]];
+    [titleView setTitle:category[@"name"]];
     [titleView startIndicator];
     [self initData];
 }

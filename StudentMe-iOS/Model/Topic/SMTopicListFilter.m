@@ -26,10 +26,10 @@
     return self;
 }
 
-- (SMTopicListFilter *)initFilterWithOption:(SMTopicListFilterFid)option {
+- (SMTopicListFilter *)initFilterWithOption:(NSString *)pid {
     self = [self init];
     if (self) {
-        _boardId      = option;
+        _boardId      = [pid integerValue];
         _page         = @"1";
         _pageSize     = @"40";
         _sortBy       = @"all";

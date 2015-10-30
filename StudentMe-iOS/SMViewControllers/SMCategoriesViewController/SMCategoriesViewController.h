@@ -9,7 +9,7 @@
 #import "SMBaseViewController.h"
 @protocol SMCategorySelectDelegate <NSObject>
 
-- (void)didSelectZone:(NSInteger)zone;
+- (void)didSelectZone:(NSDictionary *)category;
 - (void)didCancelSelectZone;
 
 @end

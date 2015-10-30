@@ -26,6 +26,7 @@
 		146A10621B80814700176D7A /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 146A10611B80814700176D7A /* CAAnimation+Blocks.m */; };
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
+		1483A2791BE3AD8D00B5C457 /* SMCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 1483A2781BE3AD8D00B5C457 /* SMCategories.json */; };
 		14874A621B8AC42700F0FF99 /* SMAutoSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */; };
 		14874A671B8B11B300F0FF99 /* SMWriteReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A651B8B11B300F0FF99 /* SMWriteReplyViewController.m */; };
 		14874A681B8B11B300F0FF99 /* SMWriteReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14874A661B8B11B300F0FF99 /* SMWriteReplyViewController.xib */; };
@@ -53,9 +54,9 @@
 		14D7D8391B949BBF00C92AB2 /* SMNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D8371B949BBF00C92AB2 /* SMNotificationTableViewCell.m */; };
 		14D7D83A1B949BBF00C92AB2 /* SMNotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D7D8381B949BBF00C92AB2 /* SMNotificationTableViewCell.xib */; };
 		14D7D83D1B949C4800C92AB2 /* SMNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7D83C1B949C4800C92AB2 /* SMNotification.m */; };
-		14D8A5A01BB1A5E500D40E2A /* NSDate+SMDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A59F1BB1A5E500D40E2A /* NSDate+SMDate.m */; settings = {ASSET_TAGS = (); }; };
-		14D8A5A51BB26DA900D40E2A /* SMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A5A31BB26DA900D40E2A /* SMSettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		14D8A5A61BB26DA900D40E2A /* SMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D8A5A41BB26DA900D40E2A /* SMSettingsViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		14D8A5A01BB1A5E500D40E2A /* NSDate+SMDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A59F1BB1A5E500D40E2A /* NSDate+SMDate.m */; };
+		14D8A5A51BB26DA900D40E2A /* SMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A5A31BB26DA900D40E2A /* SMSettingsViewController.m */; };
+		14D8A5A61BB26DA900D40E2A /* SMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D8A5A41BB26DA900D40E2A /* SMSettingsViewController.xib */; };
 		14D99EF71B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D99EF51B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.m */; };
 		14D99EF81B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D99EF61B89ACC100C0965D /* SMPostTopicReplyListTableViewCell.xib */; };
 		14D99EFD1B89AD3900C0965D /* SMPostTopicReplyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D99EFB1B89AD3900C0965D /* SMPostTopicReplyListViewController.m */; };
@@ -118,6 +119,7 @@
 		1474587C1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMLeftSideAvatarViewTableViewCell.h; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.h; sourceTree = "<group>"; };
 		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
+		1483A2781BE3AD8D00B5C457 /* SMCategories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SMCategories.json; sourceTree = "<group>"; };
 		14874A601B8AC42700F0FF99 /* SMAutoSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAutoSizeLabel.h; path = CustomView/SMAutoSizeLabel/SMAutoSizeLabel.h; sourceTree = "<group>"; };
 		14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAutoSizeLabel.m; path = CustomView/SMAutoSizeLabel/SMAutoSizeLabel.m; sourceTree = "<group>"; };
 		14874A641B8B11B300F0FF99 /* SMWriteReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWriteReplyViewController.h; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.h; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		141A5BC41B63187700A5F666 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1483A2781BE3AD8D00B5C457 /* SMCategories.json */,
 				141A5BC51B63187700A5F666 /* Info.plist */,
 				141A5BC61B63187700A5F666 /* main.m */,
 			);
@@ -788,6 +791,7 @@
 				14D8A5A61BB26DA900D40E2A /* SMSettingsViewController.xib in Resources */,
 				14AEBDCA1B7328F600C3C42E /* SMPostTopicListTableViewCell.xib in Resources */,
 				14BF0FBD1B80B8F300FAF970 /* SMLoginViewController.xib in Resources */,
+				1483A2791BE3AD8D00B5C457 /* SMCategories.json in Resources */,
 				14CE72E61B6B31B300D7F3B6 /* SMAboutViewController.xib in Resources */,
 				14874A681B8B11B300F0FF99 /* SMWriteReplyViewController.xib in Resources */,
 				141A5BD01B63187700A5F666 /* Main.storyboard in Resources */,
@@ -1021,10 +1025,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StudentMe-iOS/App/StudentMe-Prefix.pch";
 				INFOPLIST_FILE = "StudentMe-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1037,10 +1042,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StudentMe-iOS/App/StudentMe-Prefix.pch";
 				INFOPLIST_FILE = "StudentMe-iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

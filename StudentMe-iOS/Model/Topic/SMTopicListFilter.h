@@ -8,16 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, SMTopicListFilterFid) {
-    SMTopicListFilterWater      = 25,
-    SMTopicListFilterEmotion    = 45,
-    SMTopicListFilterDeals      = 61,
-    SMTopicListFilterJob        = 214,
-    SMTopicListFilterPartTimeJob = 183,
-    SMTopicListFilterHighTechNews = 211
-};
-
-
 @interface SMTopicListFilter : NSObject
 
 //boardId 相当于 fid。
@@ -30,7 +20,7 @@ typedef NS_ENUM(NSInteger, SMTopicListFilterFid) {
 //topOrder 0（不返回置顶帖，默认）, 1（返回本版置顶帖）, 2（返回分类置顶帖）, 3（返回全局置顶帖）。置顶帖包含在 topTopicList 字段中。
 @property (strong, nonatomic) NSString  *page, *pageSize, *sortBy, *filterType, *filterId, *isImageList, *topOrder;
 @property (assign, nonatomic) NSInteger boardId;
-- (SMTopicListFilter *)initFilterWithOption:(SMTopicListFilterFid)option;
+- (SMTopicListFilter *)initFilterWithOption:(NSString *)pid;
 
 - (NSDictionary *)convertObjectToDict;
 @end

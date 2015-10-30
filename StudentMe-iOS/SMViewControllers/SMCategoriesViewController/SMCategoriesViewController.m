@@ -11,19 +11,13 @@
 
 #import <Masonry/Masonry.h>
 
-typedef NS_ENUM(NSInteger, CellStyle) {
-    CellStyleWater,
-    CellStyleEmotion,
-    CellStyleJob,
-    CellStyleDeals,
-    CellStylePartTimeJob,
-    CellStyleHighTechNews
-};
-
 struct {
     unsigned int didSelectZone : 1;
     unsigned int didCancelSelectZone : 1;
 } _delegateFlags;
+@interface SMCategoriesViewController()
+@property (nonatomic, copy) NSArray<NSDictionary *>* categories;
+@end
 
 @implementation SMCategoriesViewController
 - (void)viewDidLoad {
@@ -41,6 +35,12 @@ struct {
     tableView.dataSource = self;
     tableView.delegate = self;
     
+    NSString *path = @"SMCategories";
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:path ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+    NSError *error = nil;
+    self.categories = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -48,7 +48,7 @@ struct {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return self.categories.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,35 +61,14 @@ struct {
     }];
     label.font = [UIFont systemFontOfSize:20];
     label.textColor = [UIColor whiteColor];
-    switch (indexPath.row) {
-        case CellStyleWater:
-            label.text = @"水区";
-            break;
-        case CellStyleEmotion:
-            label.text = @"情感";
-            break;
-        case CellStyleJob:
-            label.text = @"就业";
-            break;
-        case CellStyleDeals:
-            label.text = @"二手";
-            break;
-        case CellStylePartTimeJob:
-            label.text = @"兼职";
-            break;
-        case CellStyleHighTechNews:
-            label.text = @"科技资讯";
-            break;
-        default:
-            break;
-    }
+    label.text = self.categories[indexPath.row][@"name"];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_delegateFlags.didSelectZone) {
-        [_delegate didSelectZone:indexPath.row];
+        [_delegate didSelectZone:self.categories[indexPath.row]];
     }
     [self disappearCategory];
 }
