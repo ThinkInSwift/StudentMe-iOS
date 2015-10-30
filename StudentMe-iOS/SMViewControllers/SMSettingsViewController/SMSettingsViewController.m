@@ -7,6 +7,7 @@
 //
 
 #import "SMSettingsViewController.h"
+#import "SMAllCategoryViewController.h"
 
 #import "UIColor+SMColor.h"
 
@@ -65,7 +66,9 @@ const CGFloat elementRightPadding = 10.f;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"navi_menu"] style:UIBarButtonItemStylePlain handler:^(id sender) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+        [strongSelf.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+//            [strongSelf.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+        }];
     }];
 }
 
@@ -124,6 +127,18 @@ const CGFloat elementRightPadding = 10.f;
             break;
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case SMSettingCellCategoryJar: {
+            SMAllCategoryViewController *vc = [SMAllCategoryViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 

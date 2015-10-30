@@ -27,6 +27,7 @@
 		1474587F1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */; };
 		147458801B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */; };
 		1483A2791BE3AD8D00B5C457 /* SMCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 1483A2781BE3AD8D00B5C457 /* SMCategories.json */; };
+		1483A27C1BE3B4EF00B5C457 /* SMAllCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1483A27B1BE3B4EF00B5C457 /* SMAllCategoryViewController.m */; };
 		14874A621B8AC42700F0FF99 /* SMAutoSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */; };
 		14874A671B8B11B300F0FF99 /* SMWriteReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14874A651B8B11B300F0FF99 /* SMWriteReplyViewController.m */; };
 		14874A681B8B11B300F0FF99 /* SMWriteReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14874A661B8B11B300F0FF99 /* SMWriteReplyViewController.xib */; };
@@ -120,6 +121,8 @@
 		1474587D1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMLeftSideAvatarViewTableViewCell.m; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.m; sourceTree = "<group>"; };
 		1474587E1B66795800B282D6 /* SMLeftSideAvatarViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMLeftSideAvatarViewTableViewCell.xib; path = CustomView/CustomCell/SMLeftSideAvatarViewTableViewCell/SMLeftSideAvatarViewTableViewCell.xib; sourceTree = "<group>"; };
 		1483A2781BE3AD8D00B5C457 /* SMCategories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SMCategories.json; sourceTree = "<group>"; };
+		1483A27A1BE3B4EF00B5C457 /* SMAllCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAllCategoryViewController.h; path = SMViewControllers/SMSettingsViewController/SMAllCategoryViewController.h; sourceTree = "<group>"; };
+		1483A27B1BE3B4EF00B5C457 /* SMAllCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAllCategoryViewController.m; path = SMViewControllers/SMSettingsViewController/SMAllCategoryViewController.m; sourceTree = "<group>"; };
 		14874A601B8AC42700F0FF99 /* SMAutoSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMAutoSizeLabel.h; path = CustomView/SMAutoSizeLabel/SMAutoSizeLabel.h; sourceTree = "<group>"; };
 		14874A611B8AC42700F0FF99 /* SMAutoSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMAutoSizeLabel.m; path = CustomView/SMAutoSizeLabel/SMAutoSizeLabel.m; sourceTree = "<group>"; };
 		14874A641B8B11B300F0FF99 /* SMWriteReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMWriteReplyViewController.h; path = SMViewControllers/SMWriteReplyViewController/SMWriteReplyViewController.h; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				14D8A5A21BB26DA900D40E2A /* SMSettingsViewController.h */,
 				14D8A5A31BB26DA900D40E2A /* SMSettingsViewController.m */,
 				14D8A5A41BB26DA900D40E2A /* SMSettingsViewController.xib */,
+				1483A27A1BE3B4EF00B5C457 /* SMAllCategoryViewController.h */,
+				1483A27B1BE3B4EF00B5C457 /* SMAllCategoryViewController.m */,
 			);
 			name = SMSettingsViewController;
 			sourceTree = "<group>";
@@ -867,6 +872,7 @@
 				14BF0FBC1B80B8F300FAF970 /* SMLoginViewController.m in Sources */,
 				14E78F9C1B78E7C600523970 /* NSURL+SMURL.m in Sources */,
 				14AEBDC91B7328F600C3C42E /* SMPostTopicListTableViewCell.m in Sources */,
+				1483A27C1BE3B4EF00B5C457 /* SMAllCategoryViewController.m in Sources */,
 				146A105F1B80813D00176D7A /* SCPullRefreshViewController.m in Sources */,
 				14A119E81B7DBB5500319F45 /* SMTopicListFilter.m in Sources */,
 				14BF0FA91B8086FD00FAF970 /* ScrollViewFrameAccessor.m in Sources */,
