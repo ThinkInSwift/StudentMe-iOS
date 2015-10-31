@@ -19,7 +19,7 @@
 
 #import "UIColor+SMColor.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import <UIGestureRecognizer+RACSignalSupport.h>
+//#import <UIGestureRecognizer+RACSignalSupport.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SMSideDrawerViewController () <SMLoginDelegate>
